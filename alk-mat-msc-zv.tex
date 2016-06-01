@@ -1,0 +1,373 @@
+% SZTE Alkalmazott matematikus MSc záróvizsgatételek
+%
+% Készítették:	Judák Regina
+%				reginajudak@gmail.com
+%
+%				Majernyik Noel
+%				majnol@vipmail.hu
+%
+%				Mezőfi Dávid
+%				david.mezofi93@gmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% PREAMBULUM
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
+\documentclass[DIV=15,appendixprefix]{scrreprt}
+%
+% Színes hivatkozásokhoz kommenteld ki az alábbi sort!
+% Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
+\usepackage[unicode,pdfborder={0 0 0}]{hyperref}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Karakterkódolás és `babel` beállítása.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% A `defaults=hu-min` opció biztosítja, hogy a tizedesvessző tizedesvessző legyen.
+\def\magyarOptions{%
+	defaults=hu-min}
+\usepackage[magyar]{babel}
+%
+% A `description` környzetek "szépen" jelenjenek meg.
+\def\descriptionlabel#1{\hskip\labelsep\normalfont\sffamily\bfseries #1.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Tételszerű bekezdések.
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb}
+%
+% Tétel és társai: félkövér + dőlt
+\newtheorem{tetel}{tétel}
+\newtheorem{allit}[tetel]{állítás}
+\newtheorem{feladat}[tetel]{feladat}
+%
+% Definíció és társai: félkövér + álló
+\theoremstyle{definition}
+\newtheorem*{defin}{Definíció}
+%
+% Megjegyzés és társai: dőlt + álló
+\theoremstyle{remark}
+\newtheorem*{megj}{Megjegyzés}
+\newtheorem*{utmut}{Útmutatás}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Számozások
+%
+% A feladat környzet számozása 17-tel kezdődik.
+%\addtocounter{feladat}{16}
+%
+% Az egyenletek számozása szakaszokkal együtt történjen.
+%\numberwithin{equation}{section}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Szépen szedett algoritmusok.
+%
+\usepackage[ruled]{algorithm}
+\usepackage[noend]{algpseudocode}
+\algrenewcommand\algorithmicrequire{\textbf{Bemenet}:}
+\algrenewcommand\algorithmicensure{\textbf{Kimenet}:}
+%
+% Példa.
+%
+%\begin{algorithm}
+%	\caption{Cím}
+%	\begin{algorithmic}
+%		\Procedure{Kiír}{}
+%			\While{$\diamond$ utáni bináris szám nem 0}
+%				\State Kiírjuk a munkaszalag $\diamond$-ig lévő tartalmát, $a^{n}$-t.%
+%					\Comment{Folytatólagosan írunk.}
+%				\State Csökkentjük 1-gyel a $\diamond$ utáni bináris számot.%
+%					\Comment{Vonjunk ki belőle 1-et.}
+%			\EndWhile
+%		\EndProcedure
+%	\end{algorithmic}
+%\end{algorithm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Egyebek
+%
+% Grafikai csomagok betöltése.
+\usepackage{graphicx}
+%\usepackage{eso-pic}
+%
+% A képek elérési útvonalának megadása.
+%\graphicspath{{./figures/}}
+% Nyomdai minőségű táblázatok készítéséhez a `booktabs` csomag szükséges.
+%\usepackage{booktabs}
+%
+% "Dummy" szöveg: Lipsum dolor sit amet...
+\usepackage{lipsum}
+%
+% Szövegközi "ferdetört". Használat: `\sfrac{num}{den}`.
+%\usepackage{xfrac}
+%
+% Az `enumitem` csomag színes-szagos `enumerate` környezetet biztosít.
+\usepackage{enumitem}
+\setlist[description]{labelindent=\parindent}
+% Példa a használatra:
+%
+%\begin{enumerate}[label = (H-\arabic{*}), ref = H-\arabic{*}, leftmargin = *,%
+%		 labelindent = \parindent, mode = unboxed]
+%	\item
+%\end{enumerate}
+%
+% Az írógép típusú betűtípus legyen Inconsolata.
+% Másik hasznos a `courier`: ha dőlt, félkövér és egyebek is kellenek.
+%\usepackage{inconsolata}
+%
+% Többsoros kommentek `verbatim` környezettel.
+%\usepackage{verbatim}
+%
+% A következő csomag feltételezi, hogy van működő SAGE telepítve a SageTex csomaggal együtt.
+%\usepackage{sagetex}
+%
+% Kontinentális mondatközök.
+\frenchspacing
+%
+\renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Saját matematikai parancsok:
+\newcommand{\ball}{\mathbb{B}}
+\newcommand{\sphere}{\mathbb{S}}
+\newcommand{\mean}{\mathbb{E}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\sd}{\mathbb{D}}
+\newcommand{\BinomialD}{\mathcal{B}}
+\newcommand{\imag}{\mathfrak{i}}
+\newcommand{\SAGE}{\textsf{\textbf{SAGE}}{}}
+\newcommand{\ballin}{\interior\mathbb{B}}
+\renewcommand{\tan}{\mathop{\mathrm{tg}}}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\relint}{relint}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\supp}{supp}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Cím és társai
+%
+\titlehead{Szegedi Tudományegyetem\\%
+	Természettudományi és Informatikai Kar\\%
+	Bolyai Intézet}
+\subject{Alkalmazott matematikus MSc}
+\title{Záróvizsgatételek}
+\subtitle{Általános szakirány}
+\author{Judák Regina\\\texttt{reginajudak@gmail.com}%
+	\and%
+	Majernyik Noel\\\texttt{majnol@vipmail.hu}
+	\and%
+	Mezőfi Dávid\\\texttt{david.mezofi93@gmail.com}}
+\date{Utoljára módosítva: \today}
+%\publishers{asd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DOKUMENTUM
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+%
+% Cím
+\maketitle
+%
+% Licenc
+\minisec{Creative Commons licenc}
+\begin{center}
+	\includegraphics{by-nc-sa.eps}
+\end{center}
+Ez az alkotás a \emph{Creative Commons Nevezd meg! -- Ne add el! -- Így add tovább! 4.0 Nemzetközi
+licenc} alá tartozik. A licenc megtekintéséhez látogass el a
+\url{http://creativecommons.org/licenses/by-nc-sa/4.0/} oldalra.
+%
+% Tartalomjegyzék
+\tableofcontents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Mindkét szakirányon közös tételek
+%
+\chapter{Mindkét szakirányon közös tételek}
+%
+\section{Gráfelmélet: összefüggőség, színezések}
+%
+\section{Gráfelmélet: párosítások, síkgráfok}
+%
+\section{Gröbner-bázisok és alkalmazásaik}
+%
+\section{Matematikai titkosírások}
+%
+\section{Többváltozós és vektorértékű függvények}
+%
+\section{Fourier-sorok, ortogonális polinomok, sorfejtések}
+%
+\section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
+%
+\section{Többdimenziós normális eloszlású vektorok statisztikai analízise}
+%
+\section{Lineáris regresszió}
+%
+\section{Kontingenciatáblák elemzése}
+%
+\section{Diszkrét idejű Markov-láncok}
+%
+\section{Folytonos idejű Markov-láncok}
+%
+\section{Sztochasztikus folyamatok alapfogalmai}
+%
+\section{Optimalizálási eljárások}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Általános szakirány tételei
+%
+\chapter{Általános szakirány tételei}
+%
+\section{Mátrixok sajátértékeinek meghatározása}
+%
+\section{Mátrixok általánosított inverze}
+%
+\section{Periodikus függvények diszkrét négyzetes közelítése}
+%
+\section{A hullámegyenlet}
+%
+\section{A hővezetés egyenlete}
+%
+\section{A Laplace-egyenlet}
+%
+\section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
+%
+\section{Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről}
+%
+\section{A bonyolultságelmélet alapjai}
+%
+\section{Hibajelző és -javító kódolások}
+%
+\section{Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák}
+%
+\section{Differenciálformák, kinematikai sűrűség és mérték}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Függelék
+%
+\appendix
+%
+\chapter{Tudáselemek}
+%
+\begin{description}
+	\item[Gráfelmélet: összefüggőség, színezések] Fák összeszámlálása, gráfok magasabb fokú
+	összefüggősége, \textsc{Menger} tételei, élszínezések, Vizing-tétel, csúcsszínezések,
+	\textsc{Hajós} tétele, nagy derékbőségű, nagy kromatikus számú gráfok.
+%
+	\item[Gráfelmélet: párosítások, síkgráfok] Párosítási algoritmusok és gráfelméleti
+	következményeik, síkgráfok, Kuratowski-tétel, Wagner-tétel, gráfok metszési száma.
+%
+	\item[Gröbner-bázisok és alkalmazásaik] \textsc{Hilbert} bázistétele, Galois-kapcsolat,
+	radikálideálok, varietások, \emph{Hilbert Nullstellensatz}, redukciós eljárás, ideálok
+	Gröbner-bázisai, Buchberger-algoritmus, minimális és redukált Gröbner-bázisok, tartalmazási
+	probléma, algebrailag zárt test feletti egyenletrendszerek megoldhatósága, véges varietások
+	meghatározása, minimálpolinom-keresés, gráfszínezési probléma.
+%
+	\item[Matematikai titkosírások] Alapfogalmak és célok, nyilvános kulcsú titkosírás, RSA,
+	prímtesztek: Soloway\,--\,Strassen, Miller\,--\,Rabin, AKS; a diszkrét logaritmus és
+	alkalmazásai: Diffie\,--\,Hellman-kulcsváltás, Massey\,--\,Omura-rejtjelrendszer.
+%
+	\item[Többváltozós és vektorértékű függvények] Többszörös integrál, vonalintegrál, felületi
+	integrál, Green-tétel, Gauss-tétel, Stokes-tétel, az integrálszámítás fizikai és műszaki
+	alkalmazásai.
+%
+	\item[Fourier-sorok, ortogonális polinomok, sorfejtések] Trigonometrikus és ortogonális
+	polinomsorok konvergenciája, Fourier-transzformált, Laplace-transzformált.
+%
+	\item[Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek] Létezés,
+	egyértelműség, stabilitás, megmaradási törvények, egy- és többlépéses numerikus módszerek, a
+	CFL-feltétel.
+%
+	\item[Többdimenziós normális eloszlású vektorok statisztikai analízise] Wishart-eloszlás,
+	paraméterbecslés, hipotézisvizsgálat.
+%
+	\item[Lineáris regresszió] Véletlen változó lineáris közelítése véletlen változók lineáris
+	kombinációjával, a lineáris modell: legkisebb négyzetek módszere, varianciaanalízis.
+%
+	\item[Kontingenciatáblák elemzése] Korrespondenciaanalízis, információelméleti módszerek.
+%
+	\item[Diszkrét idejű Markov-láncok] Definíció, átmenetvalószínűség, példák diszkrét idejű
+	Markov-lán\-cok\-ra, a Markov-tulajdonság, a Chapman\,--\,Kolmogorov-egyenletek és az erős
+	Markov-tulajdonság, Markov-láncok állapotai és osztályai, a szolidaritási tétel, Markov-láncok
+	invariáns eloszlásai, a periodikus osztályok jellemzése, elérési idők, elnyelési valószínűségek,
+	a bolyongás egy és magasabb dimenzióban, \textsc{Pólya} tétele, a játékos csődje probléma.
+%
+	\item[Folytonos idejű Markov-láncok] Felújítási folyamatok, az elemi felújítási tétel és a
+	felújítási egyenlet, az infinitezimális generátor és Kolmogorov-egyenletei, folytonos idejű
+	Markov-láncok ekvivalens leírásai, állapotok, osztályok és invariáns eloszlás folytonos időben,
+	a Poisson-folyamat és tulajdonságai.
+%
+	\item[Sztochasztikus folyamatok alapfogalmai] Definíció, típusok, példák, véges dimenziós
+	eloszlások, a Kolmogorov-egzisztenciatétel, sztochasztikus folyamatok folytonossága és
+	modifikációi, Gauss-folyamatok, a Wiener-folyamat és a Brown-híd, a Wiener-folyamat
+	tulajdonságai: differenciálhatóság, kvadratikus variancia, iterált logaritmus tétel, tükrözési
+	elv; a részletösszeg folyamat és az empirikus folyamat eloszlásbeli konvergenciája.
+%
+	\item[Optimalizálási eljárások] Optimalizálás alapfeladata és speciális esetei,
+	Lagrange-módszer, Karush\,--\,Kuhn\,--\,Tucker-tétel, szimplex módszer, belsőpontos algoritmusok
+	az LP feladat és SDP feladat problémákra, súlyozott párosítási probléma, az LP feladat és SDP
+	feladat kombinatorikai alkalmazásai, egészértékű programozás, dinamikus programozás, korlátozás
+	és szétválasztás módszerek alkalmazásai, gyakorlati problémák.
+%
+	\item[Mátrixok sajátértékeinek meghatározása] Mátrixok trianguláris felbontása, ortogonális
+	triangularizáció, az LR-, QR- és RHR algoritmus.
+%
+	\item[Mátrixok általánosított inverze] Kiszámítás rangfaktorizációval, ortogonális
+	triangularizációval és particionálással, lineáris egyenletrendszerek vizsgálata.
+%
+	\item[Periodikus függvények diszkrét négyzetes közelítése] DFT, IDFT, FFT, számsorozatok
+	konvolúciója.
+%
+	\item[A hullámegyenlet] Húr és membránok rezgései, D'Alambert-formula, hullámterjedés páros és
+	páratlan dimenzióban, a leereszkedés módszere, Duhamel-elv, Fourier-módszer, a megoldások
+	simasága, numerikus módszerek.
+%
+	\item[A hővezetés egyenlete] Maximum-minimum-elv, Cauchy-probléma megoldása, Poisson-integrál,
+	a megoldások simasága, numerikus módszerek.
+%
+	\item[A Laplace-egyenlet] Harmonikus függvények, Green-függvények, Dirichlet-probléma gömbben,
+	Poisson-formula, Dirichlet- és Neumann-problémák, Fourier-módszer, numerikus módszerek.
+%
+	\item[Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása] Lokális
+	invariáns sokaságok egyensúlyi helyzet környezetében, nyeregpont-tulajdonság,
+	Grobman\,--\,Hartman-tétel, stabilitási eredmények, orbitális stabilitás, Poincaré-leképezések.
+%
+	\item[Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről]
+	Limeszhalmazok, a Poincaré\,--\,Bendixson-tétel, attraktorok, strukturális stabilitás, generikus
+	tulajdonságok, Hamilton-egyenletek, kaotikus dinamika.
+%
+	\item[A bonyolultságelmélet alapjai] Kiszámíthatóság, Turing-gépek, példák nem kiszámítható
+	problémákra, nemdeterminisztikus, véletlen Turing-gépek, bonyolultsági osztályok és viszonyaik,
+	Cook\,--\,Levin-tétel, NP-teljes problémák, nevezetes megoldatlan kérdések.
+%
+	\item[Hibajelző és -javító kódolások] Alapfogalmak és célok, véges testek és BCH-kódolás,
+	paritásellenőrző mátrix, ciklikus kód, néhány konkrét kód: Hamming, Reed\,--\,Muller,
+	Reed\,--\,Solomon.
+%
+	\item[Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák] Sűrűség
+	és mérték pont- és egyeneshalmazokon, pontpárok és egyenespárok halmazain, elemi
+	integrálformulák hosszra, területre, szögekre (\textsc{Crofton}, stb.), Buffon-féle tűprobléma,
+	konvex halmazok radiális és támaszfüggvényének integráljai, Sylvester-probléma véletlen
+	pontnégyesek konvex burkáról.
+%
+	\item[Differenciálformák, kinematikai sűrűség és mérték] Differenciálformák euklidészi tereken,
+	kinematikus mérték, mérték szakaszok és háromszögek halmazain, Poincaré-formula,
+	\textsc{Blaschke} alapformulája, konvex alakzatot metsző konvex alakzatok halmazainak mértéke.
+\end{description}
+%
+\end{document}
