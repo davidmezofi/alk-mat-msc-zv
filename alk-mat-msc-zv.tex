@@ -49,9 +49,9 @@
 \usepackage{amsmath, amssymb}
 %
 % Tétel és társai: félkövér + dőlt
-\newtheorem{tetel}{tétel}
-\newtheorem{allit}[tetel]{állítás}
-\newtheorem{feladat}[tetel]{feladat}
+\newtheorem*{tetel}{Tétel}
+\newtheorem*{allit}{állítás}
+\newtheorem{feladat}{feladat}
 %
 % Definíció és társai: félkövér + álló
 \theoremstyle{definition}
@@ -254,8 +254,8 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 Legyen $ \Omega \subset \mathbb{ R }^{ d } $ nyílt, $ u \colon \overline{ \Omega } \times
 \left.\left[ 0,{} \infty \right)\right.\rightarrow \mathbb{ R } $,
 \begin{align}
-	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u;\tag{\textsc{homogén}}\\
-	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u + f,\tag{\textsc{inhomogén}}
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u;\tag{homogén}\\
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u + f,\tag{inhomogén}
 \end{align}
 ahol $ f = f \left( \mathbf{ x },{} t \right) $ adott. Az $ u \left( \mathbf{ x },{} t \right) $
 függvény az $ u \equiv 0 $ egyensúlyi helyzettől való eltérést méri az $ \mathbf{ x } $ helyen a
@@ -385,6 +385,168 @@ megoldása az eredeti inhomogén problémának. Ehhez elég, hogy $ f \in C^{ \l
 %
 \section{A hővezetés egyenlete}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
+%
+Legyen $ \Omega \subset \mathbb{ R }^{ d } $ nyílt, $ 0 < T \le \infty $, és legyen
+\begin{align*}
+	\Omega_{ T } 				&= \Omega \times \left( 0,{} T \right);\\
+	\partial^{ * }\Omega_{ T } 	&= \left( \overline{ \Omega } \times \left\{ 0 \right\} \right) \cup
+		\left( \partial \Omega \times \left[ 0,{} T \right] \right)
+\end{align*}
+ahol $ \partial^{ * }\Omega_{ T } $-t nevezzük $ \Omega_{ T } $ \emph{parabolikus határának}. Adott
+$ f \in C^{ 0 } \left( \partial^{ * } \Omega_{ T } \right) $. Az
+\begin{align*}
+	u_{ t } \left( \mathbf{ x },{} t \right) 	&= \Delta_{ \mathbf{ x } } u \left( \mathbf{ x },{}
+	t \right) 	& \left( \left( \mathbf{ x },{} t \right) \in \Omega_{ T } \right);\\
+	u \left( \mathbf{ x },{} t \right) 			&= f \left( \mathbf{ x },{} t \right)
+					 & \left( \left( 		\mathbf{ x },{} t \right) \in \partial^{ * }
+					 \Omega_{ T } \right)
+\end{align*}
+peremérték-probléma megoldása olyan $ u \colon \overline{ \Omega_{ T } } \rightarrow \mathbb{ R } $
+függvény, amelyre $ u \in C^{ 0 } \left( \overline{ \Omega_{ T } } \right) $,
+\begin{align*}
+	u \left( \cdot,{} t \right) & \in C^{ 2 } \left( \Omega \right) & \left( \forall \, t \in \left(
+		0,{} T \right) \right);\\
+	u \left( \mathbf{ x },{} \cdot \right) & \in C^{ 1 } \left( 0,{} T \right) & \left( \forall \,
+		\mathbf{ x } \in \Omega \right),
+\end{align*}
+és teljesülnek $u$-ra a fenti egyenletek.
+\minisec{Cauchy-probléma megoldása}
+Legyen $ g \colon \mathbb{ R }^{ d } \rightarrow \mathbb{ R } $ adott. Olyan $ u \colon
+\mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. \rightarrow \mathbb{ R } $
+függvényt keresünk, amelyre
+\begin{align*}
+	u_{ t } - \Delta u &= 0 & \left( \forall \, \left( \mathbf{ x },{} t \right) \in
+		\mathbb{ R }^{ d } \times \left( 0,{} \infty \right) \right);\\
+	u \left( \mathbf{ x },{} 0 \right) &= g \left( \mathbf{ x } \right) & \left( \forall \,
+		\mathbf{ x } \in \mathbb{ R }^{ d } \right).
+\end{align*}
+Legyen
+\begin{equation}\tag{fundamentális megoldás}
+	\Phi \left( \mathbf{ x },{} t \right) = \frac{ 1 }{ \left( 4 \pi t \right)^{ \frac{ d }{ 2 } } }
+	\mathrm{ e }^{ - \frac{ \left| \mathbf{ x } \right|^{ 2 } }{ 4 t } }.
+\end{equation}
+Ekkor $ \Phi_{ t } - \Delta_{ \mathbf{ x } } \Phi = 0 $ egész $ \mathbb{ R }^{ d } \times \left(
+0,{} \infty \right) $-en. Legyen $ \mathbf{ x } \in \mathbb{ R }^{ d } $ és $ t > 0 $ esetén
+\begin{equation}\tag{\textsc{Poisson}-integrál}
+	u \left( \mathbf{ x },{} t \right) = \int_{ \mathbb{ R }^{ d } } \Phi \left( \mathbf{ x } -
+	\mathbf{ y },{} t \right) g \left( \mathbf{ y } \right) \, \mathrm{ d } \mathbf{ y }.
+\end{equation}
+\begin{tetel}
+	Legyen $ g \in C^{ 0 } \left( \mathbb{ R }^{ d } \right) $ korlátos, és definiáljuk az $ u
+	\colon \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. \rightarrow
+	\mathbb{ R } $ függvényt a fenti módon. Ekkor
+	\begin{enumerate}
+		\item $ u \in C^{ \infty } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty
+		\right)\right. \right)$;
+		\item $ u_{ t } \left( \mathbf{ x },{} t \right) - \Delta u \left( \mathbf{ x },{} t \right)
+		= 0 $ $ \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} t > 0 \right) $;
+		\item bármely $ \mathbf{ x }_{ 0 } \in \mathbb{ R }^{ d } $-re
+		\begin{equation*}
+			\lim_{ \substack{ \left( \mathbf{ x },{} t \right) \rightarrow \left(
+			\mathbf{ x }_{ 0 },{} 0 \right)\\\mathbf{ x } \in \mathbb{ R }^{ d },{} t > 0 } } u
+			\left( \mathbf{ x },{} t \right) = g \left( \mathbf{ x }_{ 0 } \right).
+		\end{equation*}
+	\end{enumerate}
+\end{tetel}
+\begin{megj}\leavevmode
+	\begin{itemize}
+		\item Ha $ g = \delta \left( 0 \right) $ (amit nem enged meg az előző tétel, hiszen $ \delta
+			\left( 0 \right) $ nem folytonos, korlátos), akkor
+			\begin{align*}
+				\Phi_{ t } - \Delta \Phi &= 0 & \left( \forall \, \left( \mathbf{ x },{} t \right)
+					\in \mathbb{ R }^{ d } \times \left( 0,{} \infty \right) \right);\\
+				\Phi \left( \mathbf{ x },{} 0 \right) &= \delta \left( 0 \right) & \left( \forall \,
+					\mathbf{ x } \in \mathbb{ R }^{ d } \right).
+			\end{align*}
+		\item Ha $ g \ge 0 $ és $ g \not \equiv 0 $, akkor bármely $ \mathbf{ x } \in
+			\mathbb{ R }^{ d } $ és bármely $ t > 0 $ esetén a kezdeti $ g $ hatása $ \infty $
+			sebességgel terjed.
+	\end{itemize}
+\end{megj}
+%
+\minisec{Maximumelvek}
+\begin{tetel}[erős maximumelv]
+	Tegyük fel, hogy $ u \in C^{ 2,{} 1 } \left( \Omega_{ T } \right) \cap C^{ 0 } \left(
+	\overline{ \Omega_{ T } } \right) $ és $ u_{ t } = \Delta u $ $ \Omega_{ T } $-n. Ekkor
+		\begin{enumerate}
+		\item
+			\begin{equation*}
+				\max_{ \overline{ \Omega_{ T } } } u = \max_{ \partial^{ * } \Omega_{ T } } u;
+			\end{equation*}
+		\item ha $ \Omega $ összefüggő és létezik $ \left( \mathbf{ x }_{ 0 },{} t_{ 0 } \right) \in
+			\Omega_{ T } $ úgy, hogy $ u \left(\mathbf{ x }_{ 0 },{} t_{ 0 } \right) =
+			\max_{ \overline{ \Omega_{ T } } } u $ akkor $ u $ állandó
+			$ \overline{ \Omega_{ t_{ 0 } } } $-on.
+		\end{enumerate}
+\end{tetel}
+\begin{megj}\leavevmode
+	\begin{itemize}
+		\item Csak $ \overline{ \Omega_{ t_{ 0 } } } $-on állítjuk, hogy $ u $ állandó, mivel $ t > t_{ 0 } $-ra nem feltétlenül igaz.
+		\item Ha $ u $ megoldása az
+			\begin{align*}
+				u_{ t } &= \Delta u & \Omega_{ T } \text{-n};\\
+				u &= 0 & \partial \Omega \times \left[ 0,{} T \right] \text{-n};\\
+				u &= g& \Omega \times \left\{ 0 \right\} \text{-n}
+			\end{align*}
+		problémának, továbbá $ g\left( \mathbf{ x } \right) \ge 0 $ $ \Omega $-n és $ g \not \equiv 0 $, akkor $ u \left( \mathbf{ x },{} t \right) > 0 $ $ \Omega_{ T } $-n.
+	\end{itemize}
+\end{megj}
+\begin{tetel}[egyértelműség]
+	Tegyük fel, hogy $ g \in C^{ 0 } \left( \partial^{ * } \Omega_{ T } \right) $, $ f \in C^{ 0 }
+	\left( \Omega_{ T } \right) $. Ekkor az
+	\begin{align*}
+		u_{ t } - \Delta u &= f & \Omega_{ T } \text{-n};\\
+		u &= g & \partial^{ * } \Omega_{ T } \text{-n}
+	\end{align*}
+	problémának legfeljebb egy $ u \in C^{ 2,{} 1 } \left( \Omega_{ T } \right) \cap C^{ 0 } \left(
+	\overline{ \Omega_{ T } } \right) $ megoldása van.
+\end{tetel}
+\begin{tetel}[maximumelv $ \mathbb{ R }^{ d } $-ben]
+	Tegyük fel, hogy $ u \in C^{ 2,{} 1 } \left( \mathbb{ R }^{ d } \times \left.\left( 0,{} T \right]\right. \right) \cap C^{ 0 } \left( \mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right) $ az
+	\begin{align*}
+		u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+		u &= g & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+	\end{align*}
+	probléma megoldása, továbbá
+	\begin{equation*}
+		u \left( \mathbf{ x },{} t \right) \le A \mathrm{ e }^{ a \left| \mathbf{ x }
+		\right|^{ 2 } } \quad \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} 0 \le t \le T \right)
+	\end{equation*}
+	valamely $ A,{} a > 0 $ esetén. Ekkor
+	\begin{equation*}
+		\sup_{ \mathbb{ R }^{ d } \times \left[ 0,{} T \right] } u = \sup_{ \mathbb{ R }^{ d } } g.
+	\end{equation*}
+\end{tetel}
+\begin{tetel}[egyértelműség $\mathbb{R}^{d}$-ben]
+Legyen $ T > 0$, $ g \in C^{ 0 } \left( \mathbb{ R }^{ d } \right) $, $ f \in C^{ 0 } \left(
+\mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right) $. Ekkor legfeljebb egy olyan $ u \in
+C^{ 2,{} 1 } \left( \mathbb{ R }^{ d } \times \left( 0,{} T \right) \right) \cap C^{ 0 } \left(
+\mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right)$ megoldása van az
+\begin{align*}
+	u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+	u &= g & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+\end{align*}
+problémának, amelyre teljesül
+\begin{equation*}
+	\left| u \left( \mathbf{ x },{} t \right) \right| \le A \mathrm{ e }^{ a \left| \mathbf{ x } \right|^{ 2 } } \quad \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} 0 \le t \le T \right)
+\end{equation*}
+valamely $ A,{} a > 0 $ állandókkal.
+\end{tetel}
+\begin{megj}
+	Az
+	\begin{align*}
+		u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+		u &= 0 & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+	\end{align*}
+	problémának az $ u \equiv 0 $ megoldás mellett lehet olyan megoldása, amelyre nem teljesül a fenti korlát.
+\end{megj}
+Az
+\begin{align*}
+	u_{ t } &= \Delta u;\\
+	u \left( \mathbf{ x },{} 0 \right) &= f \left( \mathbf{ x } \right)
+\end{align*}
+problémának általában nincs visszafelé (azaz $ t < 0 $-ra) megoldása. De ha van, akkor az
+egyértelmű.
 %
 \section{A Laplace-egyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
