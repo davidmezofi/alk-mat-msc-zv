@@ -587,6 +587,56 @@ $ \Omega $-n.
 	harmonikus $ \mathbb{ R }^{ d } \setminus \left\{ \mathbf{ y } \right\} $-on.
 \end{megj}
 %
+\minisec{Green-függvény}
+\begin{defin}[Green-függvény]
+	A $ G \left( \mathbf{ x },{} \mathbf{ y } \right) $ függvény $ \left( \mathbf{ x },{}
+	\mathbf{ y } \in \Omega,{} \mathbf{ x } \neq \mathbf{ y } \right) $ \emph{Green-függvény}, ha
+	\begin{enumerate}
+		\item $ G \left( \mathbf{ x },{} \mathbf{ y } \right) = 0 $ bármely $ \mathbf{ x } \in
+			\partial \Omega $-ra;
+		\item $ \mathbf{ x } \mapsto G \left( \mathbf{ x },{} \mathbf{ y } \right) - \Gamma \left(
+			\mathbf{ x },{} \mathbf{ y } \right) $ harmonikus $\Omega$-n.
+	\end{enumerate}
+\end{defin}
+\begin{megj}
+	Ha $ u $ harmonikus $\Omega$-n, akkor
+	\begin{equation*}
+		u \left( \mathbf{ y } \right) = \int_{ \partial \Omega } u \left( \mathbf{ x } \right) \frac{ \partial G }{ \partial \nu_{ \mathbf{ x } } } \left( \mathbf{ x },{} \mathbf{ y } \right) \, \mathrm{ d }\sigma,
+	\end{equation*}
+	azaz $ u $-t meghatározza $ \left. u \right|_{ \partial \Omega } $ (a Green-féle reprezentációs
+	formulából következik).
+\end{megj}
+Green-függvény konstrukciója gyakran \textqq{tükrözéssel} $ \partial \Omega $-ra, $ G \left(
+\mathbf{ x },{} \mathbf{ y } \right) = \Gamma \left( \mathbf{ x },{} \mathbf{ y } \right) - \Gamma
+\left( \mathbf{ x },{} \tilde{ \mathbf{ y } } \right) $.
+\begin{pelda}
+	Legyen
+	\begin{equation*}
+		\tilde{ \mathbf{ y } } = \begin{cases}
+			\frac{ R^{ 2 } }{ \left| \mathbf{ y } \right|^{ 2 } } \mathbf{ y }, & \text{ha }
+				\mathbf{ y } \neq \mathbf{ 0 };\\
+			\infty, & \text{ha } \mathbf{ y } = \mathbf{ 0 },
+		\end{cases}
+	\end{equation*}
+	valamint legyen
+	\begin{equation*}
+		G \left( \mathbf{ x },{} \mathbf{ y } \right) = \begin{cases}
+			\Gamma \left( \left| \mathbf{ x } - \mathbf{ y } \right| \right) - \Gamma \left( \frac{
+				\left| \mathbf{ y } \right| }{ R } \left| \mathbf{ x } - \tilde{ \mathbf{ y } }
+				\right| \right), & \text{ha } \mathbf{ y } \neq \mathbf{ 0 };\\
+			\Gamma \left( \left| \mathbf{ x } \right| \right) - \Gamma \left( R \right), &
+				\text{ha } \mathbf{ y } = \mathbf{ 0 }.
+		\end{cases}
+	\end{equation*}
+	Ekkor $ G $ Green-függvénye $ \ball \left( \mathbf{ 0 },{} R \right) $-nek, és
+	\begin{equation*}
+		u \left( \mathbf{ y } \right) = \frac{ R^{ 2 } - \left| \mathbf{ y } \right|^{ 2 } }{ d
+		\omega_{ d } R } \int_{ \partial \ball \left( \mathbf{ 0 },{} R \right) } \frac{ u \left(
+		\mathbf{ x } \right)}{ \left| \mathbf{ x } - \mathbf{ y } \right|^{ d } } \,
+		\mathrm{ d }\sigma.
+	\end{equation*}
+\end{pelda}
+%
 \section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
 %
 \section{Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről}
