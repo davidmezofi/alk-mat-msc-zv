@@ -52,6 +52,7 @@
 \newtheorem*{tetel}{Tétel}
 \newtheorem*{allit}{állítás}
 \newtheorem{feladat}{feladat}
+\newtheorem*{kovet}{Következmény}
 %
 % Definíció és társai: félkövér + álló
 \theoremstyle{definition}
@@ -656,6 +657,31 @@ Green-függvény konstrukciója gyakran \textqq{tükrözéssel} $ \partial \Omeg
 	függvény harmonikus $ \ballin \left( \mathbf{ 0 },{} R \right) $-en és folytonos $ \ball \left(
 	\mathbf{ 0 },{} R \right) $-en.
 \end{tetel}
+%
+\minisec{Dirichlet-probléma gömbben}
+\begin{kovet}
+Bármely $ \phi \in C^{ 0 } \left( \partial \ball \left( \mathbf{ 0 },{} R \right) \right) $ esetén
+a
+\begin{align*}
+	\Delta u \left( \mathbf{ x } \right) &= 0 & \left( \forall \, \mathbf{ x } \in \ballin \left(
+		\mathbf{ 0 },{} R \right) \right);\\
+	u \left( \mathbf{ x } \right) &= \phi \left( \mathbf{ x } \right) & \left( \forall \,
+		\mathbf{ x } \in \partial \ball \left( \mathbf{ 0 },{} R \right) \right)
+\end{align*}
+Dirichlet-próblémának egyetlen $ u \in C^{ 2 } \left( \ballin \left( \mathbf{ 0 },{} R \right)
+\right) \cap C^{ 0 } \left( \ball \left( \mathbf{ 0 },{} R \right) \right) $ megoldása van.
+\end{kovet}
+%
+\minisec{Fourier módszer $\mathbb{R}^{2}$-ben}
+Polárkoordinátákkal
+\begin{equation*}
+	\Delta u = \frac{ \partial^{ 2 } u }{ \partial r^{ 2 } } + \frac{ 1 }{ r } \cdot \frac{ \partial
+	u }{ \partial r } + \frac{ 1 }{ r^{ 2 } } \cdot \frac{ \partial^{ 2 } u }{ \partial \phi^{ 2 }
+	}.
+\end{equation*}
+Keressük az $ u_{ n } \left( r,{} \phi \right) = R_{ n } \left( r \right) \Phi_{ n } \left( \phi
+\right) $ alakú megoldásokat.
+% Minden más a Móni-féle diákban van benne.
 %
 \section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
 %
