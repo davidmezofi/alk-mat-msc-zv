@@ -139,6 +139,7 @@
 % Kontinentális mondatközök.
 \frenchspacing
 %
+% Fejezetcímek magyar formátumnak megfelelően.
 \renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -249,6 +250,139 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{A hullámegyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
 %
+\minisec{Húr és membránok rezgései}
+Legyen $ \Omega \subset \mathbb{ R }^{ d } $ nyílt, $ u \colon \overline{ \Omega } \times
+\left.\left[ 0,{} \infty \right)\right.\rightarrow \mathbb{ R } $,
+\begin{align}
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u;\tag{\textsc{homogén}}\\
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u + f,\tag{\textsc{inhomogén}}
+\end{align}
+ahol $ f = f \left( \mathbf{ x },{} t \right) $ adott. Az $ u \left( \mathbf{ x },{} t \right) $
+függvény az $ u \equiv 0 $ egyensúlyi helyzettől való eltérést méri az $ \mathbf{ x } $ helyen a
+$ t $ időben. Egydimenzióban $ \left( d = 1 \right) $ \emph{rezgő húr}, kétdimenzióban
+$ \left( d = 2 \right) $ \emph{membrán}, háromdimenzióban $ \left( d = 3 \right) $ \emph{rugalmas
+test}.
+\begin{megj}
+	A továbbiakban $ \Delta_{ \mathbf{ x } } $ helyett egyszerűen csak $ \Delta $-t írunk.
+\end{megj}
+%
+\minisec{D'Alambert-formula}
+Legyen $ u \colon \mathbb{ R } \times \left.\left[ 0,{} \infty \right)\right.\rightarrow
+\mathbb{ R } $,
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } \left(x,{} t \right) 	&= u_{ xx } \left( x,{} t \right) 	&
+			\left( x \in \mathbb{ R },{} t > 0 \right);\\
+		u \left( x,{} 0 \right) 		&= g \left( x \right) 				& \left( x \in
+			\mathbb{ R } \right);\\
+		u_{ t } \left( x,{} 0 \right) 	&= h \left( x \right) 				& \left( x \in
+			\mathbb{ R } \right),\\
+	\end{aligned}
+\end{equation*}
+ahol $ g,{} h \colon \mathbb{ R } \rightarrow \mathbb{ R } $ adott függvények $ \left( g\in C^{ 2 }
+\left( \mathbb{ R } \right),{} h \in C^{ 1 } \left( \mathbb{ R } \right) \right) $. Megoldás:
+\begin{equation}\tag{\textsc{d'Alambert}}\label{eq:pde-hullam-dalamb}
+	u \left( x,{} t \right) = \frac{ 1 }{ 2 } \left( g \left( x + t \right) + g \left( x - t \right)
+	\right) + \frac{ 1 }{ 2 } \int_{ x - t }^{ x + t } h \left( y \right) \, \mathrm{ d } y,
+\end{equation}
+ahol $ u \in C^{ 2 } \left( \mathbb{ R } \times \left.\left[ 0,{} \infty \right)\right.\right) $, és
+minden $ x_{ 0 } \in \mathbb{ R } $ esetén
+\begin{equation*}
+	\begin{aligned}
+		\lim_{ \substack{ \left( x,{} t \right) \rightarrow \left( x_{ 0 },{} 0 \right)\\t > 0 } }
+		u \left( x,{} t \right) 		&= g \left( x_{ 0 } \right);\\
+		\lim_{ \substack{ \left( x,{} t \right) \rightarrow \left( x_{ 0 },{} 0 \right)\\t > 0 } }
+		u_{ t } \left( x,{} t \right) 	&= h \left( x_{ 0 } \right).
+	\end{aligned}
+\end{equation*}
+\begin{megj}
+	A megoldás alakja: $ u \left( x,{} t \right) = F\left( x + t \right) + G \left( x - t \right) $.
+\end{megj}
+%
+\minisec{Hullámterjedés páros és páratlan dimenzióban}
+Tekintsük a következőt:
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } - \Delta u 						&= 0 								&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d },{} t > 0 \right);\\
+		u \left( \mathbf{ x },{} 0 \right) 			&= g \left( \mathbf{ x } \right) 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right);\\
+		u_{ t } \left( \mathbf{ x },{} 0 \right) 	&= h \left( \mathbf{ x } \right) 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right).
+	\end{aligned}
+\end{equation*}
+\begin{description}
+	\item[Páratlan dimenzió] Legyen $ d = 2 k + 1 $, $ k \in \mathbb{ N }^{ +} $, tegyük fel, hogy
+		$ g \in C^{ k + 2 } \left( \mathbb{ R }^{ d } \right) $, $ h \in C^{ k + 1 } \left(
+		\mathbb{ R }^{ d } \right) $. Ekkor van megoldás, és $ u $ kiterjeszthető
+		$ \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. $-re úgy, hogy $ u \in
+		C^{ 2 } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right) \right.\right) $,
+		valamint a d'Alambert-formulához hasonló konvergencia teljesül.
+		\begin{itemize}
+			\item A $ d = 1 $ esetben, a \ref{eq:pde-hullam-dalamb}-formulában nem szerepel $ g $
+			deriváltja, míg a $ d = 3,{} 5,{} 7,{} \ldots $ esetekben $ g $ deriváltja előfordul a
+			formulában, így $ u $ kevésbé \textqq{szép}, mint $ g $.
+			\item A kezdeti hatások véges (pontosan 1) sebességgel terjednek.
+		\end{itemize}
+	\item[Páros dimenzió] Legyen $ d = 2 k $, $ k \in \mathbb{ N }^{ +} $, tegyük fel, hogy
+		$ g \in C^{ k + 2 } \left( \mathbb{ R }^{ d } \right) $, $ h \in C^{ k + 1 } \left(
+		\mathbb{ R }^{ d } \right) $. Ekkor van megoldás, és $ u $ kiterjeszthető
+		$ \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. $-re úgy, hogy $ u \in
+		C^{ 2 } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right) \right.\right) $,
+		valamint a d'Alambert-formulához hasonló konvergencia teljesül.
+		\begin{itemize}
+			\item Adott $ \mathbf{ x } \in \mathbb{ R }^{ d } $-re $ g \left( \mathbf{ x } \right) $
+			és $ h \left( \mathbf{ x } \right) $ hatása, ha $ d \ge 3 $, páratlan, akkor azon
+			$ \left( \mathbf{y},{} t \right) $ pontokban van jelen, ahol $ \left| \mathbf{ x } -
+			\mathbf{ y } \right| = t $; míg ha $ d \ge 2 $, páros, akkor azon $ \left(
+			\mathbf{ y },{} t \right) $ pontokban van jelen, ahol $ \left| \mathbf{ x } -
+			\mathbf{ y } \right| < t $.
+		\end{itemize}
+\end{description}
+A \emph{Huygens-elv}: az $ \mathbf{ x } \in \mathbb{ R }^{ d } $ pontból kiinduló zavar
+\begin{itemize}
+	\item éles hullámfront mentén terjed $ d \ge 3 $ páratlan dimenzióban;
+	\item a hullámfront után is hat $ d \ge 2 $ páros dimenzióban.
+\end{itemize}
+Háromdimenzióban $ \left( d = 3 \right) $ a megoldás a \emph{Kirchoff-formula}
+(\ref{eq:pde-hullam-dalamb}-formulából szférikus közepekkel és
+Euler\,--\,Poisson\,--\,Darboux-egyenlettel). Magasabb (páratlan) dimenzióban analóg módon.
+%
+\minisec{A leereszkedés módszere}
+Kétdimenzióban $ \left( d = 2 \right) $ a \emph{Poisson-formula} (Kirchoff-formulából konstans
+kiterjesztéssel, $ \bar{u} \left( x_{ 1 },{} x_{ 2 },{} x_{ 3 },{} t \right) = \bar{u} \left(
+x_{ 1 },{} x_{ 2 },{} 0,{} t \right) = u \left( x_{ 1 },{} x_{ 2 },{} t \right) $). Magasabb (páros) dimenzióban analóg módon.
+%
+\minisec{Duhamel-elv}
+Tekintsük a következőt:
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } - \Delta u 						&= f 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d },{} t > 0 \right);\\
+		u \left( \mathbf{ x },{} 0 \right) 			&= 0 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right);\\
+		u_{ t } \left( \mathbf{ x },{} 0 \right) 	&= 0 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right).
+	\end{aligned}
+\end{equation*}
+Legyen $ s \ge 0 $ esetén $ u \left( \mathbf{ x },{} t;{} s \right) $ az
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } \left( \mathbf{ x },{} t;{} s \right) - \Delta u \left( \mathbf{ x },{} t;{} s \right)											&= 0 									&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d },{} t > s \right);\\
+		u \left( \mathbf{ x },{} s;{} s \right) 		&= 0 									&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right);\\
+		u_{ t } \left( \mathbf{ x },{} s;{} s \right) 	&= f \left( \mathbf{ x },{} s \right) 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right).
+	\end{aligned}
+\end{equation*}
+megoldása (ilyen van az előző formulák szerint). Ekkor
+\begin{equation*}
+	u \left( \mathbf{ x },{} t \right) = \int_{ 0 }^{ t } u \left( \mathbf{ x },{} t;{} s \right) \,
+	\mathrm{ d } s \quad \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} t > 0 \right)
+\end{equation*}
+megoldása az eredeti inhomogén problémának. Ehhez elég, hogy $ f \in C^{ \left[ \frac{ d }{ 2 } \right] + 1 } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. \right) $.
+%
 \section{A hővezetés egyenlete}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
 %
@@ -305,7 +439,7 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 	CFL-feltétel.
 %
 	\item[Többdimenziós normális eloszlású vektorok statisztikai analízise] Wishart-eloszlás,
-	paraméterbecslés, hipotézisvizsgálat.
+	pa\-ra\-mé\-ter\-becs\-lés, hipotézisvizsgálat.
 %
 	\item[Lineáris regresszió] Véletlen változó lineáris közelítése véletlen változók lineáris
 	kombinációjával, a lineáris modell: legkisebb négyzetek módszere, varianciaanalízis.
@@ -314,7 +448,7 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 %
 	\item[Diszkrét idejű Markov-láncok] Definíció, átmenetvalószínűség, példák diszkrét idejű
 	Markov-lán\-cok\-ra, a Markov-tulajdonság, a Chapman\,--\,Kolmogorov-egyenletek és az erős
-	Markov-tulajdonság, Markov-láncok állapotai és osztályai, a szolidaritási tétel, Markov-láncok
+	Markov-tu\-laj\-don\-ság, Markov-láncok állapotai és osztályai, a szolidaritási tétel, Markov-láncok
 	invariáns eloszlásai, a periodikus osztályok jellemzése, elérési idők, elnyelési valószínűségek,
 	a bolyongás egy és magasabb dimenzióban, \textsc{Pólya} tétele, a játékos csődje probléma.
 %
@@ -344,7 +478,7 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 	\item[Periodikus függvények diszkrét négyzetes közelítése] DFT, IDFT, FFT, számsorozatok
 	konvolúciója.
 %
-	\item[A hullámegyenlet] Húr és membránok rezgései, D'Alambert-formula, hullámterjedés páros és
+	\item[A hullámegyenlet] Húr és membránok rezgései, d'Alambert-formula, hullámterjedés páros és
 	páratlan dimenzióban, a leereszkedés módszere, Duhamel-elv, Fourier-módszer, a megoldások
 	simasága, numerikus módszerek.
 %
@@ -352,14 +486,14 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 	a megoldások simasága, numerikus módszerek.
 %
 	\item[A Laplace-egyenlet] Harmonikus függvények, Green-függvények, Dirichlet-probléma gömbben,
-	Poisson-formula, Dirichlet- és Neumann-problémák, Fourier-módszer, numerikus módszerek.
+	Po\-is\-son-formula, Dirichlet- és Neumann-problémák, Fourier-módszer, numerikus módszerek.
 %
 	\item[Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása] Lokális
 	invariáns sokaságok egyensúlyi helyzet környezetében, nyeregpont-tulajdonság,
 	Grobman\,--\,Hartman-tétel, stabilitási eredmények, orbitális stabilitás, Poincaré-leképezések.
 %
 	\item[Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről]
-	Limeszhalmazok, a Poincaré\,--\,Bendixson-tétel, attraktorok, strukturális stabilitás, generikus
+	Li\-mesz\-hal\-ma\-zok, a Poincaré\,--\,Bendixson-tétel, attraktorok, strukturális stabilitás, generikus
 	tulajdonságok, Hamilton-egyenletek, kaotikus dinamika.
 %
 	\item[A bonyolultságelmélet alapjai] Kiszámíthatóság, Turing-gépek, példák nem kiszámítható
