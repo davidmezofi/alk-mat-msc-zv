@@ -463,7 +463,90 @@ Ekkor $ \Phi_{ t } - \Delta_{ \mathbf{ x } } \Phi = 0 $ egész $ \mathbb{ R }^{ 
 			sebességgel terjed.
 	\end{itemize}
 \end{megj}
+%
 \minisec{Maximumelvek}
+\begin{tetel}[erős maximumelv]
+	Tegyük fel, hogy $ u \in C^{ 2,{} 1 } \left( \Omega_{ T } \right) \cap C^{ 0 } \left(
+	\overline{ \Omega_{ T } } \right) $ és $ u_{ t } = \Delta u $ $ \Omega_{ T } $-n. Ekkor
+		\begin{enumerate}
+		\item
+			\begin{equation*}
+				\max_{ \overline{ \Omega_{ T } } } u = \max_{ \partial^{ * } \Omega_{ T } } u;
+			\end{equation*}
+		\item ha $ \Omega $ összefüggő és létezik $ \left( \mathbf{ x }_{ 0 },{} t_{ 0 } \right) \in
+			\Omega_{ T } $ úgy, hogy $ u \left(\mathbf{ x }_{ 0 },{} t_{ 0 } \right) =
+			\max_{ \overline{ \Omega_{ T } } } u $ akkor $ u $ állandó
+			$ \overline{ \Omega_{ t_{ 0 } } } $-on.
+		\end{enumerate}
+\end{tetel}
+\begin{megj}\leavevmode
+	\begin{itemize}
+		\item Csak $ \overline{ \Omega_{ t_{ 0 } } } $-on állítjuk, hogy $ u $ állandó, mivel $ t > t_{ 0 } $-ra nem feltétlenül igaz.
+		\item Ha $ u $ megoldása az
+			\begin{align*}
+				u_{ t } &= \Delta u & \Omega_{ T } \text{-n};\\
+				u &= 0 & \partial \Omega \times \left[ 0,{} T \right] \text{-n};\\
+				u &= g& \Omega \times \left\{ 0 \right\} \text{-n}
+			\end{align*}
+		problémának, továbbá $ g\left( \mathbf{ x } \right) \ge 0 $ $ \Omega $-n és $ g \not \equiv 0 $, akkor $ u \left( \mathbf{ x },{} t \right) > 0 $ $ \Omega_{ T } $-n.
+	\end{itemize}
+\end{megj}
+\begin{tetel}[egyértelműség]
+	Tegyük fel, hogy $ g \in C^{ 0 } \left( \partial^{ * } \Omega_{ T } \right) $, $ f \in C^{ 0 }
+	\left( \Omega_{ T } \right) $. Ekkor az
+	\begin{align*}
+		u_{ t } - \Delta u &= f & \Omega_{ T } \text{-n};\\
+		u &= g & \partial^{ * } \Omega_{ T } \text{-n}
+	\end{align*}
+	problémának legfeljebb egy $ u \in C^{ 2,{} 1 } \left( \Omega_{ T } \right) \cap C^{ 0 } \left(
+	\overline{ \Omega_{ T } } \right) $ megoldása van.
+\end{tetel}
+\begin{tetel}[maximumelv $ \mathbb{ R }^{ d } $-ben]
+	Tegyük fel, hogy $ u \in C^{ 2,{} 1 } \left( \mathbb{ R }^{ d } \times \left.\left( 0,{} T \right]\right. \right) \cap C^{ 0 } \left( \mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right) $ az
+	\begin{align*}
+		u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+		u &= g & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+	\end{align*}
+	probléma megoldása, továbbá
+	\begin{equation*}
+		u \left( \mathbf{ x },{} t \right) \le A \mathrm{ e }^{ a \left| \mathbf{ x }
+		\right|^{ 2 } } \quad \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} 0 \le t \le T \right)
+	\end{equation*}
+	valamely $ A,{} a > 0 $ esetén. Ekkor
+	\begin{equation*}
+		\sup_{ \mathbb{ R }^{ d } \times \left[ 0,{} T \right] } u = \sup_{ \mathbb{ R }^{ d } } g.
+	\end{equation*}
+\end{tetel}
+\begin{tetel}[egyértelműség $\mathbb{R}^{d}$-ben]
+Legyen $ T > 0$, $ g \in C^{ 0 } \left( \mathbb{ R }^{ d } \right) $, $ f \in C^{ 0 } \left(
+\mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right) $. Ekkor legfeljebb egy olyan $ u \in
+C^{ 2,{} 1 } \left( \mathbb{ R }^{ d } \times \left( 0,{} T \right) \right) \cap C^{ 0 } \left(
+\mathbb{ R }^{ d } \times \left[ 0,{} T \right] \right)$ megoldása van az
+\begin{align*}
+	u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+	u &= g & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+\end{align*}
+problémának, amelyre teljesül
+\begin{equation*}
+	\left| u \left( \mathbf{ x },{} t \right) \right| \le A \mathrm{ e }^{ a \left| \mathbf{ x } \right|^{ 2 } } \quad \left( \mathbf{ x } \in \mathbb{ R }^{ d },{} 0 \le t \le T \right)
+\end{equation*}
+valamely $ A,{} a > 0 $ állandókkal.
+\end{tetel}
+\begin{megj}
+	Az
+	\begin{align*}
+		u_{ t } &= \Delta u & \mathbb{ R }^{ d } \times \left( 0,{} T \right) \text{-n};\\
+		u &= 0 & \mathbb{ R }^{ d } \times \left\{ 0 \right\} \text{-n}
+	\end{align*}
+	problémának az $ u \equiv 0 $ megoldás mellett lehet olyan megoldása, amelyre nem teljesül a fenti korlát.
+\end{megj}
+Az
+\begin{align*}
+	u_{ t } &= \Delta u;\\
+	u \left( \mathbf{ x },{} 0 \right) &= f \left( \mathbf{ x } \right)
+\end{align*}
+problémának általában nincs visszafelé (azaz $ t < 0 $-ra) megoldása. De ha van, akkor az
+egyértelmű.
 %
 \section{A Laplace-egyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
