@@ -250,11 +250,11 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
 %
 \minisec{Húr és membránok rezgései}
-	Legyen $ \Omega \subset \mathbb{ R }^{ d } $ nyílt, $ u \colon \overline{ \Omega } \times
+Legyen $ \Omega \subset \mathbb{ R }^{ d } $ nyílt, $ u \colon \overline{ \Omega } \times
 \left.\left[ 0,{} \infty \right)\right.\rightarrow \mathbb{ R } $,
 \begin{align}
-	u_{ tt } &= \Delta_{ \mathbf{ x } } u;\tag{\textsc{homogén}}\\
-	u_{ tt } &= \Delta_{ \mathbf{ x } } u + f,\tag{\textsc{inhomogén}}
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u;\tag{\textsc{homogén}}\\
+	u_{ tt } 	&= \Delta_{ \mathbf{ x } } u + f,\tag{\textsc{inhomogén}}
 \end{align}
 ahol $ f = f \left( \mathbf{ x },{} t \right) $ adott. Az $ u \left( \mathbf{ x },{} t \right) $
 függvény az $ u \equiv 0 $ egyensúlyi helyzettől való eltérést méri az $ \mathbf{ x } $ helyen a
@@ -263,6 +263,40 @@ $ \left( d = 2 \right) $ \emph{membrán}, háromdimenzióban $ \left( d = 3 \rig
 test}.
 \begin{megj}
 	A továbbiakban $ \Delta_{ \mathbf{ x } } $ helyett egyszerűen csak $ \Delta $-t írunk.
+\end{megj}
+%
+\minisec{D'Alambert-formula}
+Legyen $ u \colon \mathbb{ R } \times \left.\left[ 0,{} \infty \right)\right.\rightarrow
+\mathbb{ R } $,
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } \left(x,{} t \right) 	&= u_{ xx } \left( x,{} t \right) 	&
+			\left( \left( x,{} t \right) \in \mathbb{ R } \times \left( 0,{} \infty \right)
+			\right);\\
+		u \left( x,{} 0 \right) 		&= g \left( x \right) 				& \left( x \in
+			\mathbb{ R } \right);\\
+		u_{ t } \left( x,{} 0 \right) 	&= h \left( x \right) 				& \left( x \in
+			\mathbb{ R } \right),\\
+	\end{aligned}
+\end{equation*}
+ahol $ g,{} h \colon \mathbb{ R } \rightarrow \mathbb{ R } $ adott függvények $ \left( g\in C^{ 2 }
+\left( \mathbb{ R } \right),{} h \in C^{ 1 } \left( \mathbb{ R } \right) \right) $. Megoldás:
+\begin{equation}\tag{\textsc{d'Alambert}}
+	u \left( x,{} t \right) = \frac{ 1 }{ 2 } \left( g \left( x + t \right) + g \left( x - t \right)
+	\right) + \frac{ 1 }{ 2 } \int_{ x - t }^{ x + t } h \left( y \right) \, \mathrm{ d } y,
+\end{equation}
+ahol $ u \in C^{ 2 } \left( \mathbb{ R } \times \left.\left[ 0,{} \infty \right)\right.\right) $, és
+minden $ x_{ 0 } \in \mathbb{ R } $ esetén
+\begin{equation*}
+	\begin{aligned}
+		\lim_{ \substack{ \left( x,{} t \right) \rightarrow \left( x_{ 0 },{} 0 \right)\\t > 0 } }
+		u \left( x,{} t \right) 		&= g \left( x_{ 0 } \right);\\
+		\lim_{ \substack{ \left( x,{} t \right) \rightarrow \left( x_{ 0 },{} 0 \right)\\t > 0 } }
+		u_{ t } \left( x,{} t \right) 	&= h \left( x_{ 0 } \right).
+	\end{aligned}
+\end{equation*}
+\begin{megj}
+	A megoldás alakja: $ u \left( x,{} t \right) = F\left( x + t \right) + G \left( x - t \right) $.
 \end{megj}
 %
 \section{A hővezetés egyenlete}
@@ -360,7 +394,7 @@ test}.
 	\item[Periodikus függvények diszkrét négyzetes közelítése] DFT, IDFT, FFT, számsorozatok
 	konvolúciója.
 %
-	\item[A hullámegyenlet] Húr és membránok rezgései, D'Alambert-formula, hullámterjedés páros és
+	\item[A hullámegyenlet] Húr és membránok rezgései, d'Alambert-formula, hullámterjedés páros és
 	páratlan dimenzióban, a leereszkedés módszere, Duhamel-elv, Fourier-módszer, a megoldások
 	simasága, numerikus módszerek.
 %
