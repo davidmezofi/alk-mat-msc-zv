@@ -139,6 +139,7 @@
 % Kontinentális mondatközök.
 \frenchspacing
 %
+% Fejezetcímek magyar formátumnak megfelelően.
 \renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -281,7 +282,7 @@ Legyen $ u \colon \mathbb{ R } \times \left.\left[ 0,{} \infty \right)\right.\ri
 \end{equation*}
 ahol $ g,{} h \colon \mathbb{ R } \rightarrow \mathbb{ R } $ adott függvények $ \left( g\in C^{ 2 }
 \left( \mathbb{ R } \right),{} h \in C^{ 1 } \left( \mathbb{ R } \right) \right) $. Megoldás:
-\begin{equation}\tag{\textsc{d'Alambert}}
+\begin{equation}\tag{\textsc{d'Alambert}}\label{eq:pde-hullam-dalamb}
 	u \left( x,{} t \right) = \frac{ 1 }{ 2 } \left( g \left( x + t \right) + g \left( x - t \right)
 	\right) + \frac{ 1 }{ 2 } \int_{ x - t }^{ x + t } h \left( y \right) \, \mathrm{ d } y,
 \end{equation}
@@ -298,6 +299,61 @@ minden $ x_{ 0 } \in \mathbb{ R } $ esetén
 \begin{megj}
 	A megoldás alakja: $ u \left( x,{} t \right) = F\left( x + t \right) + G \left( x - t \right) $.
 \end{megj}
+%
+\minisec{Hullámterjedés páros és páratlan dimenzióban}
+Tekintsük a következőt:
+\begin{equation*}
+	\begin{aligned}
+		u_{ tt } - \Delta u 						&= 0 								&
+			\left( \left( \mathbf{ x },{} t \right) \in \mathbb{ R }^{ d } \times \left( 0,{} \infty
+			\right) \right);\\
+		u \left( \mathbf{ x },{} 0 \right) 			&= g \left( \mathbf{ x } \right) 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right);\\
+		u_{ t } \left( \mathbf{ x },{} 0 \right) 	&= h \left( \mathbf{ x } \right) 	&
+			\left( \mathbf{ x } \in \mathbb{ R }^{ d } \right).
+	\end{aligned}
+\end{equation*}
+\begin{description}
+	\item[Páratlan dimenzió] Legyen $ d = 2 k + 1 $, $ k \in \mathbb{ N }^{ +} $, tegyük fel, hogy
+		$ g \in C^{ k + 2 } \left( \mathbb{ R }^{ d } \right) $, $ h \in C^{ k + 1 } \left(
+		\mathbb{ R }^{ d } \right) $. Ekkor van megoldás, és $ u $ kiterjeszthető
+		$ \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. $-re úgy, hogy $ u \in
+		C^{ 2 } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right) \right.\right) $,
+		valamint a d'Alambert-formulához hasonló konvergencia teljesül.
+		\begin{itemize}
+			\item A $ d = 1 $ esetben, a \ref{eq:pde-hullam-dalamb}-formulában nem szerepel $ g $
+			deriváltja, míg a $ d = 3,{} 5,{} 7,{} \ldots $ esetekben $ g $ deriváltja előfordul a
+			formulában, így $ u $ kevésbé \textqq{szép}, mint $ g $.
+			\item A kezdeti hatások véges (pontosan 1) sebességgel terjednek.
+		\end{itemize}
+	\item[Páros dimenzió] Legyen $ d = 2 k $, $ k \in \mathbb{ N }^{ +} $, tegyük fel, hogy
+		$ g \in C^{ k + 2 } \left( \mathbb{ R }^{ d } \right) $, $ h \in C^{ k + 1 } \left(
+		\mathbb{ R }^{ d } \right) $. Ekkor van megoldás, és $ u $ kiterjeszthető
+		$ \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right)\right. $-re úgy, hogy $ u \in
+		C^{ 2 } \left( \mathbb{ R }^{ d } \times \left.\left[ 0,{} \infty \right) \right.\right) $,
+		valamint a d'Alambert-formulához hasonló konvergencia teljesül.
+		\begin{itemize}
+			\item Adott $ \mathbf{ x } \in \mathbb{ R }^{ d } $-re $ g \left( \mathbf{ x } \right) $
+			és $ h \left( \mathbf{ x } \right) $ hatása, ha $ d \ge 3 $, páratlan, akkor azon
+			$ \left( \mathbf{y},{} t \right) $ pontokban van jelen, ahol $ \left| \mathbf{ x } -
+			\mathbf{ y } \right| = t $; míg ha $ d \ge 2 $, páros, akkor azon $ \left(
+			\mathbf{ y },{} t \right) $ pontokban van jelen, ahol $ \left| \mathbf{ x } -
+			\mathbf{ y } \right| < t $.
+		\end{itemize}
+\end{description}
+A \emph{Huygens-elv}: az $ \mathbf{ x } \in \mathbb{ R }^{ d } $ pontból kiinduló zavar
+\begin{itemize}
+	\item éles hullámfront mentén terjed $ d \ge 3 $ páratlan dimenzióban;
+	\item a hullámfront után is hat $ d \ge 2 $ páros dimenzióban.
+\end{itemize}
+Háromdimenzióban $ \left( d = 3 \right) $ a megoldás a \emph{Kirchoff-formula}
+(\ref{eq:pde-hullam-dalamb}-formulából szférikus közepekkel és
+Euler\,--\,Poisson\,--\,Darboux-egyenlettel). Magasabb (páratlan) dimenzióban analóg módon.
+%
+\minisec{A leereszkedés módszere}
+Kétdimenzióban $ \left( d = 2 \right) $ a \emph{Poisson-formula} (Kirchoff-formulából konstans
+kiterjesztéssel, $ \bar{u} \left( x_{ 1 },{} x_{ 2 },{} x_{ 3 },{} t \right) = \bar{u} \left(
+x_{ 1 },{} x_{ 2 },{} 0,{} t \right) = u \left( x_{ 1 },{} x_{ 2 },{} t \right) $). Magasabb (páros) dimenzióban analóg módon.
 %
 \section{A hővezetés egyenlete}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
