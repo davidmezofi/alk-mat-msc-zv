@@ -61,6 +61,7 @@
 \theoremstyle{remark}
 \newtheorem*{megj}{Megjegyzés}
 \newtheorem*{utmut}{Útmutatás}
+\newtheorem*{pelda}{Példa}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -142,6 +143,10 @@
 % Fejezetcímek magyar formátumnak megfelelően.
 \renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
 %
+% Minden szakasz új oldalon kezdődjön.
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Saját matematikai parancsok:
@@ -153,12 +158,13 @@
 \newcommand{\BinomialD}{\mathcal{B}}
 \newcommand{\imag}{\mathfrak{i}}
 \newcommand{\SAGE}{\textsf{\textbf{SAGE}}{}}
-\newcommand{\ballin}{\interior\mathbb{B}}
 \renewcommand{\tan}{\mathop{\mathrm{tg}}}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\interior}{int}
+\newcommand{\ballin}{\interior\mathbb{B}}
 \DeclareMathOperator{\relint}{relint}
 \DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\supp}{supp}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -550,6 +556,36 @@ egyértelmű.
 %
 \section{A Laplace-egyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
+%
+\minisec{Harmonikus függvény}
+Legyen $ \Omega \subset \mathbb{ R }^{ d } $ korlátos, nyílt, $ \partial \Omega $ $ C^{ 1 } $-sima.
+\begin{defin}[harmonikus függvény]
+Az $ u \in C^{ 2 } \left( \Omega \right) $ függvény \emph{harmonikus}, ha $ \Delta u = 0 $
+$ \Omega $-n.
+\end{defin}
+\begin{pelda}
+	$\mathbb{R}^{d}$-ben
+	\begin{itemize}
+		\item $ u \left( \mathbf{ x } \right) = \mathbf{ a }^{ \T } \mathbf{ x } + b $;
+		\item $ u \left( \mathbf{ x } \right) = x_{ 1 }^{ 2 } - x_{ 2 }^{ 2 } $ $ \left( d \ge 2
+			\right) $;
+		\item $ \mathbf{ x },{} \mathbf{ y } \in \mathbb{ R }^{ d } $, $ \mathbf{ x } \neq
+			\mathbf{ y } $:
+			\begin{equation*}
+				\Gamma \left( \mathbf{ x },{} \mathbf{ y } \right) = \Gamma \left( \left|
+				\mathbf{ x } - \mathbf{ y } \right| \right) = \begin{cases}
+					\frac{ 1 }{ 2 \pi } \log \left| \mathbf{ x } - \mathbf{ y } \right|, &
+						\text{ha } d = 2;\\
+					\frac{ 1 }{ d \left( 2 - d \right) \omega_{ d } } \cdot \frac{ 1 }{ \left|
+						\mathbf{ x } - \mathbf{ y } \right|^{ d - 2 } }, & \text{ha } d \ge 3.
+				\end{cases}
+			\end{equation*}
+	\end{itemize}
+\end{pelda}
+\begin{megj}
+	A fenti $ \Gamma $ a $ \Delta u = 0$ Laplace-egyenlet \emph{fundamentális megoldása} és
+	harmonikus $ \mathbb{ R }^{ d } \setminus \left\{ \mathbf{ y } \right\} $-on.
+\end{megj}
 %
 \section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
 %
