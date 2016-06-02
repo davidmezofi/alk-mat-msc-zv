@@ -52,6 +52,7 @@
 \newtheorem*{tetel}{Tétel}
 \newtheorem*{allit}{állítás}
 \newtheorem{feladat}{feladat}
+\newtheorem*{kovet}{Következmény}
 %
 % Definíció és társai: félkövér + álló
 \theoremstyle{definition}
@@ -61,6 +62,7 @@
 \theoremstyle{remark}
 \newtheorem*{megj}{Megjegyzés}
 \newtheorem*{utmut}{Útmutatás}
+\newtheorem*{pelda}{Példa}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -142,6 +144,10 @@
 % Fejezetcímek magyar formátumnak megfelelően.
 \renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
 %
+% Minden szakasz új oldalon kezdődjön.
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Saját matematikai parancsok:
@@ -153,12 +159,13 @@
 \newcommand{\BinomialD}{\mathcal{B}}
 \newcommand{\imag}{\mathfrak{i}}
 \newcommand{\SAGE}{\textsf{\textbf{SAGE}}{}}
-\newcommand{\ballin}{\interior\mathbb{B}}
 \renewcommand{\tan}{\mathop{\mathrm{tg}}}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\interior}{int}
+\newcommand{\ballin}{\interior\mathbb{B}}
 \DeclareMathOperator{\relint}{relint}
 \DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\supp}{supp}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -550,6 +557,140 @@ egyértelmű.
 %
 \section{A Laplace-egyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
+%
+\minisec{Harmonikus függvény}
+Legyen $ \Omega \subset \mathbb{ R }^{ d } $ korlátos, nyílt, $ \partial \Omega $ $ C^{ 1 } $-sima.
+\begin{defin}[harmonikus függvény]
+Az $ u \in C^{ 2 } \left( \Omega \right) $ függvény \emph{harmonikus}, ha $ \Delta u = 0 $
+$ \Omega $-n.
+\end{defin}
+\begin{pelda}
+	$\mathbb{R}^{d}$-ben
+	\begin{itemize}
+		\item $ u \left( \mathbf{ x } \right) = \mathbf{ a }^{ \T } \mathbf{ x } + b $;
+		\item $ u \left( \mathbf{ x } \right) = x_{ 1 }^{ 2 } - x_{ 2 }^{ 2 } $ $ \left( d \ge 2
+			\right) $;
+		\item $ \mathbf{ x },{} \mathbf{ y } \in \mathbb{ R }^{ d } $, $ \mathbf{ x } \neq
+			\mathbf{ y } $:
+			\begin{equation*}
+				\Gamma \left( \mathbf{ x },{} \mathbf{ y } \right) = \Gamma \left( \left|
+				\mathbf{ x } - \mathbf{ y } \right| \right) = \begin{cases}
+					\frac{ 1 }{ 2 \pi } \log \left| \mathbf{ x } - \mathbf{ y } \right|, &
+						\text{ha } d = 2;\\
+					\frac{ 1 }{ d \left( 2 - d \right) \omega_{ d } } \cdot \frac{ 1 }{ \left|
+						\mathbf{ x } - \mathbf{ y } \right|^{ d - 2 } }, & \text{ha } d \ge 3.
+				\end{cases}
+			\end{equation*}
+	\end{itemize}
+\end{pelda}
+\begin{megj}
+	A fenti $ \Gamma $ a $ \Delta u = 0$ Laplace-egyenlet \emph{fundamentális megoldása} és
+	harmonikus $ \mathbb{ R }^{ d } \setminus \left\{ \mathbf{ y } \right\} $-on.
+\end{megj}
+%
+\minisec{Green-függvény}
+\begin{defin}[Green-függvény]
+	A $ G \left( \mathbf{ x },{} \mathbf{ y } \right) $ függvény $ \left( \mathbf{ x },{}
+	\mathbf{ y } \in \Omega,{} \mathbf{ x } \neq \mathbf{ y } \right) $ \emph{Green-függvény}, ha
+	\begin{enumerate}
+		\item $ G \left( \mathbf{ x },{} \mathbf{ y } \right) = 0 $ bármely $ \mathbf{ x } \in
+			\partial \Omega $-ra;
+		\item $ \mathbf{ x } \mapsto G \left( \mathbf{ x },{} \mathbf{ y } \right) - \Gamma \left(
+			\mathbf{ x },{} \mathbf{ y } \right) $ harmonikus $\Omega$-n.
+	\end{enumerate}
+\end{defin}
+\begin{megj}
+	Ha $ u $ harmonikus $\Omega$-n, akkor
+	\begin{equation*}
+		u \left( \mathbf{ y } \right) = \int_{ \partial \Omega } u \left( \mathbf{ x } \right) \frac{ \partial G }{ \partial \nu_{ \mathbf{ x } } } \left( \mathbf{ x },{} \mathbf{ y } \right) \, \mathrm{ d }\sigma,
+	\end{equation*}
+	azaz $ u $-t meghatározza $ \left. u \right|_{ \partial \Omega } $ (a Green-féle reprezentációs
+	formulából következik).
+\end{megj}
+Green-függvény konstrukciója gyakran \textqq{tükrözéssel} $ \partial \Omega $-ra, $ G \left(
+\mathbf{ x },{} \mathbf{ y } \right) = \Gamma \left( \mathbf{ x },{} \mathbf{ y } \right) - \Gamma
+\left( \mathbf{ x },{} \tilde{ \mathbf{ y } } \right) $.
+\begin{pelda}
+	Legyen
+	\begin{equation*}
+		\tilde{ \mathbf{ y } } = \begin{cases}
+			\frac{ R^{ 2 } }{ \left| \mathbf{ y } \right|^{ 2 } } \mathbf{ y }, & \text{ha }
+				\mathbf{ y } \neq \mathbf{ 0 };\\
+			\infty, & \text{ha } \mathbf{ y } = \mathbf{ 0 },
+		\end{cases}
+	\end{equation*}
+	valamint legyen
+	\begin{equation*}
+		G \left( \mathbf{ x },{} \mathbf{ y } \right) = \begin{cases}
+			\Gamma \left( \left| \mathbf{ x } - \mathbf{ y } \right| \right) - \Gamma \left( \frac{
+				\left| \mathbf{ y } \right| }{ R } \left| \mathbf{ x } - \tilde{ \mathbf{ y } }
+				\right| \right), & \text{ha } \mathbf{ y } \neq \mathbf{ 0 };\\
+			\Gamma \left( \left| \mathbf{ x } \right| \right) - \Gamma \left( R \right), &
+				\text{ha } \mathbf{ y } = \mathbf{ 0 }.
+		\end{cases}
+	\end{equation*}
+	Ekkor $ G $ Green-függvénye $ \ball \left( \mathbf{ 0 },{} R \right) $-nek, és
+	\begin{equation*}
+		u \left( \mathbf{ y } \right) = \frac{ R^{ 2 } - \left| \mathbf{ y } \right|^{ 2 } }{ d
+		\omega_{ d } R } \int_{ \partial \ball \left( \mathbf{ 0 },{} R \right) } \frac{ u \left(
+		\mathbf{ x } \right)}{ \left| \mathbf{ x } - \mathbf{ y } \right|^{ d } } \,
+		\mathrm{ d }\sigma.
+	\end{equation*}
+\end{pelda}
+%
+\minisec{Poisson-formula}
+\begin{tetel}[Poisson-formula gömbre]
+	Legyen $ \phi \colon \partial \ball \left( \mathbf{ 0 },{} R \right) \rightarrow \mathbb{ R } $
+	folytonos, adott. Ekkor az
+	\begin{equation*}
+		u \left( \mathbf{ y } \right) = \begin{cases}
+			\frac{ R^{ 2 } - \left| \mathbf{ y } \right|^{ 2 } }{ d
+				\omega_{ d } R } \int_{ \partial \ball \left( \mathbf{ 0 },{} R \right) } \frac{
+				\phi \left( \mathbf{ x } \right)}{ \left| \mathbf{ x } - \mathbf{ y } \right|^{ d }
+				} \, \mathrm{ d }\sigma, & \text{ha } \mathbf{ y } \in \ballin \left( \mathbf{ 0
+				},{} R
+				\right);\\
+			\phi \left( \mathbf{ y } \right), & \text{ha } \mathbf{ y } \in \partial \ball \left(
+				\mathbf{ 0 },{} R \right)
+		\end{cases}
+	\end{equation*}
+	függvény harmonikus $ \ballin \left( \mathbf{ 0 },{} R \right) $-en és folytonos $ \ball \left(
+	\mathbf{ 0 },{} R \right) $-en.
+\end{tetel}
+%
+\minisec{Dirichlet-probléma gömbben}
+\begin{kovet}
+Bármely $ \phi \in C^{ 0 } \left( \partial \ball \left( \mathbf{ 0 },{} R \right) \right) $ esetén
+a
+\begin{align*}
+	\Delta u \left( \mathbf{ x } \right) &= 0 & \left( \forall \, \mathbf{ x } \in \ballin \left(
+		\mathbf{ 0 },{} R \right) \right);\\
+	u \left( \mathbf{ x } \right) &= \phi \left( \mathbf{ x } \right) & \left( \forall \,
+		\mathbf{ x } \in \partial \ball \left( \mathbf{ 0 },{} R \right) \right)
+\end{align*}
+Dirichlet-próblémának egyetlen $ u \in C^{ 2 } \left( \ballin \left( \mathbf{ 0 },{} R \right)
+\right) \cap C^{ 0 } \left( \ball \left( \mathbf{ 0 },{} R \right) \right) $ megoldása van.
+\end{kovet}
+%
+\minisec{Fourier módszer $\mathbb{R}^{2}$-ben}
+Polárkoordinátákkal
+\begin{equation*}
+	\Delta u = \frac{ \partial^{ 2 } u }{ \partial r^{ 2 } } + \frac{ 1 }{ r } \cdot \frac{ \partial
+	u }{ \partial r } + \frac{ 1 }{ r^{ 2 } } \cdot \frac{ \partial^{ 2 } u }{ \partial \phi^{ 2 }
+	}.
+\end{equation*}
+Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
+\right) $ alakú megoldásokat.
+\begin{pelda}[forgásszimmetrikus eset]
+	Ekkor $ \Phi \equiv \mu \neq 0 $ (a $ \Phi \equiv 0 $ eset trriviális). Ekkor
+	\begin{align*}
+		\Delta u = 0 &= \mu \left( R'' + \frac{ R' }{ r } \right);\\
+		r^{ 2 } R'' + r R' &= 0;\\
+		R \left( r \right) &= a \ln r + b,
+	\end{align*}
+	ebből $ u \left( r,{} \phi \right) = \hat{ a } \ln r + \hat{ b } $.
+\end{pelda}
+% Minden más a Móni-féle diákban van benne, előadáson más nem volt.
 %
 \section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
 %
