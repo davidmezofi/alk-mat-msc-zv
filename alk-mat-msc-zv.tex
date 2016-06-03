@@ -325,9 +325,11 @@ függvénybe történő helyettesítésével.
 	L \left( \mathbf{ x };{} \lambda,{} \mu \right) = c \left( \mathbf{ x } \right) + \lambda^{ \T }
 	f \left( \mathbf{ x }	\right) + \mu^{ \T } g \left( \mathbf{ x }	\right).
 \end{equation*}
-Ha $ \mathbf{ x } \in \mathcal{ L } $ és $ \lambda \succeq \mathbf{ 0 } $, akkor $ c \left( \mathbf{ x } \right) \ge L \left( \mathbf{ x };{} \lambda,{} \mu \right) $. Így
+Ha $ \mathbf{ x } \in \mathcal{ L } $ és $ \lambda \succeq \mathbf{ 0 } $, akkor $ c \left(
+\mathbf{ x } \right) \ge L \left( \mathbf{ x };{} \lambda,{} \mu \right) $. Így
 \begin{equation}\tag{duális célfüggény, duális feladat}
-	\tilde{ c } \left( \lambda,{} \mu \right) = \inf_{ \mathbf{ x } \in \mathcal{ D } } L \left( \mathbf{ x };{} \lambda,{} \mu \right), \qquad \begin{array}{rcl}
+	\tilde{ c } \left( \lambda,{} \mu \right) = \inf_{ \mathbf{ x } \in \mathcal{ D } } L \left(
+	\mathbf{ x };{} \lambda,{} \mu \right), \qquad \begin{array}{rcl}
 		\lambda										&		\succeq	&	\mathbf{ 0 }\\
 		\hline
 		\tilde{ c } \left( \lambda,{} \mu \right)	&	\rightarrow	&	\max
@@ -337,8 +339,30 @@ Ha $ \mathbf{ x } \in \mathcal{ L } $ és $ \lambda \succeq \mathbf{ 0 } $, akko
 	Legyen a duális feladat optimális értéke $ d^{ * } $. Ekkor $ p^{ * } \ge d^{ * } $.
 \end{tetel}
 \begin{megj}
-	Ha egyenlőség teljesül, akkor \emph{erős dualitás}. Ha $ p^{ * } - d^{ * } > 0 $, akkor \emph{pozitív dualitási hézag}.
+	Ha egyenlőség teljesül, akkor \emph{erős dualitás}. Ha $ p^{ * } - d^{ * } > 0 $, akkor
+	\emph{pozitív dualitási hézag}.
 \end{megj}
+%
+\minisec{Karush\,--\,Kuhn\,--\,Tucker-tétel}
+Tegyük fel, hogy $ g_{ i } $-k affin, $ c,{} f_{ i } $-k konvex és differenciálható függvények. Erős dualitás pontosan akkor teljesül, ha létezik $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda }
+,{} \hat{ \mu } \right) $, melyek teljesítik a következő feltételeket:
+\begin{enumerate}[label = (KKT--\arabic{*}), ref = KKT--\arabic{*}, mode = unboxed,%
+	labelindent = \parindent, leftmargin = *]
+	\item\label{kkt1} $ \hat{ \mathbf{ x } } $ primál lehetséges megoldás;
+	\item\label{kkt2} $ \left( \hat{ \lambda },{} \hat{ \mu } \right) $ duál lehetséges megoldás;
+	\item\label{kkt3} $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda },{} \hat{ \mu } \right) $
+	komplementárisan laza tulajdonságú, azaz
+		\begin{itemize}
+			\item ha $ f_{ i } \left( \hat{ \mathbf{ x } } \right) < 0 $, akkor
+				$ \hat{ \lambda }_{ i } = 0 $;
+			\item ha $ \hat{ \lambda }_{ i } > 0 $, akkor $ f_{ i } \left( \hat{ \mathbf{ x } }
+				\right) = 0 $;
+		\end{itemize}
+	\item\label{kkt4} $ \nabla c \left( \hat{ \mathbf{ x } } \right) + \left( \hat{ \lambda }
+		\right)^{ \T } \nabla f \left( \hat{ \mathbf{ x } } \right) + \left( \hat{ \mu }
+		\right)^{ \T } \nabla g \left( \hat{ \mathbf{ x } } \right) = 0 $.
+\end{enumerate}
+Ha létezik ilyen $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $, akkor $ \hat{ \mathbf{ x } } $ primál, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $ duál optimumhely.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
