@@ -24,16 +24,16 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
-- [ ] **D** Optimalizálási eljárások
+- [ ] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP?*
 
 ### Általános szakirány
 
 - [ ] Mátrixok sajátértékeinek meghatározása
 - [ ] Mátrixok általánosított inverze
 - [ ] Periodikus függvények diszkrét négyzetes közelítése
-- [x] **D** A hullámegyenlet
-- [x] **D** A hővezetés egyenlete 
-- [x] **D** A Laplace-egyenlet
+- [x] **D** A hullámegyenlet: *Fourier, numerikus?*
+- [x] **D** A hővezetés egyenlete: *numerikus?*
+- [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
 - [ ] Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
 - [ ] Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] A bonyolultságelmélet alapjai

@@ -372,12 +372,36 @@ Ha létezik ilyen $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda } ,{} \hat{ \
 A $ c $ súlyfüggvényt azonosíthatjuk egy $ \mathbf{ c } \in \mathbb{ R }^{ E } $ vektorral. Legyen
 $ \mathbf{ B } $ a $ G $ gráf \emph{pont-él illeszkedési mátrixa}. Így a feladat:
 \begin{equation*}
-	\begin{array}{rcl}
-		\mathbf{ B } \mathbf{ x }	&	\preceq	&	\mathbf{ 1 }\\
+	\underbrace{\begin{array}{rcl}
+		\mathbf{ B } \mathbf{ x }			&	\preceq	&	\mathbf{ 1 }\\
+		\mathbf{ 0 }						&	\preceq	&	\mathbf{ x }\\
+		\mathbf{ x }						&	\in		&	\mathbb{ Z }^{ E }\\
 		\hline
-		\tilde{ c } \left( \lambda,{} \mu \right)	&	\rightarrow	&	\max
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
+	\end{array}}_{\text{egész feltételű LP}} \qquad \leadsto \qquad \underbrace{\begin{array}{rcl}
+		\mathbf{ B } \mathbf{ x }			&	\preceq	&	\mathbf{ 1 }\\
+		\mathbf{ 0 }						&	\preceq	&	\mathbf{ x }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
+	\end{array}}_{\text{LP-relaxáció}}.
+\end{equation*}
+Kicsit átalakítva:
+\begin{equation*}
+	\mathbf{ M } = \begin{bmatrix}
+		\mathbf{ B }\\
+		- \mathbf{ I }_{ E }
+	\end{bmatrix} \qquad \begin{array}{rcl}
+		\mathbf{ M } \mathbf{ x }			&	\preceq	&	\begin{bmatrix}
+				\mathbf{ 1 }\\
+				\mathbf{ 0 }
+			\end{bmatrix}\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
 	\end{array}.
 \end{equation*}
+Ha $ G $ \emph{páros}, akkor $ \mathbf{ B } $ (és így $ \mathbf{ M } $ is) \emph{totálisan
+unimoduláris} (bármely aldeterminánsa $ - 1 $, $ 0 $ vagy $ 1 $), és ekkor a relaxált feladat
+ekvivalens az eredetivel.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
