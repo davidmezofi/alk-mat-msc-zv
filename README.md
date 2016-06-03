@@ -15,7 +15,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] Gráfelmélet: párosítások, síkgráfok
 - [ ] Gröbner-bázisok és alkalmazásaik
 - [ ] Matematikai titkosírások
-- [ ] Többváltozós és vektorértékű függvények
+- [ ] **R** Többváltozós és vektorértékű függvények
 - [ ] Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [ ] Többdimenziós normális eloszlású vektorok statisztikai analízise
@@ -28,11 +28,11 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 ### Általános szakirány
 
-- [ ] Mátrixok sajátértékeinek meghatározása
-- [ ] Mátrixok általánosított inverze
-- [ ] Periodikus függvények diszkrét négyzetes közelítése
+- [ ] **R** Mátrixok sajátértékeinek meghatározása
+- [ ] **R** Mátrixok általánosított inverze
+- [ ] **R** Periodikus függvények diszkrét négyzetes közelítése
 - [x] **D** A hullámegyenlet
-- [x] **D** A hővezetés egyenlete 
+- [x] **D** A hővezetés egyenlete
 - [x] **D** A Laplace-egyenlet
 - [ ] Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
 - [ ] Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
