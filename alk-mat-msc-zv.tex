@@ -260,7 +260,10 @@ Explicit feltételek:
 	\begin{cases}
 		f_{ i } \left( \mathbf{ x } \right) \le 0,	&	i \in \left[ k \right] = \left\{ 1,{} 2,{}
 			\ldots,{} k \right\};\\
-		g_{ j } \left( \mathbf{ x } \right) = 0,	&	j \in \left[ \ell \right].
+		g_{ j } \left( \mathbf{ x } \right) = 0,	&	j \in \left[ \ell \right],
+	\end{cases} \quad \Rightarrow \quad \begin{cases}
+		f \left( \mathbf{ x } \right) \preceq \mathbf{ 0 };	&\\
+		g \left( \mathbf{ x } \right) = \mathbf{ 0 }.		&
 	\end{cases}
 \end{equation*}
 A $ \mathcal{ D } $ \emph{értelmezési tartomány} a $ c $, az $ f_{ i } $ és a $ g_{ j } $ függvények
@@ -316,6 +319,26 @@ függvénybe történő helyettesítésével.
 		ahol az $ \mathbf{ A }_{ i },{} \mathbf{ B },{} \mathbf{ C },{} \mathbf{ X } $ mátrixok
 		szimmetrikusak.
 \end{description}
+%
+\minisec{Lagrange-módszer}
+\begin{equation*}\tag{Lagrange-függvény}
+	L \left( \mathbf{ x };{} \lambda,{} \mu \right) = c \left( \mathbf{ x } \right) + \lambda^{ \T }
+	f \left( \mathbf{ x }	\right) + \mu^{ \T } g \left( \mathbf{ x }	\right).
+\end{equation*}
+Ha $ \mathbf{ x } \in \mathcal{ L } $ és $ \lambda \succeq \mathbf{ 0 } $, akkor $ c \left( \mathbf{ x } \right) \ge L \left( \mathbf{ x };{} \lambda,{} \mu \right) $. Így
+\begin{equation}\tag{duális célfüggény, duális feladat}
+	\tilde{ c } \left( \lambda,{} \mu \right) = \inf_{ \mathbf{ x } \in \mathcal{ D } } L \left( \mathbf{ x };{} \lambda,{} \mu \right), \qquad \begin{array}{rcl}
+		\lambda										&		\succeq	&	\mathbf{ 0 }\\
+		\hline
+		\tilde{ c } \left( \lambda,{} \mu \right)	&	\rightarrow	&	\max
+	\end{array}.
+\end{equation}
+\begin{tetel}[gyengedualitás-tétel]
+	Legyen a duális feladat optimális értéke $ d^{ * } $. Ekkor $ p^{ * } \ge d^{ * } $.
+\end{tetel}
+\begin{megj}
+	Ha egyenlőség teljesül, akkor \emph{erős dualitás}. Ha $ p^{ * } - d^{ * } > 0 $, akkor \emph{pozitív dualitási hézag}.
+\end{megj}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
