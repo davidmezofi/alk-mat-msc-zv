@@ -51,12 +51,12 @@
 % Tétel és társai: félkövér + dőlt
 \newtheorem*{tetel}{Tétel}
 \newtheorem*{allit}{állítás}
-\newtheorem{feladat}{feladat}
 \newtheorem*{kovet}{Következmény}
 %
 % Definíció és társai: félkövér + álló
 \theoremstyle{definition}
 \newtheorem*{defin}{Definíció}
+\newtheorem*{feladat}{Feladat}
 %
 % Megjegyzés és társai: dőlt + álló
 \theoremstyle{remark}
@@ -363,6 +363,21 @@ Tegyük fel, hogy $ g_{ i } $-k affin, $ c,{} f_{ i } $-k konvex és differenci�
 		\right)^{ \T } \nabla g \left( \hat{ \mathbf{ x } } \right) = 0 $.
 \end{enumerate}
 Ha létezik ilyen $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $, akkor $ \hat{ \mathbf{ x } } $ primál, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $ duál optimumhely.
+%
+\minisec{Súlyozott párosítási probléma}
+\begin{feladat}
+	Legyen a $ G $ gráf, valamint a $ c \colon E \rightarrow \mathbb{ R }^{ + } $ \emph{élsúlyozás}
+	adott. Keressünk maximális súlyú párosítást!
+\end{feladat}
+A $ c $ súlyfüggvényt azonosíthatjuk egy $ \mathbf{ c } \in \mathbb{ R }^{ E } $ vektorral. Legyen
+$ \mathbf{ B } $ a $ G $ gráf \emph{pont-él illeszkedési mátrixa}. Így a feladat:
+\begin{equation*}
+	\begin{array}{rcl}
+		\mathbf{ B } \mathbf{ x }	&	\preceq	&	\mathbf{ 1 }\\
+		\hline
+		\tilde{ c } \left( \lambda,{} \mu \right)	&	\rightarrow	&	\max
+	\end{array}.
+\end{equation*}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
