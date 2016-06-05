@@ -29,7 +29,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 ### Általános szakirány
 
 - [x] **R** Mátrixok sajátértékeinek meghatározása: *RHR-algoritmus?*
-- [ ] **R** Mátrixok általánosított inverze
+- [x] **R** Mátrixok általánosított inverze
 - [ ] **R** Periodikus függvények diszkrét négyzetes közelítése
 - [x] **D** A hullámegyenlet: *Fourier, numerikus?*
 - [x] **D** A hővezetés egyenlete: *numerikus?*
