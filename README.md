@@ -28,9 +28,9 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 ### Általános szakirány
 
-- [ ] Mátrixok sajátértékeinek meghatározása
-- [ ] Mátrixok általánosított inverze
-- [ ] Periodikus függvények diszkrét négyzetes közelítése
+- [ ] **R** Mátrixok sajátértékeinek meghatározása
+- [ ] **R** Mátrixok általánosított inverze
+- [ ] **R** Periodikus függvények diszkrét négyzetes közelítése
 - [x] **D** A hullámegyenlet: *Fourier, numerikus?*
 - [x] **D** A hővezetés egyenlete: *numerikus?*
 - [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
