@@ -30,7 +30,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 - [x] **R** Mátrixok sajátértékeinek meghatározása: *RHR-algoritmus?*
 - [x] **R** Mátrixok általánosított inverze
-- [ ] **R** Periodikus függvények diszkrét négyzetes közelítése
+- [x] **R** Periodikus függvények diszkrét négyzetes közelítése
 - [x] **D** A hullámegyenlet: *Fourier, numerikus?*
 - [x] **D** A hővezetés egyenlete: *numerikus?*
 - [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
