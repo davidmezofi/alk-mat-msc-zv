@@ -1,5 +1,5 @@
 # alk-mat-msc-zv
-Az SZTE Alkalmazott matematikus MSc záróvizsgatételei
+Az SZTE Alkalmazott matematikus MSc (általános szakirány) záróvizsgatételei
 
 Szerzők: Judák Regina, Majernyik Noel, Mezőfi Dávid
 
