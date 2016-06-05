@@ -78,11 +78,20 @@
 %
 % Szépen szedett algoritmusok.
 %
-\usepackage[ruled]{algorithm}
+\usepackage[ruled,section]{algorithm}
 \usepackage[noend]{algpseudocode}
 \algrenewcommand\algorithmicrequire{\textbf{Bemenet}:}
 \algrenewcommand\algorithmicensure{\textbf{Kimenet}:}
+\newcommand{\Break}{\State\textbf{break} }
 %
+\usepackage{caption}
+\makeatletter
+\renewcommand{\ALG@name}{algoritmus}
+\makeatother
+\makeatletter
+\DeclareCaptionLabelFormat{hunalg}{#2.~\ALG@name.}
+\makeatother
+\captionsetup[algorithm]{labelformat=hunalg}
 % Példa.
 %
 %\begin{algorithm}
@@ -475,6 +484,57 @@ ekvivalens az eredetivel.
 		\emph{Lovász-féle szendvicstétel}: $ \alpha \left( G \right) \le \theta \left( G \right) \le
 		\bar{ \chi } \left( G \right) \left( = \chi \left( \bar{ G } \right) \right) $.
 \end{description}
+%
+\minisec{Egészértékű programozás}
+\begin{equation}\tag{IP és LP-relaxáltja}
+	\begin{array}{rcl}
+		\mathbf{ A } \mathbf{ x } 			&	\preceq		&	\mathbf{ b }\\
+		\mathbf{ x } 						&	\in			&	\mathbb{ N }^{ n }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min.
+	\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+		\mathbf{ A } \mathbf{ x } 			&	\preceq		&	\mathbf{ b }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min.
+	\end{array}
+\end{equation}
+\begin{description}
+	\item[L-következtetés] Szokásos \textqq{levezetés} révén nyert új egyenlőtlenség.
+	\item[I-következtetés] Ha $ \alpha_{ 1 } x_{ 1 } + \alpha_{ 2 } x_{ 2 } + \ldots +
+		\alpha_{ n } x_{ n } \le \beta $ Az egyenlőtlenségek egy következménye
+		(L-következtetés), akkor $ \left\lfloor \alpha_{ 1 } \right\rfloor x_{ 1 } +
+		\left\lfloor \alpha_{ 2 } \right\rfloor x_{ 2 } + \ldots + \left\lfloor \alpha_{ n }
+		\right\rfloor x_{ n } \le \left\lfloor \beta \right\rfloor $ egy \emph{I-köveztetés}. Az
+		új egyenlőtlenségnek a feltételekhez történő hozzáadásával nem veszítünk lehetséges
+		megoldást.
+	\item[Algoritmus]\leavevmode%
+		\begin{algorithmic}[1]
+			\Procedure{Relaxáció}{IP-feladat}
+				\State Oldjuk meg az IP-feladat LP-relaxáltját!
+				\State\Return az LP-relaxált feladat optimumhelye
+			\EndProcedure
+			\Procedure{GoodLuck}{optimumhely}
+				\If{optimumhely egész koordinátájú}
+					\State\Return \textsc{true}
+					\Else
+						\State\Return \textsc{false}
+				\EndIf
+			\EndProcedure
+			\Procedure{MegoldIP}{IP-feladat}
+				\State optimumhely $\gets$ \Call{Relaxáció}{IP-feladat}
+				\If{\Call{GoodLuck}{optimumhely}}
+					\State\Return optimumhely
+					\Else
+					\State új IP-feladat $\gets$ L- és I-következtetések\Comment{Gomory-algoritmus}
+					\State\Call{MegoldIP}{új IP-feladat}
+				\EndIf
+
+
+			\EndProcedure
+		\end{algorithmic}
+\end{description}
+%
+\minisec{Korlátozás és szétválasztás módszerek alkalmazásai}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
