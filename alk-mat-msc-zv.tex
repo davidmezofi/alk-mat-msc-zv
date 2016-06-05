@@ -581,6 +581,36 @@ ekvivalens az eredetivel.
 %
 \section{Mátrixok sajátértékeinek meghatározása}
 %
+A tételhez kapcsolódó anyagrészek megtalálhatóak
+\begin{enumerate}[label = (MF--\arabic{*}), ref = MF--\arabic{*}, mode = unboxed,%
+	labelindent = \parindent, leftmargin = *]
+	\item\label{mf1} \textsc{Móricz Ferenc}: \emph{Bevezetés a numerikus matematikába};
+	\item\label{mf2} \textsc{Móricz Ferenc}: \emph{Numerikus módszerek az algebrában és analízisben}
+\end{enumerate}
+című könyveiben.
+\minisec{Mátrixok trianguláris felbontása, ortogonális triangularizáció}
+Lásd \ref{mf2} I. fejezet, 1. szakasz.
+
+Egy $ \mathbf{ A } $ négyzetes mátrix \emph{trianguláris felbontása} ($ \mathbf{ A } = \mathbf{ L }
+\mathbf{ U } $) nem minden esetben létezik, még akkor sem, ha a mátrix nem szinguláris. Viszont ha a
+balfelső főminorok mind 0-tól különbözőek, akkor a felbontás létezik és a felső trianguláris
+$ \mathbf{ U } $ mátrix diagonális elemei a balfelső főminorok segítségével meghatározhatóak és
+ekkor $ \mathbf{ U } $ sem szinguláris. Ha az $ \mathbf{ A } $ mátrix valamely balfelső főminora
+abszolútértékben kicsi, akkor a trianguláris felbontás során fellépő osztások során olyan kerekítési
+hibák léphetnek fel, amelyek az eljárás végehajthatóságát veszélyeztethetik a túl kicsi/nagy
+számokkal történő számolások következtében, vagy pedig teljesen eltorzíthatják az $ \mathbf{ L } $
+és $ \mathbf{ U } $ mátrixok elemeit. Ez a probléma kiküszöbölhető egy másik típusú, ún.
+\emph{ortogonális triangularizáció} segítségével, ahol az alulról trianguláris $ \mathbf{ L } $
+mátrixot egy ortogonális $ \mathbf{ Q } $ mátrixszal helyettesítjük és egy felülről trianguláris
+$ \mathbf{ U } $ mátrixot továbbra is megtartunk.
+
+Ha az $ \mathbf{ A } $ mátrix nem szinguláris, akkor az $ \mathbf{ L } \mathbf{ U } $ felbontás
+egyértelmű, míg a $ \mathbf{ Q } \mathbf{ U } $ felbontás a $ \mathbf{ Q } $ oszlopainak és
+$ \mathbf{ U } $ sorainak előjelétől eltekintve egyértelmű.
+
+Tetszőleges téglalap alakú mátrix ortogonális triangularizációja is definiálható a 3. tétel
+segítségével.
+%
 \section{Mátrixok általánosított inverze}
 %
 \section{Periodikus függvények diszkrét négyzetes közelítése}
