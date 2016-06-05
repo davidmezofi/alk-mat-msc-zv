@@ -393,21 +393,17 @@ $ \mathbf{ B } $ a $ G $ gráf \emph{pont-él illeszkedési mátrixa}. Így a fe
 		\mathbf{ 0 }						&	\preceq	&	\mathbf{ x }\\
 		\hline
 		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
-	\end{array}}_{\text{LP-relaxáció}}.
-\end{equation*}
-Kicsit átalakítva:
-\begin{equation*}
-	\mathbf{ M } = \begin{bmatrix}
-		\mathbf{ B }\\
-		- \mathbf{ I }_{ E }
-	\end{bmatrix} \qquad \Rightarrow \qquad \begin{array}{rcl}
+	\end{array}}_{\text{LP-relaxáció}} \qquad \Leftrightarrow \qquad \begin{array}{rcl}
 		\mathbf{ M } \mathbf{ x }			&	\preceq	&	\begin{bmatrix}
 				\mathbf{ 1 }\\
 				\mathbf{ 0 }
 			\end{bmatrix}\\
 		\hline
 		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
-	\end{array}.
+	\end{array} \quad \left( \mathbf{ M } = \begin{bmatrix}
+		\mathbf{ B }\\
+		- \mathbf{ I }_{ E }
+	\end{bmatrix} \right) .
 \end{equation*}
 Ha $ G $ \emph{páros}, akkor $ \mathbf{ B } $ (és így $ \mathbf{ M } $ is) \emph{totálisan
 unimoduláris} (bármely aldeterminánsa $ - 1 $, $ 0 $ vagy $ 1 $), és ekkor a relaxált feladat
@@ -441,20 +437,33 @@ ekvivalens az eredetivel.
 		\end{equation}
 	\item[Maximális vágás problémája és duálisa] Legyen $ G = \left( V,{} E \right) $ egyszerű gráf.
 		Keressünk olyan $ \mathcal{ V } $ vágást, melyre $ \left| E \left( \mathcal{ V } \right)
-		\right| $ maximális!
-
-		Egy $ \mathcal{ V } $ vágás: $ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } \subset \mathbb{ R }^{ V } $, ahol a komponens $ - 1 $, ha a megfelelő csúcs a vágás egyik, $ 1 $, ha a vágás másik oldalára esik. Legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Az $ \mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x } $ kvadratikus alakban az $ e = \left\{ u,{} v \right\} $ él hozzájárulása $ 2 x_{ u } x_{ v } $, $ x_{ u } x_{ v } = 1 $, ha $ e $-t \textqq{nem vágtuk ketté}, $ - 1 $ különben. A feladat és duálisa:
+		\right| $ maximális! A feladat duálisa SDP-feladat ($ \mathbf{ A } $ a szomszédsági mátrix,
+		$ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } $ a vágást kódolja):
 		\begin{equation*}
-	 		\begin{array}{rcl}
-				x_{ v }^{ 2 } 									&		=		& 1 \quad \left( \forall \, v \in V \right)\\
-				\hline
-				\mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x }	&	\rightarrow	&	\min
-			\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+			\begin{array}{rcl}
 				\mathbf{ A } + \diag \mu 	&		\succeq	&	\mathbf{ 0 }\\
 				\hline
 				- \mathbf{ 1 }^{ \T } \mu	&	\rightarrow	&	\max
 			\end{array}.
 		\end{equation*}
+%		Egy $ \mathcal{ V } $ vágás: $ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } \subset
+%		\mathbb{ R }^{ V } $, ahol a komponens $ - 1 $, ha a megfelelő csúcs a vágás egyik, $ 1 $,
+%		ha a vágás másik oldalára esik. Legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Az
+%		$ \mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x } $ kvadratikus alakban az $ e = \left\{ u,{}
+%		v \right\} $ él hozzájárulása $ 2 x_{ u } x_{ v } $, $ x_{ u } x_{ v } = 1 $, ha $ e $-t
+%		\textqq{nem vágtuk ketté}, $ - 1 $ különben. A feladat és duálisa:
+%		\begin{equation*}
+%	 		\begin{array}{rcl}
+%				x_{ v }^{ 2 } 									&		=		& 1 \quad \left(
+%				\forall \, v \in V \right)\\
+%				\hline
+%				\mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x }	&	\rightarrow	&	\min
+%			\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+%				\mathbf{ A } + \diag \mu 	&		\succeq	&	\mathbf{ 0 }\\
+%				\hline
+%				- \mathbf{ 1 }^{ \T } \mu	&	\rightarrow	&	\max
+%			\end{array}.
+%		\end{equation*}
 	\item[Maximális független ponthalmaz felső becslése]  Legyen $ G = \left( V,{} E \right) $
 		egyszerű gráf, legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Jelölje $ \mathbf{ J } $
 		a csupa 1 mátrixot, legyen $ \bar{ \mathbf{ A } } = \mathbf{ J } - \mathbf{ A } $. Ekkor, ha
@@ -464,11 +473,13 @@ ekvivalens az eredetivel.
 		\bar{ \mathbf{ A } } \right) $, és így $ \alpha \left( G \right)  \le \lambda_{ \max }
 		\left( \bar{ \mathbf{ A } } \right) $.
 
-		Nevezzünk egy $ V \times V $-s szimmetrikus $ \mathbf{ M } $ mátrixot \emph{$ T_{ G }
-		$-tulajdonságúnak}, ha a főátlón és a \textqq{neméleknél} is 1-es szerepel. Ekkor az ilyen
-		tulajdonságú mátrixok maximális sajátérékeinek minimuma is alkalmas felső becslés $ \alpha
-		\left( G \right) $-re. Így, ha $ \mathbf{ S }_{ e } $ az $ e $ élnek megfelelő szomszédsági
-		mátrix, akkor az SDP-feladat:
+		A kapcsolódó SDP-feladat:
+%
+%		Nevezzünk egy $ V \times V $-s szimmetrikus $ \mathbf{ M } $ mátrixot \emph{$ T_{ G }
+%		$-tulajdonságúnak}, ha a főátlón és a \textqq{neméleknél} is 1-es szerepel. Ekkor az ilyen
+%		tulajdonságú mátrixok maximális sajátérékeinek minimuma is alkalmas felső becslés $ \alpha
+%		\left( G \right) $-re. Így, ha $ \mathbf{ S }_{ e } $ az $ e $ élnek megfelelő szomszédsági
+%		mátrix, akkor az SDP-feladat:
 		\begin{equation*}
 	 		\begin{array}{rcl}
 				\mathbf{ M } 									&		=		& \mathbf{ J } -
@@ -479,7 +490,7 @@ ekvivalens az eredetivel.
 			\end{array}
 		\end{equation*}
 		Ennek a feladatnak a optimumát a \emph{$ G $ gráf Lovász-féle $ \theta $-függvényének}
-		nevezzük, és nyilván $ \alpha \left( G \right) \le \theta \left( G \right) $.
+		nevezzük, és $ \alpha \left( G \right) \le \theta \left( G \right) $.
 
 		\emph{Lovász-féle szendvicstétel}: $ \alpha \left( G \right) \le \theta \left( G \right) \le
 		\bar{ \chi } \left( G \right) \left( = \chi \left( \bar{ G } \right) \right) $.
@@ -507,34 +518,60 @@ ekvivalens az eredetivel.
 		\right\rfloor x_{ n } \le \left\lfloor \beta \right\rfloor $ egy \emph{I-köveztetés}. Az
 		új egyenlőtlenségnek a feltételekhez történő hozzáadásával nem veszítünk lehetséges
 		megoldást.
-	\item[Algoritmus]\leavevmode%
-		\begin{algorithmic}[1]
-			\Procedure{Relaxáció}{IP-feladat}
-				\State Oldjuk meg az IP-feladat LP-relaxáltját!
-				\State\Return az LP-relaxált feladat optimumhelye
-			\EndProcedure
-			\Procedure{GoodLuck}{optimumhely}
-				\If{optimumhely egész koordinátájú}
-					\State\Return \textsc{true}
-					\Else
-						\State\Return \textsc{false}
-				\EndIf
-			\EndProcedure
-			\Procedure{MegoldIP}{IP-feladat}
-				\State optimumhely $\gets$ \Call{Relaxáció}{IP-feladat}
-				\If{\Call{GoodLuck}{optimumhely}}
-					\State\Return optimumhely
-					\Else
-					\State új IP-feladat $\gets$ L- és I-következtetések\Comment{Gomory-algoritmus}
-					\State\Call{MegoldIP}{új IP-feladat}
-				\EndIf
-
-
-			\EndProcedure
-		\end{algorithmic}
+	\item[Algoritmus] L- és I-következtetések végrehajtását (valamilyen sámát követve, pl.
+		Gomory-al\-go\-rit\-must) követően megoldjuk a kapcsolódó LP-relaxált feladatot, ha a kapott
+		megoldás egész koordinátájú, akkor készen vagyunk, ha nem, akkor új L- és
+		I-következtetéseket hajtunk végre, és így tovább\ldots
+%		\leavevmode%
+%		\begin{algorithmic}[1]
+%			\Procedure{Relaxáció}{IP-feladat}
+%				\State Oldjuk meg az IP-feladat LP-relaxáltját!
+%				\State\Return az LP-relaxált feladat optimumhelye
+%			\EndProcedure
+%			\Procedure{GoodLuck}{optimumhely}
+%				\If{optimumhely egész koordinátájú}
+%					\State\Return \textsc{true}
+%					\Else
+%						\State\Return \textsc{false}
+%				\EndIf
+%			\EndProcedure
+%			\Procedure{MegoldIP}{IP-feladat}
+%				\State optimumhely $\gets$ \Call{Relaxáció}{IP-feladat}
+%				\If{\Call{GoodLuck}{optimumhely}}
+%					\State\Return optimumhely
+%					\Else
+%					\State új IP-feladat $\gets$ L- és I-következtetések\Comment{Gomory-algoritmus}
+%					\State\Call{MegoldIP}{új IP-feladat}
+%				\EndIf
+%			\EndProcedure
+%		\end{algorithmic}
 \end{description}
 %
 \minisec{Korlátozás és szétválasztás módszerek alkalmazásai}
+\begin{description}
+	\item[Feltétel nélküli optimalizálás] $ c \left( \mathbf{ x } \right) $-et szeretnénk
+		minimalizálni (létezik optimum, elég egy $ \epsilon $-kö\-ze\-lí\-tő megoldás). Legyen adott egy
+		$ T_{ 0 } $ tégla, aminek eleme az optimumhely. Tegyük fel, hogy $ c $ \textqq{szép}: minden
+		téglán könnyen adhatunk alső és felső becslést $ c $-re; egy téglalap (egy oldala menti)
+		kettévágásával ezek a becslések javulnak; ha a téglalap egy ponthoz közelít, akkor az alsó
+		és felső becslések különbsége kicsi $ \left( \epsilon \right) $ lesz.
+
+		Az algoritmus dióhéjban: Téglalapfelezgetéssel közelítünk egy $ \epsilon $-közelítő
+		megoldáshoz; egy téglát a leghosszabb oldala mentén felezünk; azon tégla \textqq{irányába}
+		indulunk, amelyikre a legkisebb az alsó becslés (csak a \textqq{leveleket} tartjuk számon).
+	\item[Vegyes konvex-egész optimalizálás] Legyen $ \mathbf{ d } \in \left\{ 0,{} 1
+		\right\}^{ m } $, $ c $, $ f_{ i } $ $ \left( i \in \left[ k \right] \right) $ konvex függvények. A feladat:
+		\begin{equation*}
+			\begin{array}{rcl}
+				f \left( \mathbf{ x },{} \mathbf{ d } \right) 	&	\preceq			& 0\\
+				\hline
+				c \left( \mathbf{ x },{} \mathbf{ d } \right) 	&	\rightarrow	&	\min
+			\end{array}.
+		\end{equation*}
+	\item[Kevés nemnulla komponens lineáris feltételek mellett] Egy egyenlőtlenségrendszer olyan,
+	megoldását keressük, melynek kevés nem nulla komponense van. Ez visszavezethető egy vegyes
+	konvex-egész optimalizálási feladatra.
+\end{description}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

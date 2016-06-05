@@ -24,7 +24,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
-- [ ] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP?*
+- [ ] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
 
 ### Általános szakirány
 
