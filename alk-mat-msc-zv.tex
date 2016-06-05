@@ -702,6 +702,17 @@ ekvidisztáns beosztását vesszük, alapfüggvényeknek pedig a komplex trigono
 választjuk. A 21. szakaszban megtaláljuk a DFT, majd rögtön utána az IDFT definícióját (121.~oldal),
 melyek az előtte lévő levezetések alapján nyernek értelmet.
 %
+\minisec{FFT - gyors Fourier-transzformáció}
+Lásd \ref{mf2} V. fejezet, 22. szakaszának első fele.
+
+A DFT és IDFT műveletigénye $ n^{ 2 } $, ha ismerjük az $ n $-edik komplex egységgyököket. Ha
+$ n = 2^{ r } $ alakú, azaz kettőnek egész kitevőjű hatványa, akkor a műveletigényben jelentős
+megtakarítás érhető el, mind a DFT és IDFT szervezhető olyan módon, hogy a műveletigény $ n \log_2
+n $ komplex szorzás legyen. A lényeg az $ a_{ q } $ együtthatók képletében a $ 2^{ r } $
+összeadandóból kitudunk választani olyan csoportokat, amelyek különböző együtthatók kifejezésében
+egyaránt fellépnek. Ehhez a képletekben szereplő $ j $ és $ q $ számok diadikus előállítása
+szükséges.
+%
 \section{A hullámegyenlet}
 % A PDE-s dolgok megvannak LaTeX-ben jegyzetként, ezek gyorsan mennek.
 %
