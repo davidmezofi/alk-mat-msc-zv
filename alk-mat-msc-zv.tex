@@ -168,6 +168,7 @@
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\diag}{diag}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -390,7 +391,7 @@ Kicsit átalakítva:
 	\mathbf{ M } = \begin{bmatrix}
 		\mathbf{ B }\\
 		- \mathbf{ I }_{ E }
-	\end{bmatrix} \qquad \begin{array}{rcl}
+	\end{bmatrix} \qquad \Rightarrow \qquad \begin{array}{rcl}
 		\mathbf{ M } \mathbf{ x }			&	\preceq	&	\begin{bmatrix}
 				\mathbf{ 1 }\\
 				\mathbf{ 0 }
@@ -402,6 +403,78 @@ Kicsit átalakítva:
 Ha $ G $ \emph{páros}, akkor $ \mathbf{ B } $ (és így $ \mathbf{ M } $ is) \emph{totálisan
 unimoduláris} (bármely aldeterminánsa $ - 1 $, $ 0 $ vagy $ 1 $), és ekkor a relaxált feladat
 ekvivalens az eredetivel.
+%
+\minisec{LP és SDP kombinatorikai alkalmazásai}\leavevmode
+\begin{description}
+	\item[Folyamprobléma és duálisa] Legyen $ \mathcal{ H } = \left( \vec{ G },{} s,{} t,{} c
+		\right) $ hálózat: $ s,{} t $ rendre \emph{forrás}, \emph{nyelő}, $ c $
+		\emph{kapacitásfüggény} $ \left( \mathbf{ c } \right) $. Legyen a \emph{folyamfüggvény} $ f
+		\colon E \rightarrow \mathbb{ R } $, azonosíthatjuk $ \mathbf{ x } $-szel.
+		Teljesüljenek a kapacitásfeltételek: $ \mathbf{ 0 } \preceq \mathbf{ x } \preceq
+		\mathbf{ c } $, valamint a Kirchhoff-törvény (csúcsonként a ki- és a beáramló mennyiség
+		azonos). A folyam \emph{értéke}: $ v $, a forrásnál a kiáramló és beáramló mennyiség
+		különbsége (nyelőnél fordítva).
+
+		Adjunk hozzá $ \vec{ G } $-hez egy $ e_{ + } = \overrightarrow{ t s } $ élt, melyen a
+		(kiterjesztett) folyam $ v $-t vesz fel. Ekkor $ \vec{ G }_{ + } $ cirkuláció.  A feladat és
+		duálisa:
+		\begin{equation}\tag{MFMC}
+			\begin{array}{rclcl}
+				\mathbf{ 0 }							&	\preceq		&	\mathbf{ x }	&	\preceq	&	\mathbf{ c }\\
+				\mathbf{ B }_{ + } \mathbf{ x }_{ + }	&	=			&	\mathbf{ 0 }	&			&	\\
+				\hline
+				v										&	\rightarrow	&	\max
+			\end{array} \qquad \leadsto\qquad \begin{array}{rcl}
+				\mathcal{ V }					&				& \text{egy $ s $-$ t $-vágás}\\
+				\hline
+				C \left( \mathcal{ V } \right)	&	\rightarrow	&	\min
+			\end{array}.
+		\end{equation}
+	\item[Maximális vágás problémája és duálisa] Legyen $ G = \left( V,{} E \right) $ egyszerű gráf.
+		Keressünk olyan $ \mathcal{ V } $ vágást, melyre $ \left| E \left( \mathcal{ V } \right)
+		\right| $ maximális!
+
+		Egy $ \mathcal{ V } $ vágás: $ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } \subset \mathbb{ R }^{ V } $, ahol a komponens $ - 1 $, ha a megfelelő csúcs a vágás egyik, $ 1 $, ha a vágás másik oldalára esik. Legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Az $ \mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x } $ kvadratikus alakban az $ e = \left\{ u,{} v \right\} $ él hozzájárulása $ 2 x_{ u } x_{ v } $, $ x_{ u } x_{ v } = 1 $, ha $ e $-t \textqq{nem vágtuk ketté}, $ - 1 $ különben. A feladat és duálisa:
+		\begin{equation*}
+	 		\begin{array}{rcl}
+				x_{ v }^{ 2 } 									&		=		& 1 \quad \left( \forall \, v \in V \right)\\
+				\hline
+				\mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x }	&	\rightarrow	&	\min
+			\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+				\mathbf{ A } + \diag \mu 	&		\succeq	&	\mathbf{ 0 }\\
+				\hline
+				- \mathbf{ 1 }^{ \T } \mu	&	\rightarrow	&	\max
+			\end{array}.
+		\end{equation*}
+	\item[Maximális független ponthalmaz felső becslése]  Legyen $ G = \left( V,{} E \right) $
+		egyszerű gráf, legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Jelölje $ \mathbf{ J } $
+		a csupa 1 mátrixot, legyen $ \bar{ \mathbf{ A } } = \mathbf{ J } - \mathbf{ A } $. Ekkor, ha
+		$ F \subseteq V $ független ponthalmaz, akkor $ \left. \bar{ \mathbf{ A } }
+		\right|_{ F \times F } = \mathbf{ J } $. Sajátvektor-sajátértékekre vonatkozó
+		észrevételekből adódik, hogy $ \left| F \right| \le \lambda_{ \max } \left(
+		\bar{ \mathbf{ A } } \right) $, és így $ \alpha \left( G \right)  \le \lambda_{ \max }
+		\left( \bar{ \mathbf{ A } } \right) $.
+
+		Nevezzünk egy $ V \times V $-s szimmetrikus $ \mathbf{ M } $ mátrixot \emph{$ T_{ G }
+		$-tulajdonságúnak}, ha a főátlón és a \textqq{neméleknél} is 1-es szerepel. Ekkor az ilyen
+		tulajdonságú mátrixok maximális sajátérékeinek minimuma is alkalmas felső becslés $ \alpha
+		\left( G \right) $-re. Így, ha $ \mathbf{ S }_{ e } $ az $ e $ élnek megfelelő szomszédsági
+		mátrix, akkor az SDP-feladat:
+		\begin{equation*}
+	 		\begin{array}{rcl}
+				\mathbf{ M } 									&		=		& \mathbf{ J } -
+					\sum_{ e \in E } x_{ e } \mathbf{ S }_{ e }\\
+				\mu \mathbf{ I }_{ V } - \mathbf{ M }			&		\succeq	& \mathbf{ 0 }\\
+				\hline
+				\mu	&	\rightarrow	&	\min.
+			\end{array}
+		\end{equation*}
+		Ennek a feladatnak a optimumát a \emph{$ G $ gráf Lovász-féle $ \theta $-függvényének}
+		nevezzük, és nyilván $ \alpha \left( G \right) \le \theta \left( G \right) $.
+
+		\emph{Lovász-féle szendvicstétel}: $ \alpha \left( G \right) \le \theta \left( G \right) \le
+		\bar{ \chi } \left( G \right) \left( = \chi \left( \bar{ G } \right) \right) $.
+\end{description}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
