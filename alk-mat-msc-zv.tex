@@ -592,7 +592,7 @@ című könyveiben.
 Lásd \ref{mf2} I. fejezet, 1. szakasz.
 
 Egy $ \mathbf{ A } $ négyzetes mátrix \emph{trianguláris felbontása} ($ \mathbf{ A } = \mathbf{ L }
-\mathbf{ U } $) nem minden esetben létezik, még akkor sem, ha a mátrix nem szinguláris. Viszont ha a
+\mathbf{ U } $) nem minden esetben létezik, még akkor sem, ha a mátrix nemszinguláris. Viszont ha a
 balfelső főminorok mind 0-tól különbözőek, akkor a felbontás létezik és a felső trianguláris
 $ \mathbf{ U } $ mátrix diagonális elemei a balfelső főminorok segítségével meghatározhatóak és
 ekkor $ \mathbf{ U } $ sem szinguláris. Ha az $ \mathbf{ A } $ mátrix valamely balfelső főminora
@@ -604,12 +604,41 @@ számokkal történő számolások következtében, vagy pedig teljesen eltorzí
 mátrixot egy ortogonális $ \mathbf{ Q } $ mátrixszal helyettesítjük és egy felülről trianguláris
 $ \mathbf{ U } $ mátrixot továbbra is megtartunk.
 
-Ha az $ \mathbf{ A } $ mátrix nem szinguláris, akkor az $ \mathbf{ L } \mathbf{ U } $ felbontás
+Ha az $ \mathbf{ A } $ mátrix nemszinguláris, akkor az $ \mathbf{ L } \mathbf{ U } $ felbontás
 egyértelmű, míg a $ \mathbf{ Q } \mathbf{ U } $ felbontás a $ \mathbf{ Q } $ oszlopainak és
 $ \mathbf{ U } $ sorainak előjelétől eltekintve egyértelmű.
 
 Tetszőleges téglalap alakú mátrix ortogonális triangularizációja is definiálható a 3. tétel
 segítségével.
+%
+\minisec{LR-algoritmus}
+Lásd \ref{mf2} I. fejezet, 3. szakasz.
+
+Legyen $ \mathbf{ A } $ négyzetes mátrix, melynek sajátértékeit meg szeretnénk határozni. Az
+LR-algoritmus segítségével a következő módon határozhatjuk meg a sajátértékeket:
+\begin{algorithmic}[1]
+	\State $ \mathbf{ A }_{ 1 } \gets \mathbf{ A }$
+	\State $ \left( \mathbf{ L }_{ 1 },{} \mathbf{ R }_{ 1 } \right) \gets $
+		\Call{TriangulárisFelbontás}{$ \mathbf{ A }_{ 1 } $}
+	\For{$ s \gets 1,{} s \gets s + 1$}
+		\State $ \mathbf{ A }_{ s + 1 } \gets \mathbf{ R }_{ s } \mathbf{ L }_{ s } $
+		\State $ \left( \mathbf{ L }_{ s + 1 },{} \mathbf{ R }_{ s + 1 } \right) \gets $ \Call{TriangulárisFelbontás}{$ \mathbf{ A }_{ s + 1 } $}
+	\EndFor
+\end{algorithmic}
+
+Legyen $ \mathbf{ X } = \left[ \mathbf{ x }_{ 1 },{} \mathbf{ x }_{ 2 }, \ldots,{}
+\mathbf{ x }_{ n } \right] $ az $ \mathbf{ A } $ sajátvektoraiból alkotott mátrix és $ \Lambda =
+\diag \left[ \lambda_{ 1 },{} \lambda_{ 2 },{} \ldots,{} \lambda_{ n } \right]^{ \T } $ az
+$ \mathbf{ A } $ sajátértékeiből képzett diagonális mátrix (feltéve, hogy $ \left| \lambda_{ 1 }
+\right| > \left| \lambda_{ 2 } \right| > \ldots > \left| \lambda_{ n } \right| > 0 $). Ha
+$ \mathbf{ X } $ és $ \mathbf{ X }^{ - 1 } $ balfelső főminorai 0-tól különbözőek, akkor az
+$ \left\{ \mathbf{ A }_{ s } \colon s = 1,{} 2,{} 3,{} \ldots \right\} $ mátrixsorozat konvergens,
+határértéke egy olyan felülről trianguláris mátrix, melynek főátlójában a $ \lambda_{ 1 },{}
+\lambda_{ 2 },{} \ldots,{} \lambda_{ n } $ sajátértékek állnak.
+
+Az előző algoritmus bármely lépésben elakadhat, ha nem létezik a trianguláris felbontás. Ha a
+trianguláris felbontás során \emph{részleges főelemkiválasztást} alkalmazunk, akkor a
+\emph{módosított LR-algoritmus} nem akadhat el, ha a szóban forgó mátrix nemszinguláris.
 %
 \section{Mátrixok általánosított inverze}
 %
