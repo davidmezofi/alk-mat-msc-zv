@@ -18,13 +18,13 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] Többváltozós és vektorértékű függvények
 - [ ] Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
-- [ ] Többdimenziós normális eloszlású vektorok statisztikai analízise
-- [ ] Lineáris regresszió
-- [ ] Kontingenciatáblák elemzése
+- [ ] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
+- [ ] **D** Lineáris regresszió
+- [ ] **D** Kontingenciatáblák elemzése
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
-- [ ] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
+- [x] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
 
 ### Általános szakirány
 
