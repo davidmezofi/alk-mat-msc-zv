@@ -15,7 +15,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] Gráfelmélet: párosítások, síkgráfok
 - [ ] Gröbner-bázisok és alkalmazásaik
 - [ ] Matematikai titkosírások
-- [ ] **R** Többváltozós és vektorértékű függvények
+- [ ] Többváltozós és vektorértékű függvények
 - [ ] Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [ ] Többdimenziós normális eloszlású vektorok statisztikai analízise
@@ -24,16 +24,16 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
-- [ ] **D** Optimalizálási eljárások
+- [ ] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
 
 ### Általános szakirány
 
 - [ ] **R** Mátrixok sajátértékeinek meghatározása
 - [ ] **R** Mátrixok általánosított inverze
 - [ ] **R** Periodikus függvények diszkrét négyzetes közelítése
-- [x] **D** A hullámegyenlet
-- [x] **D** A hővezetés egyenlete
-- [x] **D** A Laplace-egyenlet
+- [x] **D** A hullámegyenlet: *Fourier, numerikus?*
+- [x] **D** A hővezetés egyenlete: *numerikus?*
+- [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
 - [ ] Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
 - [ ] Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] A bonyolultságelmélet alapjai

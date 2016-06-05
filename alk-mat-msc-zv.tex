@@ -51,12 +51,12 @@
 % Tétel és társai: félkövér + dőlt
 \newtheorem*{tetel}{Tétel}
 \newtheorem*{allit}{állítás}
-\newtheorem{feladat}{feladat}
 \newtheorem*{kovet}{Következmény}
 %
 % Definíció és társai: félkövér + álló
 \theoremstyle{definition}
 \newtheorem*{defin}{Definíció}
+\newtheorem*{feladat}{Feladat}
 %
 % Megjegyzés és társai: dőlt + álló
 \theoremstyle{remark}
@@ -78,11 +78,20 @@
 %
 % Szépen szedett algoritmusok.
 %
-\usepackage[ruled]{algorithm}
+\usepackage[ruled,section]{algorithm}
 \usepackage[noend]{algpseudocode}
 \algrenewcommand\algorithmicrequire{\textbf{Bemenet}:}
 \algrenewcommand\algorithmicensure{\textbf{Kimenet}:}
+\newcommand{\Break}{\State\textbf{break} }
 %
+\usepackage{caption}
+\makeatletter
+\renewcommand{\ALG@name}{algoritmus}
+\makeatother
+\makeatletter
+\DeclareCaptionLabelFormat{hunalg}{#2.~\ALG@name.}
+\makeatother
+\captionsetup[algorithm]{labelformat=hunalg}
 % Példa.
 %
 %\begin{algorithm}
@@ -167,6 +176,9 @@
 \DeclareMathOperator{\cl}{cl}
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\diag}{diag}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -241,6 +253,325 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Sztochasztikus folyamatok alapfogalmai}
 %
 \section{Optimalizálási eljárások}
+%
+\minisec{Alapfeladat és speciális esetei}
+Legyen $ c \colon \mathbb{ R }^{ n } \supseteq \dom c \rightarrow \mathbb{ R } $ a
+\emph{célfüggvény}, ekkor az optimalizálás feladata a $ c $ célfüggvény minimalizálása előre
+kiszabott feltételek mellett:
+\begin{equation*}
+	\begin{array}{rcl}
+		\mathbf{ x }					&	\in			&	\mathcal{ F }\\
+		\hline
+		c \left( \mathbf{ x } \right)	&	\rightarrow	&	\min
+	\end{array} \quad \left( \mathbf{ x } \in \dom c \right).
+\end{equation*}
+Explicit feltételek:
+\begin{equation*}
+	\begin{cases}
+		f_{ i } \left( \mathbf{ x } \right) \le 0,	&	i \in \left[ k \right] = \left\{ 1,{} 2,{}
+			\ldots,{} k \right\};\\
+		g_{ j } \left( \mathbf{ x } \right) = 0,	&	j \in \left[ \ell \right],
+	\end{cases} \quad \Rightarrow \quad \begin{cases}
+		f \left( \mathbf{ x } \right) \preceq \mathbf{ 0 };	&\\
+		g \left( \mathbf{ x } \right) = \mathbf{ 0 }.		&
+	\end{cases}
+\end{equation*}
+A $ \mathcal{ D } $ \emph{értelmezési tartomány} a $ c $, az $ f_{ i } $ és a $ g_{ j } $ függvények
+értelmezési tartományainak metszete. A \emph{lehetséges megoldások halmaza}: $ \mathcal{ L } =
+\mathcal{ D } \cap \mathcal{ F } $. Az $ \left( \mathbf{ x }^{ * },{} p^{ * } \right) $ párt
+\emph{optimális helynek}, illetve \emph{optimális értéknek} nevezzük, ha
+\begin{equation*}
+	c \left( \mathbf{ x }^{ * } \right) = p^{ * } = \inf_{ \mathbf{ x } \in \mathcal{ L } } c \left(
+	\mathbf{ x } \right) \in \mathbb{ R } \cup \left\{ - \infty \right\} \cup \left\{ \infty
+	\right\}.
+\end{equation*}
+Gyakran megelégszünk \emph{$ \epsilon $-közelítő} $ \left( p^{ * } + \epsilon \right) $, illetve
+\emph{-approximáló} $ \left( \left( 1 + \epsilon \right) p^{ * },{} \left( 1 - \epsilon \right)
+p^{ * } \right) $ megoldásokkal. A problémák átfogalmazhatók a feltételek ekvivalens átalakításával,
+\emph{slack}-változók bevezetésével (egyenlőtlenség kiküszöbölésére), valamint a célfüggvény monoton
+függvénybe történő helyettesítésével.
+\begin{description}
+	\item[Feltétel nélküli optimalizálás] Legkisebb négyzetek problémája: $ \left\| \mathbf{ c } -
+		\mathbf{ A } \mathbf{ x } \right\|^{ 2 } \rightarrow \min $ (egyenes illesztése mért
+		adatpontokra)
+	\item[LP-feladatok] \begin{equation}\tag{LP}
+			\begin{array}{rcl}
+				\mathbf{ A } \mathbf{ x }			&	=			&	\mathbf{ b }\\
+				\mathbf{ x }						&	\succeq		&	\mathbf{ 0 }\\
+				\hline
+				\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min
+			\end{array}, \qquad \begin{array}{rcl}
+				\mathbf{ A } \mathbf{ x }			&	\preceq		&	\mathbf{ b }\\
+				\hline
+				\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min
+			\end{array}.
+		\end{equation}
+	\item[SDP-feladatok] \begin{equation}\tag{SDP}
+			\begin{array}{rcl}
+				\sum_{ i = 1 }^{ n } x_{ i } \mathbf{ A }_{ i }		&	\preceq	&	\mathbf{ B }\\
+				\mathbf{ D } \mathbf{ x }							&	=	&	\mathbf{ e }\\
+				\hline
+				\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min
+			\end{array}; \qquad \underbrace{\begin{array}{rcll}
+				\left\langle \mathbf{ A }_{ i },{} \mathbf{ X } \right\rangle	&	=	&
+					b_{ i }			&	i \in \left[ k \right]\\
+				\mathbf{ X }													&	\succeq	&
+					\mathbf{ 0 }	&\\
+				\hline
+				\left\langle \mathbf{ C },{} \mathbf{ X } \right\rangle			&	\rightarrow	&
+					\min			&
+			\end{array}}_{\text{I. normálforma}}; \qquad \underbrace{\begin{array}{rcl}
+				\sum_{ i = 1 }^{ n } x_{ i } \mathbf{ A }_{ i }		&	\preceq	&	\mathbf{ B }\\
+				\hline
+				\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min
+			\end{array}}_{\text{II. normálforma}},
+		\end{equation}
+		ahol az $ \mathbf{ A }_{ i },{} \mathbf{ B },{} \mathbf{ C },{} \mathbf{ X } $ mátrixok
+		szimmetrikusak.
+\end{description}
+%
+\minisec{Lagrange-módszer}
+\begin{equation*}\tag{Lagrange-függvény}
+	L \left( \mathbf{ x };{} \lambda,{} \mu \right) = c \left( \mathbf{ x } \right) + \lambda^{ \T }
+	f \left( \mathbf{ x }	\right) + \mu^{ \T } g \left( \mathbf{ x }	\right).
+\end{equation*}
+Ha $ \mathbf{ x } \in \mathcal{ L } $ és $ \lambda \succeq \mathbf{ 0 } $, akkor $ c \left(
+\mathbf{ x } \right) \ge L \left( \mathbf{ x };{} \lambda,{} \mu \right) $. Így
+\begin{equation}\tag{duális célfüggény, duális feladat}
+	\tilde{ c } \left( \lambda,{} \mu \right) = \inf_{ \mathbf{ x } \in \mathcal{ D } } L \left(
+	\mathbf{ x };{} \lambda,{} \mu \right), \qquad \begin{array}{rcl}
+		\lambda										&		\succeq	&	\mathbf{ 0 }\\
+		\hline
+		\tilde{ c } \left( \lambda,{} \mu \right)	&	\rightarrow	&	\max
+	\end{array}.
+\end{equation}
+\begin{tetel}[gyengedualitás-tétel]
+	Legyen a duális feladat optimális értéke $ d^{ * } $. Ekkor $ p^{ * } \ge d^{ * } $.
+\end{tetel}
+\begin{megj}
+	Ha egyenlőség teljesül, akkor \emph{erős dualitás}. Ha $ p^{ * } - d^{ * } > 0 $, akkor
+	\emph{pozitív dualitási hézag}.
+\end{megj}
+%
+\minisec{Karush\,--\,Kuhn\,--\,Tucker-tétel}
+Tegyük fel, hogy $ g_{ i } $-k affin, $ c,{} f_{ i } $-k konvex és differenciálható függvények. Erős dualitás pontosan akkor teljesül, ha létezik $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda }
+,{} \hat{ \mu } \right) $, melyek teljesítik a következő feltételeket:
+\begin{enumerate}[label = (KKT--\arabic{*}), ref = KKT--\arabic{*}, mode = unboxed,%
+	labelindent = \parindent, leftmargin = *]
+	\item\label{kkt1} $ \hat{ \mathbf{ x } } $ primál lehetséges megoldás;
+	\item\label{kkt2} $ \left( \hat{ \lambda },{} \hat{ \mu } \right) $ duál lehetséges megoldás;
+	\item\label{kkt3} $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda },{} \hat{ \mu } \right) $
+	komplementárisan laza tulajdonságú, azaz
+		\begin{itemize}
+			\item ha $ f_{ i } \left( \hat{ \mathbf{ x } } \right) < 0 $, akkor
+				$ \hat{ \lambda }_{ i } = 0 $;
+			\item ha $ \hat{ \lambda }_{ i } > 0 $, akkor $ f_{ i } \left( \hat{ \mathbf{ x } }
+				\right) = 0 $;
+		\end{itemize}
+	\item\label{kkt4} $ \nabla c \left( \hat{ \mathbf{ x } } \right) + \left( \hat{ \lambda }
+		\right)^{ \T } \nabla f \left( \hat{ \mathbf{ x } } \right) + \left( \hat{ \mu }
+		\right)^{ \T } \nabla g \left( \hat{ \mathbf{ x } } \right) = 0 $.
+\end{enumerate}
+Ha létezik ilyen $ \hat{ \mathbf{ x } } $, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $, akkor $ \hat{ \mathbf{ x } } $ primál, $ \left( \hat{ \lambda } ,{} \hat{ \mu } \right) $ duál optimumhely.
+%
+\minisec{Súlyozott párosítási probléma}
+\begin{feladat}
+	Legyen a $ G $ gráf, valamint a $ c \colon E \rightarrow \mathbb{ R }^{ + } $ \emph{élsúlyozás}
+	adott. Keressünk maximális súlyú párosítást!
+\end{feladat}
+A $ c $ súlyfüggvényt azonosíthatjuk egy $ \mathbf{ c } \in \mathbb{ R }^{ E } $ vektorral. Legyen
+$ \mathbf{ B } $ a $ G $ gráf \emph{pont-él illeszkedési mátrixa}. Így a feladat:
+\begin{equation*}
+	\underbrace{\begin{array}{rcl}
+		\mathbf{ B } \mathbf{ x }			&	\preceq	&	\mathbf{ 1 }\\
+		\mathbf{ 0 }						&	\preceq	&	\mathbf{ x }\\
+		\mathbf{ x }						&	\in		&	\mathbb{ Z }^{ E }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
+	\end{array}}_{\text{egész feltételű LP}} \qquad \leadsto \qquad \underbrace{\begin{array}{rcl}
+		\mathbf{ B } \mathbf{ x }			&	\preceq	&	\mathbf{ 1 }\\
+		\mathbf{ 0 }						&	\preceq	&	\mathbf{ x }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
+	\end{array}}_{\text{LP-relaxáció}} \qquad \Leftrightarrow \qquad \begin{array}{rcl}
+		\mathbf{ M } \mathbf{ x }			&	\preceq	&	\begin{bmatrix}
+				\mathbf{ 1 }\\
+				\mathbf{ 0 }
+			\end{bmatrix}\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\max
+	\end{array} \quad \left( \mathbf{ M } = \begin{bmatrix}
+		\mathbf{ B }\\
+		- \mathbf{ I }_{ E }
+	\end{bmatrix} \right) .
+\end{equation*}
+Ha $ G $ \emph{páros}, akkor $ \mathbf{ B } $ (és így $ \mathbf{ M } $ is) \emph{totálisan
+unimoduláris} (bármely aldeterminánsa $ - 1 $, $ 0 $ vagy $ 1 $), és ekkor a relaxált feladat
+ekvivalens az eredetivel.
+%
+\minisec{LP és SDP kombinatorikai alkalmazásai}\leavevmode
+\begin{description}
+	\item[Folyamprobléma és duálisa] Legyen $ \mathcal{ H } = \left( \vec{ G },{} s,{} t,{} c
+		\right) $ hálózat: $ s,{} t $ rendre \emph{forrás}, \emph{nyelő}, $ c $
+		\emph{kapacitásfüggény} $ \left( \mathbf{ c } \right) $. Legyen a \emph{folyamfüggvény} $ f
+		\colon E \rightarrow \mathbb{ R } $, azonosíthatjuk $ \mathbf{ x } $-szel.
+		Teljesüljenek a kapacitásfeltételek: $ \mathbf{ 0 } \preceq \mathbf{ x } \preceq
+		\mathbf{ c } $, valamint a Kirchhoff-törvény (csúcsonként a ki- és a beáramló mennyiség
+		azonos). A folyam \emph{értéke}: $ v $, a forrásnál a kiáramló és beáramló mennyiség
+		különbsége (nyelőnél fordítva).
+
+		Adjunk hozzá $ \vec{ G } $-hez egy $ e_{ + } = \overrightarrow{ t s } $ élt, melyen a
+		(kiterjesztett) folyam $ v $-t vesz fel. Ekkor $ \vec{ G }_{ + } $ cirkuláció.  A feladat és
+		duálisa:
+		\begin{equation}\tag{MFMC}
+			\begin{array}{rclcl}
+				\mathbf{ 0 }							&	\preceq		&	\mathbf{ x }	&	\preceq	&	\mathbf{ c }\\
+				\mathbf{ B }_{ + } \mathbf{ x }_{ + }	&	=			&	\mathbf{ 0 }	&			&	\\
+				\hline
+				v										&	\rightarrow	&	\max
+			\end{array} \qquad \leadsto\qquad \begin{array}{rcl}
+				\mathcal{ V }					&				& \text{egy $ s $-$ t $-vágás}\\
+				\hline
+				C \left( \mathcal{ V } \right)	&	\rightarrow	&	\min
+			\end{array}.
+		\end{equation}
+	\item[Maximális vágás problémája és duálisa] Legyen $ G = \left( V,{} E \right) $ egyszerű gráf.
+		Keressünk olyan $ \mathcal{ V } $ vágást, melyre $ \left| E \left( \mathcal{ V } \right)
+		\right| $ maximális! A feladat duálisa SDP-feladat ($ \mathbf{ A } $ a szomszédsági mátrix,
+		$ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } $ a vágást kódolja):
+		\begin{equation*}
+			\begin{array}{rcl}
+				\mathbf{ A } + \diag \mu 	&		\succeq	&	\mathbf{ 0 }\\
+				\hline
+				- \mathbf{ 1 }^{ \T } \mu	&	\rightarrow	&	\max
+			\end{array}.
+		\end{equation*}
+%		Egy $ \mathcal{ V } $ vágás: $ \mathbf{ x } \in \left\{ -1,{} 1 \right\}^{ V } \subset
+%		\mathbb{ R }^{ V } $, ahol a komponens $ - 1 $, ha a megfelelő csúcs a vágás egyik, $ 1 $,
+%		ha a vágás másik oldalára esik. Legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Az
+%		$ \mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x } $ kvadratikus alakban az $ e = \left\{ u,{}
+%		v \right\} $ él hozzájárulása $ 2 x_{ u } x_{ v } $, $ x_{ u } x_{ v } = 1 $, ha $ e $-t
+%		\textqq{nem vágtuk ketté}, $ - 1 $ különben. A feladat és duálisa:
+%		\begin{equation*}
+%	 		\begin{array}{rcl}
+%				x_{ v }^{ 2 } 									&		=		& 1 \quad \left(
+%				\forall \, v \in V \right)\\
+%				\hline
+%				\mathbf{ x }^{ \T } \mathbf{ A } \mathbf{ x }	&	\rightarrow	&	\min
+%			\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+%				\mathbf{ A } + \diag \mu 	&		\succeq	&	\mathbf{ 0 }\\
+%				\hline
+%				- \mathbf{ 1 }^{ \T } \mu	&	\rightarrow	&	\max
+%			\end{array}.
+%		\end{equation*}
+	\item[Maximális független ponthalmaz felső becslése]  Legyen $ G = \left( V,{} E \right) $
+		egyszerű gráf, legyen $ \mathbf{ A } $ a gráf szomszédsági mátrixa. Jelölje $ \mathbf{ J } $
+		a csupa 1 mátrixot, legyen $ \bar{ \mathbf{ A } } = \mathbf{ J } - \mathbf{ A } $. Ekkor, ha
+		$ F \subseteq V $ független ponthalmaz, akkor $ \left. \bar{ \mathbf{ A } }
+		\right|_{ F \times F } = \mathbf{ J } $. Sajátvektor-sajátértékekre vonatkozó
+		észrevételekből adódik, hogy $ \left| F \right| \le \lambda_{ \max } \left(
+		\bar{ \mathbf{ A } } \right) $, és így $ \alpha \left( G \right)  \le \lambda_{ \max }
+		\left( \bar{ \mathbf{ A } } \right) $.
+
+		A kapcsolódó SDP-feladat:
+%
+%		Nevezzünk egy $ V \times V $-s szimmetrikus $ \mathbf{ M } $ mátrixot \emph{$ T_{ G }
+%		$-tulajdonságúnak}, ha a főátlón és a \textqq{neméleknél} is 1-es szerepel. Ekkor az ilyen
+%		tulajdonságú mátrixok maximális sajátérékeinek minimuma is alkalmas felső becslés $ \alpha
+%		\left( G \right) $-re. Így, ha $ \mathbf{ S }_{ e } $ az $ e $ élnek megfelelő szomszédsági
+%		mátrix, akkor az SDP-feladat:
+		\begin{equation*}
+	 		\begin{array}{rcl}
+				\mathbf{ M } 									&		=		& \mathbf{ J } -
+					\sum_{ e \in E } x_{ e } \mathbf{ S }_{ e }\\
+				\mu \mathbf{ I }_{ V } - \mathbf{ M }			&		\succeq	& \mathbf{ 0 }\\
+				\hline
+				\mu	&	\rightarrow	&	\min.
+			\end{array}
+		\end{equation*}
+		Ennek a feladatnak a optimumát a \emph{$ G $ gráf Lovász-féle $ \theta $-függvényének}
+		nevezzük, és $ \alpha \left( G \right) \le \theta \left( G \right) $.
+
+		\emph{Lovász-féle szendvicstétel}: $ \alpha \left( G \right) \le \theta \left( G \right) \le
+		\bar{ \chi } \left( G \right) \left( = \chi \left( \bar{ G } \right) \right) $.
+\end{description}
+%
+\minisec{Egészértékű programozás}
+\begin{equation}\tag{IP és LP-relaxáltja}
+	\begin{array}{rcl}
+		\mathbf{ A } \mathbf{ x } 			&	\preceq		&	\mathbf{ b }\\
+		\mathbf{ x } 						&	\in			&	\mathbb{ N }^{ n }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min.
+	\end{array} \qquad \leadsto \qquad \begin{array}{rcl}
+		\mathbf{ A } \mathbf{ x } 			&	\preceq		&	\mathbf{ b }\\
+		\hline
+		\mathbf{ c }^{ \T } \mathbf{ x }	&	\rightarrow	&	\min.
+	\end{array}
+\end{equation}
+\begin{description}
+	\item[L-következtetés] Szokásos \textqq{levezetés} révén nyert új egyenlőtlenség.
+	\item[I-következtetés] Ha $ \alpha_{ 1 } x_{ 1 } + \alpha_{ 2 } x_{ 2 } + \ldots +
+		\alpha_{ n } x_{ n } \le \beta $ Az egyenlőtlenségek egy következménye
+		(L-következtetés), akkor $ \left\lfloor \alpha_{ 1 } \right\rfloor x_{ 1 } +
+		\left\lfloor \alpha_{ 2 } \right\rfloor x_{ 2 } + \ldots + \left\lfloor \alpha_{ n }
+		\right\rfloor x_{ n } \le \left\lfloor \beta \right\rfloor $ egy \emph{I-köveztetés}. Az
+		új egyenlőtlenségnek a feltételekhez történő hozzáadásával nem veszítünk lehetséges
+		megoldást.
+	\item[Algoritmus] L- és I-következtetések végrehajtását (valamilyen sámát követve, pl.
+		Gomory-al\-go\-rit\-must) követően megoldjuk a kapcsolódó LP-relaxált feladatot, ha a kapott
+		megoldás egész koordinátájú, akkor készen vagyunk, ha nem, akkor új L- és
+		I-következtetéseket hajtunk végre, és így tovább\ldots
+%		\leavevmode%
+%		\begin{algorithmic}[1]
+%			\Procedure{Relaxáció}{IP-feladat}
+%				\State Oldjuk meg az IP-feladat LP-relaxáltját!
+%				\State\Return az LP-relaxált feladat optimumhelye
+%			\EndProcedure
+%			\Procedure{GoodLuck}{optimumhely}
+%				\If{optimumhely egész koordinátájú}
+%					\State\Return \textsc{true}
+%					\Else
+%						\State\Return \textsc{false}
+%				\EndIf
+%			\EndProcedure
+%			\Procedure{MegoldIP}{IP-feladat}
+%				\State optimumhely $\gets$ \Call{Relaxáció}{IP-feladat}
+%				\If{\Call{GoodLuck}{optimumhely}}
+%					\State\Return optimumhely
+%					\Else
+%					\State új IP-feladat $\gets$ L- és I-következtetések\Comment{Gomory-algoritmus}
+%					\State\Call{MegoldIP}{új IP-feladat}
+%				\EndIf
+%			\EndProcedure
+%		\end{algorithmic}
+\end{description}
+%
+\minisec{Korlátozás és szétválasztás módszerek alkalmazásai}
+\begin{description}
+	\item[Feltétel nélküli optimalizálás] $ c \left( \mathbf{ x } \right) $-et szeretnénk
+		minimalizálni (létezik optimum, elég egy $ \epsilon $-kö\-ze\-lí\-tő megoldás). Legyen adott egy
+		$ T_{ 0 } $ tégla, aminek eleme az optimumhely. Tegyük fel, hogy $ c $ \textqq{szép}: minden
+		téglán könnyen adhatunk alső és felső becslést $ c $-re; egy téglalap (egy oldala menti)
+		kettévágásával ezek a becslések javulnak; ha a téglalap egy ponthoz közelít, akkor az alsó
+		és felső becslések különbsége kicsi $ \left( \epsilon \right) $ lesz.
+
+		Az algoritmus dióhéjban: Téglalapfelezgetéssel közelítünk egy $ \epsilon $-közelítő
+		megoldáshoz; egy téglát a leghosszabb oldala mentén felezünk; azon tégla \textqq{irányába}
+		indulunk, amelyikre a legkisebb az alsó becslés (csak a \textqq{leveleket} tartjuk számon).
+	\item[Vegyes konvex-egész optimalizálás] Legyen $ \mathbf{ d } \in \left\{ 0,{} 1
+		\right\}^{ m } $, $ c $, $ f_{ i } $ $ \left( i \in \left[ k \right] \right) $ konvex függvények. A feladat:
+		\begin{equation*}
+			\begin{array}{rcl}
+				f \left( \mathbf{ x },{} \mathbf{ d } \right) 	&	\preceq			& 0\\
+				\hline
+				c \left( \mathbf{ x },{} \mathbf{ d } \right) 	&	\rightarrow	&	\min
+			\end{array}.
+		\end{equation*}
+	\item[Kevés nemnulla komponens lineáris feltételek mellett] Egy egyenlőtlenségrendszer olyan,
+	megoldását keressük, melynek kevés nem nulla komponense van. Ez visszavezethető egy vegyes
+	konvex-egész optimalizálási feladatra.
+\end{description}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
