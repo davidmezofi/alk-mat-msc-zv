@@ -11,16 +11,16 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 ### Közös
 
-- [ ] Gráfelmélet: összefüggőség, színezések
-- [ ] Gráfelmélet: párosítások, síkgráfok
+- [ ] **N** Gráfelmélet: összefüggőség, színezések
+- [ ] **N** Gráfelmélet: párosítások, síkgráfok
 - [ ] **R** Gröbner-bázisok és alkalmazásaik
 - [ ] **R** Matematikai titkosírások
 - [ ] **R** Többváltozós és vektorértékű függvények
 - [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
-- [ ] Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
+- [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [ ] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
-- [ ] Lineáris regresszió
-- [ ] Kontingenciatáblák elemzése
+- [ ] **R** Lineáris regresszió
+- [ ] **R** Kontingenciatáblák elemzése
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
@@ -34,10 +34,10 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **D** A hullámegyenlet: *Fourier, numerikus?*
 - [x] **D** A hővezetés egyenlete: *numerikus?*
 - [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
-- [ ] Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
-- [ ] Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
-- [ ] A bonyolultságelmélet alapjai
-- [ ] Hibajelző és -javító kódolások
+- [ ] **N** Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
+- [ ] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
+- [ ] **N** A bonyolultságelmélet alapjai
+- [ ] **D** Hibajelző és -javító kódolások
 - [ ] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
 - [ ] **D** Differenciálformák, kinematikai sűrűség és mérték
 
