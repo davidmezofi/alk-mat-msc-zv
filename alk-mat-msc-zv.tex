@@ -28,7 +28,7 @@
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0}]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -276,7 +276,7 @@ definit, mivel \emph{Gram-mátrix} és $ \mathbf{ A } $ nemszinguláris).
 		oszlopvektorai függetlenek és $ \normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ C } \right) $
 		eloszlásúak.
 	\item[Wishart-eloszlás] Ilyen mátrix elemeinek együttes eloszlását $ \left( p,{} n,{}
-		\mathbf{ C } \right) $ paraméterű (centrális) \emph{Wishart-eloszlásnak} nevezzük --
+		\mathbf{ C } \right) $ paraméterű (centrális) \emph{Wi\-shart-eloszlásnak} nevezzük --
 		jelölésben $ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ C } \right) $.
 \end{description}
 $ \mathbf{ W } $ szimmetriája miatt valójában $ \frac{ p
@@ -290,12 +290,31 @@ $ \wishartd_{ p } \left( n,{} \mathbf{ I } \right) $, a standard Wishart-eloszl�
 Egy Wishart-mátrix standardizáltja standard Wishart-eloszlású \cite[5. fejezet, 4. szakasz, 4.1.
 tétel]{BollaKramli}. Azonos dimenziójú és kovarianciamátrixú Wishart-mátrixok összegének
 szabadságfoka az összeadandók szabadságfokainak összege \cite[5. fejezet, 4. szakasz, 4.2.
-állítás]{BollaKramli}. Nem elfajult $ p $-dimenziós normális eloszlású minta mintaátlagának,
-valamint empirikus kovarianciamátrix $ n $-szeresének eloszlása \cite[5. fejezet, 4. szakasz, 4.3.
-tétel]{BollaKramli}.
+állítás]{BollaKramli}. Nem elfajult $ p $-dimenziós normális eloszlású minta mintaátlagának $ \left(
+\bar{ \mathbf{ X } } \right) $, valamint empirikus kovarianciamátrix $ n $-szeresének $ \left(
+\mathbf{ S } \right) $ eloszlása \cite[5. fejezet, 4. szakasz, 4.3. tétel]{BollaKramli}.
 
 Definíciója miatt a Wishart-mátrix szimmetrikus és pozitív szemidefinit ($ n > p $ esetén belátható,
 hogy majdnem biztosan pozitív definit is).
+%
+\minisec{Paraméterbecslés}
+Legyen $ \mathbf{ X }_{ 1 },{} \mathbf{ X }_{ 2 },{} \ldots,{} \mathbf{ X }_{ n } $ független elemű
+minta az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } \right) $ véletlen
+vektorra, tegyük fel, hogy $ n > p $. A mintaelemek alapján szeretnénk becslést adni az ismeretlen
+$ \mathbf{ m } $ várható érték vektorra és a $ \mathbf{ C } $ kovarianciamátrixra, melyről
+feltesszük, hogy pozitív definit. Ehhez a \emph{maximum likelihood módszert használjuk}, azaz a
+mintaelemek együttes sűrűségfüggvényével definiált likelihhod-függvényt maximalizáljuk a két
+ismeretlen paraméterben.
+
+A paraméterek ML-becslése a fenti feltevések mellett: $ \hat{ \mathbf{ m } } =
+\bar{ \mathbf{ X } } $ és $ \hat{ \mathbf{ C } } = \frac{ 1 }{ n } \mathbf{ S } $ (lásd
+\cite[5.~fejezet, 5.~szakasz, 5.1.~tétel]{BollaKramli}). Így már levezehető a (standard)
+Wishart-mátrix sűrűségfüggvényének képlete \cite[5.~fejezet, 5.~szakasz, 5.2. és
+5.3.~tétel]{BollaKramli}. Ebből levezethető a standard Wishart-mátrix sajátértékeinek együttes
+sűrűsége \cite[5.~fejezet, 5.~szakasz, 5.4.~tétel]{BollaKramli}, megemlítendő, hogy véletlen
+mátrixok sajátértékei fontos szerepet játszanak a kvantummechanikában (\textsc{Wigner Jenő}).
+%
+\minisec{Hipotézisvizsgálat}
 %
 \section{Lineáris regresszió}
 %
