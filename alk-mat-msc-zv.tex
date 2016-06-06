@@ -151,11 +151,11 @@
 \frenchspacing
 %
 % Fejezetcímek magyar formátumnak megfelelően.
-\renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix.\enskip}
+\renewcommand*{\chapterformat}{\thechapter\autodot\ \chapappifchapterprefix\enskip}
 %
 % Minden szakasz új oldalon kezdődjön.
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
+%\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -179,6 +179,17 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\diag}{diag}
 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Irodalomjegyzék beállításai
+\makeatletter
+\let\old@thebibliography\thebibliography
+\def\thebibliography#1{
+\old@thebibliography{#1}
+\@ifundefined{chapter}
+{\addcontentsline{toc}{section}{\refname}}
+{\addcontentsline{toc}{chapter}{\bibname}}}
+\makeatother
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -241,12 +252,16 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
 %
 \section{Többdimenziós normális eloszlású vektorok statisztikai analízise}
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Bolla Marianna\,--\,Krámli András}:
+\emph{Statisztikai következtetések elmélete} \cite{BollaKramli} című könyvben.
 %
 \section{Lineáris regresszió}
 %
 \section{Kontingenciatáblák elemzése}
 %
 \section{Diszkrét idejű Markov-láncok}
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Pap Gyula\,--\,Szűcs Gábor}:
+\emph{Sztochasztikus folyamatok} \cite{PapSzucs} című jegyzetben.
 %
 \section{Folytonos idejű Markov-láncok}
 %
@@ -581,15 +596,12 @@ ekvivalens az eredetivel.
 %
 \section{Mátrixok sajátértékeinek meghatározása}
 %
-A tételhez kapcsolódó anyagrészek megtalálhatóak
-\begin{enumerate}[label = (MF--\arabic{*}), ref = MF--\arabic{*}, mode = unboxed,%
-	labelindent = \parindent, leftmargin = *]
-	\item\label{mf1} \textsc{Móricz Ferenc}: \emph{Bevezetés a numerikus matematikába};
-	\item\label{mf2} \textsc{Móricz Ferenc}: \emph{Numerikus módszerek az algebrában és analízisben}
-\end{enumerate}
-című könyveiben.
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Móricz Ferenc}: \emph{Bevezetés a numerikus
+matematikába} \cite{Moricz2008} és \textsc{Móricz Ferenc}: \emph{Numerikus módszerek az algebrában
+és analízisben} \cite{Moricz1997} című könyveiben.
+%
 \minisec{Mátrixok trianguláris felbontása, ortogonális triangularizáció}
-Lásd \ref{mf2} I. fejezet, 1. szakasz.
+Lásd \cite[I. fejezet, 1. szakasz]{Moricz1997}.
 
 Egy $ \mathbf{ A } $ négyzetes mátrix \emph{trianguláris felbontása} ($ \mathbf{ A } = \mathbf{ L }
 \mathbf{ U } $) nem minden esetben létezik, még akkor sem, ha a mátrix nemszinguláris. Viszont ha a
@@ -612,7 +624,7 @@ Tetszőleges téglalap alakú mátrix ortogonális triangularizációja is defin
 segítségével.
 %
 \minisec{LR-algoritmus}
-Lásd \ref{mf2} I. fejezet, 3. szakasz.
+Lásd \cite[I. fejezet, 3. szakasz]{Moricz1997}.
 
 Legyen $ \mathbf{ A } $ négyzetes mátrix, melynek sajátértékeit meg szeretnénk határozni. Az
 LR-algoritmus segítségével a következő módon határozhatjuk meg a sajátértékeket:
@@ -641,18 +653,19 @@ trianguláris felbontás során \emph{részleges főelemkiválasztást} alkalmaz
 \emph{módosított LR-algoritmus} nem akadhat el, ha a szóban forgó mátrix nemszinguláris.
 %
 \minisec{QR-algoritmus}
-Lásd \ref{mf2} I. fejezet, 4. szakasz.
+Lásd \cite[I. fejezet, 4. szakasz]{Moricz1997}.
 
 Teljesen hasonló az LR-algoritmushoz, csak a trianguláris felbontás helyett ortogonális
 triangularizációra van szükség.
 %
 \minisec{RHR-algoritmus}
-Lásd \ref{mf2} II. fejezet, 5. szakasz.
+Lásd \cite[II. fejezet, 5. szakasz]{Moricz2008}.
 
 \texttt{Ezt még nem néztem meg a másik Móricz-könyvben -- Regina.}
 %
 \section{Mátrixok általánosított inverze}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \ref{mf2} II. fejezetében.
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Móricz Ferenc}: \emph{Numerikus módszerek
+az algebrában és analízisben} \cite[II. fejezet]{Moricz1997} című könyveiben.
 %
 \minisec{Motiváció}
 Az \emph{általánosított inverz} bevezetésével definiálni tudunk egy olyan mátrixot szinguláris
@@ -661,7 +674,7 @@ mint a hagyományos inverzmátrix, illetve négyzetes nemszinguláris mátrixok 
 hagyományos inverzmátrixszal.
 %
 \minisec{Kiszámítás rangfaktorizációval}
-Lásd \ref{mf2} II. fejezet, 6. szakasz.
+Lásd \cite[II. fejezet, 6. szakasz]{Moricz1997}.
 
 Egy tetszőleges mátrix előállítható egy \emph{oszlopreguláris} és egy \emph{sorreguláris} mátrix
 szorzataként (rangfaktorizáció). A sor-/oszlopreguláris mátrixok általánosított inverze számolható
@@ -669,7 +682,7 @@ az 1. és 2. definíciók szerint. Az általános definíciót ezen definíciók
 segítségével kapjuk.
 %
 \minisec{Kiszámítás particionálással}
-Lásd \ref{mf2} II. fejezet, 8. szakasz.
+Lásd \cite[II. fejezet, 8. szakasz]{Moricz1997}.
 
 Inverzmátrix \textsc{Forbenius} módszerével történő kiszámításának általánosítása. \emph{Rang
 szerint particionált mátrix} általánosított inverze \textqq{könnyen} számítható a 29. tétel
@@ -679,19 +692,20 @@ tételben megtalálható, hogy ezek alapján hogyan jön ki egy tetszőleges má
 particionálással.
 %
 \minisec{Kiszámítás ortogonális triangularizációval}
-\ref{mf2} II. fejezetének 8. szakasza utolsó megjegyzésében leírtak szerint megy a számolás.
+Lásd \cite[II. fejezet, 8. szakasz utolsó megjegyzése]{Moricz1997}.
 %
 \minisec{Lineáris egyenletrendszerek vizsgálata}
-Lásd \ref{mf2} II. fejezet, 7. szakasz.
+Lásd \cite[II. fejezet, 7. szakasz]{Moricz1997}.
 
 Bizonyos \emph{kompatibilitási feltételek} esetén a kapcsolódó lineáris egyenletrendszereknek
 megadhatók az általános megoldásai (22. és 23. tétel), illetve az egyetlen normál megoldás (26. és 27. tétel).
 %
 \section{Periodikus függvények diszkrét négyzetes közelítése}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \ref{mf2} V. fejezetének 21. és 22. szakaszaiban.
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Móricz Ferenc}: \emph{Numerikus módszerek
+az algebrában és analízisben} \cite[V. fejezet, 21. és 22. szakaszok]{Moricz1997} című könyveiben.
 %
 \minisec{DFT -- diszkrét Fourier-transzformáció, IDFT -- inverz diszkrét Fourier-transzformáció}
-Lásd \ref{mf2} V. fejezet, 21. szakasz.
+Lásd \cite[V. fejezet, 21. szakasz]{Moricz1997}.
 
 Olyan függvényeket szeretnénk közelíteni, melyeknek értékét bizonyos diszkrét pontsorozatokon
 ismerjük (általában mérési adatokból, de a hiba igen nagy is lehet). Ilyen függvények közelítésére
@@ -703,7 +717,7 @@ választjuk. A 21. szakaszban megtaláljuk a DFT, majd rögtön utána az IDFT d
 melyek az előtte lévő levezetések alapján nyernek értelmet.
 %
 \minisec{FFT - gyors Fourier-transzformáció}
-Lásd \ref{mf2} V. fejezet, 22. szakaszának első fele.
+Lásd \cite[V. fejezet, 22. szakasz első fele]{Moricz1997}.
 
 A DFT és IDFT műveletigénye $ n^{ 2 } $, ha ismerjük az $ n $-edik komplex egységgyököket. Ha
 $ n = 2^{ r } $ alakú, azaz kettőnek egész kitevőjű hatványa, akkor a műveletigényben jelentős
@@ -714,7 +728,7 @@ egyaránt fellépnek. Ehhez a képletekben szereplő $ j $ és $ q $ számok dia
 szükséges.
 %
 \minisec{Számsorozatok konvolúciója}
-Lásd \ref{mf2} V. fejezet, 22. szakaszának második fele.
+Lásd \cite[V. fejezet, 22. szakasz második fele]{Moricz1997}.
 
 Két vektor konvolúciója a definíció alapján $ n \left( n + 1 \right) $ szorzás segítségével
 állítható elő. A 66. tétel (63)-as képletét átírva azonban kapjuk, hogy vektorok konvolúciója FFT
@@ -1176,6 +1190,7 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 % Függelék
 %
 \appendix
+\addtocontents{toc}{\bigskip\sffamily\textbf{Függelék}\par}
 %
 \chapter{Tudáselemek}
 %
@@ -1285,4 +1300,7 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 	\textsc{Blaschke} alapformulája, konvex alakzatot metsző konvex alakzatok halmazainak mértéke.
 \end{description}
 %
+\bibliography{irodalom}
+\bibliographystyle{huplain}
+\nocite{*}
 \end{document}
