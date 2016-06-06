@@ -13,14 +13,14 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 - [ ] Gráfelmélet: összefüggőség, színezések
 - [ ] Gráfelmélet: párosítások, síkgráfok
-- [ ] Gröbner-bázisok és alkalmazásaik
-- [ ] Matematikai titkosírások
-- [ ] Többváltozós és vektorértékű függvények
-- [ ] Fourier-sorok, ortogonális polinomok, sorfejtések
+- [ ] **R** Gröbner-bázisok és alkalmazásaik
+- [ ] **R** Matematikai titkosírások
+- [ ] **R** Többváltozós és vektorértékű függvények
+- [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [ ] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
-- [ ] **D** Lineáris regresszió
-- [ ] **D** Kontingenciatáblák elemzése
+- [ ] Lineáris regresszió
+- [ ] Kontingenciatáblák elemzése
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
@@ -38,8 +38,8 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] A bonyolultságelmélet alapjai
 - [ ] Hibajelző és -javító kódolások
-- [ ] Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
-- [ ] Differenciálformák, kinematikai sűrűség és mérték
+- [ ] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
+- [ ] **D** Differenciálformák, kinematikai sűrűség és mérték
 
 ### Creative Commons License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">work</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
