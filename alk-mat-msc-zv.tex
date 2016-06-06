@@ -28,7 +28,7 @@
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0}]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -168,6 +168,8 @@
 \newcommand{\BinomialD}{\mathcal{B}}
 \newcommand{\imag}{\mathfrak{i}}
 \newcommand{\SAGE}{\textsf{\textbf{SAGE}}{}}
+\newcommand{\normald}{\mathcal{N}}
+\newcommand{\wishartd}{\mathcal{W}}
 \renewcommand{\tan}{\mathop{\mathrm{tg}}}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\interior}{int}
@@ -254,6 +256,127 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Többdimenziós normális eloszlású vektorok statisztikai analízise}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Bolla Marianna\,--\,Krámli András}:
 \emph{Statisztikai következtetések elmélete} \cite{BollaKramli} című könyvben.
+
+\begin{defin}[$ p $-dimenziós standard normális eloszlás] Az $ \mathbf{ Y } $ véletlen vektor
+	\emph{$ p $-dimenziós standard normális eloszlású} -- jelölésben $ \mathbf{ Y } \sim
+	\normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ I }_{ p } \right) $ --, ha komponensei
+	egydimenziós standard normális eloszlásúak és függetlenek.
+\end{defin}
+Ha $ \det \mathbf{ A } \neq 0 $ és $ \mathbf{ X } = \mathbf{ A } \mathbf{ Y } + \mathbf{ m } $,
+akkor $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } \right) $, ahol
+$ \mathbf{ C } = \mathbf{ A } \mathbf{ A }^{ \T } $ ($ \mathbf{ C } $ szimmetrikus és pozitív
+definit, mivel \emph{Gram-mátrix} és $ \mathbf{ A } $ nemszinguláris).
+%
+\minisec{Wishart-eloszlás}\leavevmode
+\begin{description}
+	\item[Wishart-mátrix] A $ p \times  p $-s $ \mathbf{ W } $ véletlen mátrixot
+		\emph{$ p $-dimenziós, $ n $ szabadságfokú} $ \mathbf{ C } $ kovarianciamátrixú (centrális)
+		\emph{Wishart-mátrixnak} nevezzük, ha előállítható $ \mathbf{ W } = \mathbf{ X }
+		\mathbf{ X }^{ \T } $ alakban, ahol a $ p \times n $-es $ \mathbf{ X } $ véletlen mátrix
+		oszlopvektorai függetlenek és $ \normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ C } \right) $
+		eloszlásúak.
+	\item[Wishart-eloszlás] Ilyen mátrix elemeinek együttes eloszlását $ \left( p,{} n,{}
+		\mathbf{ C } \right) $ paraméterű (centrális) \emph{Wi\-shart-eloszlásnak} nevezzük --
+		jelölésben $ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ C } \right) $.
+\end{description}
+$ \mathbf{ W } $ szimmetriája miatt valójában $ \frac{ p
+\left( p + 1 \right) }{ 2 } $-dimenziós eloszlásról van szó. \emph{Nem centrális} Wishart-eloszlás
+esetén a kapcsolódó $ \mathbf{ X } $ mátrix oszlopvektroai $ \normald_{ p } \left( \mathbf{ m },{}
+\mathbf{ C } \right) $ eloszlásúak. Az $ \mathbf{ X } $ mátrix oszlopvektorainak segítségével
+$ \mathbf{ W } $ előállítható \emph{diádösszegként}. \emph{Standard Wishart-eloszlás}:
+$ \wishartd_{ p } \left( n,{} \mathbf{ I } \right) $, a standard Wishart-eloszlás $ p  = 1 $ mellett
+éppen a $ \chi^{ 2 } \left( n \right) $-eloszlás.
+
+Egy Wishart-mátrix standardizáltja standard Wishart-eloszlású \cite[5. fejezet, 4. szakasz, 4.1.
+tétel]{BollaKramli}. Azonos dimenziójú és kovarianciamátrixú Wishart-mátrixok összegének
+szabadságfoka az összeadandók szabadságfokainak összege \cite[5. fejezet, 4. szakasz, 4.2.
+állítás]{BollaKramli}. Nem elfajult $ p $-dimenziós normális eloszlású minta mintaátlagának $ \left(
+\bar{ \mathbf{ X } } \right) $, valamint empirikus kovarianciamátrix $ n $-szeresének $ \left(
+\mathbf{ S } \right) $ eloszlása \cite[5. fejezet, 4. szakasz, 4.3. tétel]{BollaKramli}.
+
+Definíciója miatt a Wishart-mátrix szimmetrikus és pozitív szemidefinit ($ n > p $ esetén belátható,
+hogy majdnem biztosan pozitív definit is).
+%
+\minisec{Paraméterbecslés}
+Legyen $ \mathbf{ X }_{ 1 },{} \mathbf{ X }_{ 2 },{} \ldots,{} \mathbf{ X }_{ n } $ független elemű
+minta az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } \right) $ véletlen
+vektorra, tegyük fel, hogy $ n > p $. A mintaelemek alapján szeretnénk becslést adni az ismeretlen
+$ \mathbf{ m } $ várható érték vektorra és a $ \mathbf{ C } $ kovarianciamátrixra, melyről
+feltesszük, hogy pozitív definit. Ehhez a \emph{maximum likelihood módszert használjuk}, azaz a
+mintaelemek együttes sűrűségfüggvényével definiált likelihhod-függvényt maximalizáljuk a két
+ismeretlen paraméterben.
+
+A paraméterek ML-becslése a fenti feltevések mellett: $ \hat{ \mathbf{ m } } =
+\bar{ \mathbf{ X } } $ és $ \hat{ \mathbf{ C } } = \frac{ 1 }{ n } \mathbf{ S } $ (lásd
+\cite[5.~fejezet, 5.~szakasz, 5.1.~tétel]{BollaKramli}). Így már levezehető a (standard)
+Wishart-mátrix sűrűségfüggvényének képlete \cite[5.~fejezet, 5.~szakasz, 5.2. és
+5.3.~tétel]{BollaKramli}. Ebből levezethető a standard Wishart-mátrix sajátértékeinek együttes
+sűrűsége \cite[5.~fejezet, 5.~szakasz, 5.4.~tétel]{BollaKramli}, megemlítendő, hogy véletlen
+mátrixok sajátértékei fontos szerepet játszanak a kvantummechanikában (\textsc{Wigner Jenő}).
+%
+\minisec{Hipotézisvizsgálat}
+Az egydimenziós esethez hasonlóan bevezethetjük a következő fogalmakat: torzítatlan, elégséges,
+teljes statisztika. Belátható, hogy a fenti ML-becslés esetén $ \bar{ \mathbf{ X } } $ torzítatlan,
+míg $ \frac{ 1 }{ n } \mathbf{ S } $ torzított, de $ \frac{ 1 }{ n - 1 } \mathbf{ S } $ már
+torzítatlan becslés, mindkét becslés erősen konzisztens, az $ \left(  \bar{ \mathbf{ X } },{}
+\frac{ 1 }{ n } \mathbf{ S } \right) $ pár elégséges statisztika, az $ \left(
+\bar{ \mathbf{ X } },{} \frac{ 1 }{ n - 1 } \mathbf{ S } \right) $ pár pedig hatásos becslés
+\cite[5. fejezet, 6. szakasz eleje]{BollaKramli}.
+\begin{defin}[Hotelling-féle $ T^{ 2 } $-eloszlás]
+	Legyen $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ I }_{ p } \right) $ és
+	$ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ I }_{ p } \right) $ egymástól független
+	véletlen vektor és véletlen mátrix. Ekkor a $ T^{ 2 } = n \mathbf{ X }^{ \T }
+	\mathbf{ W }^{ - 1 } \mathbf{ X } $ valószínűségi változót \emph{Hotelling-féle
+	$ T^{ 2 }$-eloszlásúnak} nevezzük $ n $ (szabadsági fok) és $ p $ paraméterekkel.
+\end{defin}
+A $ T^{ 2 } $-eloszlás a Student-féle $ t $-eloszlás többdimenziós általánosítása. Belátható, hogy
+az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } \right) $ és
+$ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ C } \right) $ esetben $ T^{ 2 } = n \left(
+\mathbf{ X } - \mathbf{ m } \right)^{ \T } \mathbf{ W }^{ - 1 } \left( \mathbf{ X } - \mathbf{ m }
+\right) $ szintén $ T^{ 2 } $-eloszlású $ n $ és $ p $ paraméterekkel \cite[5.~fejezet, 6.~szakasz,
+6.1.~állítás]{BollaKramli}. A Hotelling-féle $ T^{ 2 } $-eloszlás és a Fisher-féle $ F $-eloszlás
+kapcsolatát \cite[5.~fejezet, 6.~szakasz, 6.2.~tétel]{BollaKramli} részletezi.
+
+A következő teszteket \cite[5.~fejezet, 6.~szakasz, 230--234. o.]{BollaKramli} részletezi.
+\begin{description}
+	\item[Várható érték tesztelése ismert kovarianciamátrix esetén]\leavevmode
+		\begin{description}
+			\item[Egymintás eset] Az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{}
+				\mathbf{ C } \right) $ véletlen vektorra vegyünk egy $ n > p $ elemű független
+				mintát. Teszteljük, hogy $ \mathbf{ m } = \mathbf{ m }_{ 0 } $ teljesül-e. Ha
+				$ H_{ 0 } $ igaz, akkor
+				\begin{equation*}
+					U_{ 1 } = \left( \bar{ \mathbf{ X } } -
+					\mathbf{ m }_{ 0 } \right)^{ \T } \left( \frac{ 1 }{ n } \mathbf{ C }
+					\right)^{ - 1 } \left( \bar{ \mathbf{ X } } - \mathbf{ m }_{ 0 } \right) \sim
+					\chi^{ 2 } \left( p \right),
+				\end{equation*}
+				ez alapján tudunk dönteni. Ez az egymintás
+				$ u $-próba magasabb dimenziós megfelelője.
+			\item[Kétmintás eset] Az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m }_{ 1 },{}
+				\mathbf{ C }_{ 1 } \right) $, $ \mathbf{ Y } \sim \normald_{ p } \left(
+				\mathbf{ m }_{ 2 },{} \mathbf{ C }_{ 2 } \right) $ véletlen vektorokra vegyünk
+				rendre egy-egy $ n,{} m > p $ elemű egymástól független mintát (maguk a mintaelemek
+				is függetlenek egymástól). Teszteljük, hogy $ \mathbf{ m }_{ 1 } =
+				\mathbf{ m }_{ 2 } $ teljesül-e. Az előzőhöz hasonló statisztikát vizsgálunk.
+		\end{description}
+	\item[Várható érték tesztelése ismeretlen kovarianciamátrix esetén]\leavevmode
+		\begin{description}
+			\item[Egymintás eset] Az előző egymintás esethez hasonló statisztikát vizsgálunk, csak
+			itt
+			\begin{equation*}
+				T^{ 2 } = \left( n - 1 \right) \left( \bar{ \mathbf{ X } } -
+				\mathbf{ m }_{ 0 } \right)^{ \T } \hat{ \mathbf{ C } }^{ - 1 } \left( \bar{
+				\mathbf{ X } } - \mathbf{ m }_{ 0 } \right)
+			\end{equation*}
+			statisztika és a korábbi Hotelling- és Fisher-eloszlás kapcsolatát felhasználva döntünk.
+			Ez az egymintás $ t $-próba általánosításának tekinthető.
+			\item[Kétmintás eset] Hasonlóan, csak feltesszük, hogy a két minta azonos
+			kovarianciamátrixú. Itt is a Hotelling- és Fisher-eloszlás kapcsolatát felhasználva
+			döntünk. Ha nem tesszük fel, hogy a kovarianciamátrixok megegyeznek, akkor is létezik
+			próba a Welch-próbához hasonlóan.
+		\end{description}
+\end{description}
 %
 \section{Lineáris regresszió}
 %
