@@ -168,6 +168,8 @@
 \newcommand{\BinomialD}{\mathcal{B}}
 \newcommand{\imag}{\mathfrak{i}}
 \newcommand{\SAGE}{\textsf{\textbf{SAGE}}{}}
+\newcommand{\normald}{\mathcal{N}}
+\newcommand{\wishartd}{\mathcal{W}}
 \renewcommand{\tan}{\mathop{\mathrm{tg}}}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\interior}{int}
@@ -254,6 +256,46 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Többdimenziós normális eloszlású vektorok statisztikai analízise}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Bolla Marianna\,--\,Krámli András}:
 \emph{Statisztikai következtetések elmélete} \cite{BollaKramli} című könyvben.
+
+\begin{defin}[$ p $-dimenziós standard normális eloszlás] Az $ \mathbf{ Y } $ véletlen vektor
+	\emph{$ p $-dimenziós standard normális eloszlású} -- jelölésben $ \mathbf{ Y } \sim
+	\normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ I }_{ p } \right) $ --, ha komponensei
+	egydimenziós standard normális eloszlásúak és függetlenek.
+\end{defin}
+Ha $ \det \mathbf{ A } \neq 0 $ és $ \mathbf{ X } = \mathbf{ A } \mathbf{ Y } + \mathbf{ m } $,
+akkor $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } \right) $, ahol
+$ \mathbf{ C } = \mathbf{ A } \mathbf{ A }^{ \T } $ ($ \mathbf{ C } $ szimmetrikus és pozitív
+definit, mivel \emph{Gram-mátrix} és $ \mathbf{ A } $ nemszinguláris).
+%
+\minisec{Wishart-eloszlás}\leavevmode
+\begin{description}
+	\item[Wishart-mátrix] A $ p \times  p $-s $ \mathbf{ W } $ véletlen mátrixot
+		\emph{$ p $-dimenziós, $ n $ szabadságfokú} $ \mathbf{ C } $ kovarianciamátrixú (centrális)
+		\emph{Wishart-mátrixnak} nevezzük, ha előállítható $ \mathbf{ W } = \mathbf{ X }
+		\mathbf{ X }^{ \T } $ alakban, ahol a $ p \times n $-es $ \mathbf{ X } $ véletlen mátrix
+		oszlopvektorai függetlenek és $ \normald_{ p } \left( \mathbf{ 0 },{} \mathbf{ C } \right) $
+		eloszlásúak.
+	\item[Wishart-eloszlás] Ilyen mátrix elemeinek együttes eloszlását $ \left( p,{} n,{}
+		\mathbf{ C } \right) $ paraméterű (centrális) \emph{Wishart-eloszlásnak} nevezzük --
+		jelölésben $ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ C } \right) $.
+\end{description}
+$ \mathbf{ W } $ szimmetriája miatt valójában $ \frac{ p
+\left( p + 1 \right) }{ 2 } $-dimenziós eloszlásról van szó. \emph{Nem centrális} Wishart-eloszlás
+esetén a kapcsolódó $ \mathbf{ X } $ mátrix oszlopvektroai $ \normald_{ p } \left( \mathbf{ m },{}
+\mathbf{ C } \right) $ eloszlásúak. Az $ \mathbf{ X } $ mátrix oszlopvektorainak segítségével
+$ \mathbf{ W } $ előállítható \emph{diádösszegként}. \emph{Standard Wishart-eloszlás}:
+$ \wishartd_{ p } \left( n,{} \mathbf{ I } \right) $, a standard Wishart-eloszlás $ p  = 1 $ mellett
+éppen a $ \chi^{ 2 } \left( n \right) $-eloszlás.
+
+Egy Wishart-mátrix standardizáltja standard Wishart-eloszlású \cite[5. fejezet, 4. szakasz, 4.1.
+tétel]{BollaKramli}. Azonos dimenziójú és kovarianciamátrixú Wishart-mátrixok összegének
+szabadságfoka az összeadandók szabadságfokainak összege \cite[5. fejezet, 4. szakasz, 4.2.
+állítás]{BollaKramli}. Nem elfajult $ p $-dimenziós normális eloszlású minta mintaátlagának,
+valamint empirikus kovarianciamátrix $ n $-szeresének eloszlása \cite[5. fejezet, 4. szakasz, 4.3.
+tétel]{BollaKramli}.
+
+Definíciója miatt a Wishart-mátrix szimmetrikus és pozitív szemidefinit ($ n > p $ esetén belátható,
+hogy majdnem biztosan pozitív definit is).
 %
 \section{Lineáris regresszió}
 %
