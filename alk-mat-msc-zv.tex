@@ -1305,6 +1305,131 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 \section{Hibajelző és -javító kódolások}
 %
 \section{Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák}
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Luis A. Santaló}: \emph{Integral Geometry
+and Geometric Probability} \cite{Santalo} című könyvben.
+
+Motivációként elhangozhat a Bertrand-paradoxon: \emph{mennyi a valószínűsége, hogy egy szabályos
+háromszög köré írt körben véletlenül választott húr hossza nagyobb a háromszög oldalánál?}
+Legalább háromféleképpen közelíthetjük meg a problémát: megválaszthatjuk a húr két végpontját, ekkor
+a valószínűség $ \frac{ 1 }{ 3 } $; választhatjuk a normálvektorának (origó a kör középpontja)
+szögét, majd távolságát az origótól, ekkor a valószínűség $ \frac{ 1 }{ 2 } $; illetve
+választhatjuk a húr középpontját véletlenszerűen, ekkor a valószínűség $ \frac{ 1 }{ 4 } $ (az
+$ \frac{ 1 }{ 2 } $ sugarú koncentrikus körön kívül bármelyik pont megfelelő lesz).
+%
+\minisec{Sűrűség és mérték pont- és egyeneshalmazokon, elemi integrálformulák}
+Lásd \cite[2.~fejezet, 1.~szakasz]{Santalo}.
+
+Integrálgeometriai kontextusban olyan mértéket (sűrűséget) keresünk, amely \emph{mozgásinvariáns}.
+Szokásosan $ \left( x,{} y \right) $ Descartes-koordinátákat alkalmazva a síkon egy mozgás a
+következőképpen transzformál:
+\begin{align*}
+	x' &= x \cos \theta - y \sin \theta + a;\\
+	y' &= x \cos \theta + y \sin \theta + b.
+\end{align*}
+Tehát olyan $ \mu \left( X \right) = \int_{ X } f \left( x,{} y \right) \, \mathrm{ d }x \wedge
+\mathrm{ d } y $ mértéket keresünk, amely bármely a fenti alakú mozgásra invariáns. Ebből
+következik, hogy $ f \left(
+x,{} y \right) = f \left( x',{} y' \right) $ bármely mozgásra, mivel tetszőleges két pont mozgással
+átvihető egymásba a síkon, így adódik, hogy $ f $ konstans (speciálisan választhatjuk 1-nek).
+\begin{defin}[sűrűség ponthalmazokon]
+	A síkon \emph{ponthalmazok sűrűsége}
+	\begin{equation*}
+		\mathrm{ d } P =  \mathrm{ d }x \wedge \mathrm{ d } y,
+	\end{equation*}
+	\emph{mértéke} pedig a fenti sűrűség integrálja a halmazon.
+\end{defin}
+Hasonlóan független pont-$ n $-esek halmazának sűrűsége $ \mathrm{ d } P_{ 1 } \wedge \mathrm{ d }
+P_{ 2 } \wedge \ldots \wedge \mathrm{ d } P_{ n } $ (konstansszorzó erejéig egyértelmű). Áttérés
+másik (Descartes-féléből származtatott) koordináta-rendszerre Jacobi-mátrixszal.
+
+Az egyenesek halmazain mozgásinvariánsmértéket kapunk, ha az egyeneseket a
+normálvektoruk $ x $-tengellyel vett szögével -- $ \phi $ -- és az origótól vett távolságukkal
+-- $ p $ -- paraméterezzük: $ \mathrm{ d } e =  \mathrm{ d }p \wedge \mathrm{ d } \phi $. Ebből
+rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29--30.~o.]{Santalo})
+\begin{align*}
+	\int_{ e \cap K \neq \emptyset } \left| e \cap K \right| \, \mathrm{ d } e &= \pi T \left( K
+	\right);\\
+	\mu \left( e \colon e \cap K \neq \emptyset \right) = \int_{ e \cap K \neq \emptyset } \,
+	\mathrm{ d } e &= L \left( K \right),
+\end{align*}
+azaz a korlátos konvex $ K $ halmazt metsző egyenesek mértéke éppen $ K $ kerülete. Így egy $ K $-t
+metsző egyenes $ K $-ba eső részénék hosszána várható értéke $ \mean \left( \sigma \right)  = \pi
+\frac{ T \left( K \right) }{ L \left( K  \right) } $.
+
+Ha $ C $ egy szakaszonként differenciálható
+görbe, akkor véletlen egyenesek $ C $-vel vett metszéspontjai számának integrálja éppen $ C $
+hosszának kétszerese: $ \int n \, \mathrm{ d } e = 2 L $ (Crofton, lásd \cite[31.~o.]{Santalo}).
+%
+\minisec{Pont- és egyenespárok halmazainak mértéke}
+Pontpárok sűrűségét láttuk: $ \mathrm{ d } P_{ 1 } \wedge \mathrm{ d } P_{ 2 } $, azonban
+áttérhetünk a következő paraméterezésre: vegyük a két pontot összekötő egyenest -- $ e\colon p,{}
+\phi $ -- a legközelebbi pontját az origóhóz, és a két pont távolságát -- $t_{ 1 }, {} t_{ 2 }$ --
+ettől a ponttól. Ekkor (lásd \cite[46.~o.]{Santalo})
+\begin{equation*}
+	 \mathrm{ d } P_{ 1 } \wedge \mathrm{ d } P_{ 2 } = \left| t_{ 2 } - t_{ 1 }\right| \mathrm{ d }
+	 e \wedge \mathrm{ d } t_{ 1 } \wedge \mathrm{ d } t_{ 2 }.
+\end{equation*}
+Ebből levezethető a következő:
+\begin{equation*}
+	\mean \left( \left| \overline{ \mathbf{ p }_{ 1 } \mathbf{ p }_{ 2 } }\right| \right) =
+	\frac{ 1 }{ 6 T^{ 2 } \left( K \right) } \int_{ e \cap K \neq \emptyset } \sigma^{ 4 } \,
+	\mathrm{ d } e.
+\end{equation*}
+Legyen $ e_{ 1 } $ és $ e_{ 2 } $ két egyenes, melyek $ P $-ben metszik egymást és az $ x $ tengely
+pozitív irányával rendre $ \alpha_{ 1 },{} \alpha_{ 2 } $ szöget zárnak be. Ekkor (lásd
+\cite[49.~o.]{Santalo})
+\begin{equation*}
+	\mathrm{ d } e_{ 1 } \wedge \mathrm{ d } e_{ 2 } = \left| \sin \left( \alpha_{ 2 } -
+	\alpha_{ 1 } \right) \right| \mathrm{ d } P \wedge \mathrm{ d } \alpha_{ 1 } \wedge
+	\mathrm{ d } \alpha_{ 2 }.
+\end{equation*}
+Ebből, ha $ K $ korlátos és konvex, akkor véve a $ K $-t metsző egyenespárok mértékéből adódik,
+hogy ha $ \omega $ jelöli az egy pontból $ K $-hoz húzott érintők bezárt szögét, akkor
+\begin{equation}\tag{Crofton}
+	\int_{ P \not \in K } \left( \omega - \sin \omega  \right) \, \mathrm{ d } P = \frac{ 1 }{ 2 }
+	L^{ 2 } \left( K \right) - \pi T \left( K \right).
+\end{equation}
+Mivel $ \mu \left( e_{ 1 } \cap e_{ 2 } \in K \right) = 2 \pi T \left( K \right) $, ebből $ \prob
+\left( e_{ 1 } \cap e_{ 2 } \in K \right) = \frac{ 2 \pi T \left( K \right) }{ L^{ 2 } \left( K
+\right) } $ -- ez legfeljebb $ \frac{ 1 }{ 2 } $ (kör esetén vétetik fel), ez az
+\emph{izoperimetrikus probléma}.
+%
+\minisec{Buffon-féle tűprobléma}
+Tekintsük egy párhuzamos, egymástól egységnyi távolságra lévő egyenessereget a síkon. Mennyi a
+valószínűsége, hogy egy $ \ell < 1 $ hosszú \textqq{tűt} a síkra ejtve (matematikai módon), az
+metszi valamelyik egyenest?
+
+Világos, hogy 1 átmérőjű kört legfeljebb egy egyenes metszhet. Legyen ez a kör és benne a tű
+rögzített! Ekkor a korábbiak szerint a keresett valószínűség $ \prob \left( \ell \cap e \neq
+\emptyset\right) = \frac{ 2 \ell }{ \pi } $. A feladatnak léteznek különböző általánosításai,
+például sávokkal és konvex lemezekkel.
+%
+\minisec{Konvex halmazok támaszfüggvényeinek integráljai}
+Legyen $ p \left( \phi \right) $ a $ K $ konvex halmaz \emph{támaszfüggvénye} (lásd
+\cite[1.~fejezet, 2.~szakasz, 3--4.~oldal]{Santalo}). Ekkor
+\begin{align*}
+	L \left( K \right) &= \int_{ 0 }^{ 2 \pi } p \left( \phi \right) \, \mathrm{ d } \phi;\\
+	T \left( K \right) &= \frac{ 1 }{ 2 } \int_{ 0 }^{ 2 \pi } p \left( p + p'' \right) \,
+	\mathrm{ d } \phi = \frac{ 1 }{ 2 } \int_{ 0 }^{ 2 \pi } \left( p^{ 2 } - \left( p'
+		\right)^{ 2 } \right) \, \mathrm{ d } \phi
+\end{align*}
+%
+\minisec{Sylvester-probléma}
+Lásd \cite[4.~fejezet, 5.~szakasz, 63--65.~oldal]{Santalo}.
+
+Mi a valószínűsége, hogy egy $ K $ konvex halmazból 4 pontot váletlenszerűen választva a konvex
+burkuk négyszög?
+
+Ez a valószínűség
+\begin{align*}
+	p &= 1 - 4 \prob \left( \substack{\text{ az egyik pont a másik három által}\\\text{meghatározott
+	háromszögben van}} \right) = 1 - 4 \frac{ T_{ 2 } }{ T^{ 4 } \left( K \right) };\\
+	T_{ 2 } &= \iiint_{P_{ 0 },{} P_{ 1 },{} P_{ 2 },{} \in K } T \left( \triangle_{ P_{ 0 }
+	P_{ 1 }P_{ 2 } } \right) \, \mathrm{ d } P_{ 0 } \wedge  \mathrm{ d } P_{ 1 } \wedge
+	\mathrm{ d } P_{ 2 }.
+\end{align*}
+Háromszög esetén $ T_{ 2 } = \frac{ T^{ 4 } \left( K \right) }{ 12 } $, így $ p = \frac{ 2 }{ 3 } $,
+míg kör esetén $ p = 1 - \frac{ 35 }{ 12 \pi^{ 2 } } $.
 %
 \section{Differenciálformák, kinematikai sűrűség és mérték}
 %
