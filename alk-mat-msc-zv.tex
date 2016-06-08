@@ -180,7 +180,7 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\diag}{diag}
-
+\DeclareMathOperator{\SO}{SO}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Irodalomjegyzék beállításai
@@ -1306,7 +1306,7 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 %
 \section{Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Luis A. Santaló}: \emph{Integral Geometry
-and Geometric Probability} \cite{Santalo} című könyvben.
+and Geometric Probability} \cite{Santalo} című könyv I. részében.
 
 Motivációként elhangozhat a Bertrand-paradoxon: \emph{mennyi a valószínűsége, hogy egy szabályos
 háromszög köré írt körben véletlenül választott húr hossza nagyobb a háromszög oldalánál?}
@@ -1385,7 +1385,7 @@ pozitív irányával rendre $ \alpha_{ 1 },{} \alpha_{ 2 } $ szöget zárnak be.
 \end{equation*}
 Ebből, ha $ K $ korlátos és konvex, akkor véve a $ K $-t metsző egyenespárok mértékéből adódik,
 hogy ha $ \omega $ jelöli az egy pontból $ K $-hoz húzott érintők bezárt szögét, akkor
-\begin{equation}\tag{Crofton}
+\begin{equation}\tag{\textsc{Crofton}}
 	\int_{ P \not \in K } \left( \omega - \sin \omega  \right) \, \mathrm{ d } P = \frac{ 1 }{ 2 }
 	L^{ 2 } \left( K \right) - \pi T \left( K \right).
 \end{equation}
@@ -1411,7 +1411,7 @@ Legyen $ p \left( \phi \right) $ a $ K $ konvex halmaz \emph{támaszfüggvénye}
 	L \left( K \right) &= \int_{ 0 }^{ 2 \pi } p \left( \phi \right) \, \mathrm{ d } \phi;\\
 	T \left( K \right) &= \frac{ 1 }{ 2 } \int_{ 0 }^{ 2 \pi } p \left( p + p'' \right) \,
 	\mathrm{ d } \phi = \frac{ 1 }{ 2 } \int_{ 0 }^{ 2 \pi } \left( p^{ 2 } - \left( p'
-		\right)^{ 2 } \right) \, \mathrm{ d } \phi
+		\right)^{ 2 } \right) \, \mathrm{ d } \phi.
 \end{align*}
 %
 \minisec{Sylvester-probléma}
@@ -1432,6 +1432,104 @@ Háromszög esetén $ T_{ 2 } = \frac{ T^{ 4 } \left( K \right) }{ 12 } $, így 
 míg kör esetén $ p = 1 - \frac{ 35 }{ 12 \pi^{ 2 } } $.
 %
 \section{Differenciálformák, kinematikai sűrűség és mérték}
+%
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Luis A. Santaló}: \emph{Integral Geometry
+and Geometric Probability} \cite{Santalo} című könyv I. részében.
+%
+\minisec{Differenciálformák euklideszi tereken -- a síkon}
+Lásd \cite[6.~fejezet, 2.~szakasz, 82--84.~oldal]{Santalo}.
+
+A mozgásokon vett \emph{elsőrendű differenciálformának} (vagy 1-formának) nevezünk bármely
+\begin{equation*}
+	\omega \left( u \right) = \alpha \left( u \right) \mathrm{ d } a + \beta \left( u \right)
+	\mathrm{ d } b + \gamma \left( u \right) \mathrm{ d } \theta,
+\end{equation*}
+ahol az $ \alpha,{} \beta,{} \gamma $ függvények $ C^{ \infty } $-függvények a mozgások terén, azaz
+végtelen sokszor folytonosan differenciálhatók az $ u $ mozgás $ a,{} b,{} \theta $ koordinátáiban.
+
+Kiszámolható, hogy mely 1-formák alkotnak \textqq{bázist} $ \left( \omega_{ 1 },{} \omega_{ 2 },{}
+\omega_{ 3 } \right) $ a \emph{bal eltolásokon} (először
+$ \theta_{ 0 } $-szöggel forgatunk, utána alkalmazzuk $ u $-t) invariáns formákon. Hasonlóan a
+kiszámolható, hogy mely 1-formák alkotnak \textqq{bázist} $ \left( \omega^{ 1 },{} \omega^{ 2 },{}
+\omega^{ 3 } \right) $ a \emph{jobb eltolásokon} (először
+$ u $-t alkamazzuk, mad eltolunk $ \left( a,{} b \right) $-t) invariáns formákon.
+
+Ekkor a következő 3-formára (lásd \cite[6.~fejezet, 3.~szakasz, 85.~oldal]{Santalo}):
+\begin{gather*}
+	\omega_{ 1 } \wedge \omega_{ 2 } \wedge \omega_{ 3 } = \mathrm{ d } a \wedge \mathrm{ d } b
+	\wedge \mathrm{ d } \theta = \mathrm{ d } K = \mathrm{ d } a \wedge \mathrm{ d } b
+	\wedge \mathrm{ d } \theta = \omega^{ 1 } \wedge \omega^{ 2 } \wedge \omega^{ 3 };\\
+	\mathrm{ d } K \left( u^{ - 1 } \right)  = - \mathrm{ d } K \left( u \right),
+\end{gather*}
+de mivel sűrűségnél abszolútértéket veszünk, ezért a $ \mathrm{ d } K $ 3-forma invariáns a bal és a
+jobb eltolásokon is.
+%
+\minisec{Kinematikus mérték}
+Egy síkbeli mozgást paraméterezhetünk a(z origó körüli) forgatás szögével -- $ \theta $ --, illetve
+az eltolásvektor
+koordinátáival -- $ \left( a,{} b \right)  $. A síkbeli mozgások \emph{kinematikus sűrűsége}
+$ \mathrm{ d } a \wedge \mathrm{ d } b \wedge \mathrm{ d } \theta $ (térfogat $ \mathbb{ R }^{ 2 }
+\times \left.\left[ 0,{} 2 \pi \right)\right. $-n), mivel ez a mérték invariáns, azaz, ha $ H $
+mozgások egy halmaza, akkor $ \mu \left( u H \right) = \mu \left( H \right) = \mu \left( Hu
+\right) $ (komplexusszorzás), illetve $ \mu \left( H \right) = \mu \left( H^{ - 1 } \right) $
+(elemenkénti inverz). Nyilván a mérték a sűrűség integrálja lesz.
+
+Áttérhetünk egy másik ekvivalens kinematikus sűrűségre is: Tekintsük az $ x $-tengely képét, az
+$ e^{ * } $ irányított egyenest -- $ \mathrm{ d } e^{ * } =  \mathrm{ d }p \wedge \mathrm{ d } \phi
+$ -- valamint $ e^{ * } $ \textqq{talppontjának} és az origó képének a távolságát -- $ t $ --, ekkor
+$  \mathrm{ d } a \wedge \mathrm{ d } b \wedge \mathrm{ d } \theta =  \mathrm{ d } K =
+\mathrm{ d }e^{ * } \wedge \mathrm{ d } t $.
+
+A térben a mozgások tengelyes forgások ($ 3 \times  3 $-as, 1-determinánsú mátrixok -- $ \SO
+\left( 3 \right) $) és eltolások -- $ \mathbf{ t } $ -- szorzataként állnak elő. A forgatás
+$ \mathbf{ v } $ tengelye, és $ \alpha $ szögéről áttérve $ \mathbf{ w } $-ra és $ \theta $-ra a
+$ \mathrm{ d } \mathbf{ w } \wedge \mathrm{ d } \theta \wedge \mathrm{ d } \mathbf{ t } $ sűrűség
+lesz a \emph{kinematikus sűrűség} a térbeli mozgásokon.
+%
+\minisec{Mérték szakaszok halmazain}
+Lásd \cite[6.~fejezet, 4.~szakasz, 89--90.~oldal]{Santalo}.
+
+Legyen $ K $ irányított szakasz $ \ell $ hosszal, $ K_{ 0 } $ rögzített konvex lemez. A
+$ K_{ 0 } $-t metsző $ K $-val egybevágó (mozgásokkal kapható) szakaszok mértéke:
+\begin{equation*}
+	\int_{ K \cap K_{ 0 } \neq
+	\emptyset} \mathrm{ d } K = \int_{ K \cap K_{ 0 } \neq \emptyset} \mathrm{ d }e^{ * } \wedge
+	\mathrm{ d } t = \int_{ e \cap K_{ 0 } \neq \emptyset} \left( \sigma + \ell \right) \, \mathrm{ d } e^{ * } = 2 \pi T \left( K_{ 0 } \right) + 2 \ell L \left( K_{ 0 } \right).
+\end{equation*}
+%
+\minisec{Konvex alakzatot metsző konvex alakzatok halmazainak mértéke}
+Lásd \cite[6.~fejezet, 5.~szakasz, 93--95.~oldal]{Santalo}:
+\begin{equation*}
+	\mu \left( K_{ 1 } \colon K_{ 1 } \cap K_{ 0 } \neq \emptyset \right) = \int_{ K_{ 1 } \cap
+	K_{ 0 } \neq \emptyset } \mathrm{ d } K_{ 1 } = 2 \pi \left( T \left( K_{ 1 } \right) + T
+	\left( K_{ 0 } \right) \right) + L \left( K_{ 0 } \right) L \left( K_{ 1 } \right).
+\end{equation*}
+%
+\minisec{Poincaré-formula}
+Lásd \cite[7.~fejezet, 2.~szakasz, 111.~oldal]{Santalo}.
+
+Legyenek $ \Gamma_{ 0 },{} \Gamma_{ 1 } $ szakaszonként sima görbék a síkon. Ekkor
+\begin{equation}\tag{\textsc{Poincaré}}
+	\int_{ \Gamma_{ 0 } \cap \Gamma_{ 1 } \neq \emptyset } n \, \mathrm{ d } K_{ 1 } = 4 L_{ 0 }
+	L_{ 1 },
+\end{equation}
+ahol bal oldalon $ \Gamma_{ 1 } $-nek $ \Gamma_{ 0 } $-t metsző példányainak mértéke áll. Az
+integrandusban szereplő $ n $ a \emph{metszési szám}, $ L_{ 0 },{} L_{ 1 } $ a megfelelő görbék
+hosszai. A számolás természetes paraméterezésre, és az ezzel kapcsolatos mértékre történő áttéréssel
+megy.
+%
+\minisec{Blaschke alapformulája}
+Lásd \cite[7.~fejezet, 4.~szakasz, 114.~oldal]{Santalo}.
+
+Legyen $ D_{ 0 },{} D_{ 1 } $ két tartomány (összefüggő és nyílt), szakaszonként sima, irányított,
+nem önátmetsző görbékkel határolt. Legyen $ c_{ 0 },{} c_{ 1 } $ a megfelelő tartományok
+\emph{teljes görbülete} (a határgörbék görbületei integráljainak összege), míg $ c_{ 0\,1 } $ legyen
+a $ D_{ 0 } \cap D_{ 1 } $ tartomány teljes görbülete. Ekkor
+\begin{equation}\tag{\textsc{Blaschke}}
+	\int_{ D_{ 0 } \cap D_{ 1 } \neq \emptyset } c_{ 0\,1 } \, \mathrm{ d } K_{ 1 } = 2 \pi \left(
+	T \left( D_{ 0 } \right) c_{ 1 } + T \left( D_{ 1 } \right) c_{ 0 } + L \left( D_{ 0 } \right)
+	L \left( D_{ 1 } \right) \right).
+\end{equation}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
