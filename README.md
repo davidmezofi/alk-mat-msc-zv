@@ -38,7 +38,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] **N** A bonyolultságelmélet alapjai
 - [ ] **D** Hibajelző és -javító kódolások
-- [ ] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
+- [x] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
 - [ ] **D** Differenciálformák, kinematikai sűrűség és mérték
 
 ### Creative Commons License
