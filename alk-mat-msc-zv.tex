@@ -550,7 +550,7 @@ problémát használja ki a következő két algoritmus.
 \end{description}
 %
 \section{Többváltozós és vektorértékű függvények}
-A tételt próbáltam egy kicsit szemléletes oldalról is megközelíteni, amihez a
+A tételt próbáltam\marginpar{\texttt{JR}} egy kicsit szemléletes oldalról is megközelíteni, amihez a
 \href{https://www.wikipedia.org/}{Wikipedia} nyújtott
 segítséget. A precízebb definíciók és tételek az órai jegyzetek és a \emph{Thomas-féle kalkulus}
 III.~része \cite[16.~fejezet]{Thomas} alapján születtek meg. Nem minden dolog szerepel ugyan ilyen
@@ -589,6 +589,107 @@ felel meg.
 		\mathrm{ d } y.
 	\end{equation*}
 \end{tetel}
+%
+\minisec{Vonalintegrál és fizikai alkalmazásai}
+Az integrálás elve kiterjeszthető általánosabb alaphalmazokra is, mint például adott görbék menti
+integrálásra vagy felületek feletti integrálásra. Ezen típusú integrálok a fizika fontos eszközei
+(különféle vektormezőkkel kapcsolatosan).
+
+A \emph{vonalintegrál} olyan integrál, aminek az integrandusát egy adott görbe mentén integráljuk.
+Ha az adott görbe zárt görbe, vagyis ha a kezdő és a végpontja megegyezik akkor a vonalintegrál
+\emph{körintegrál}.
+
+A vonalintegrál integrandusa lehet skalár	értékű vagy vektorértékű is. A \emph{vonalintegrál
+értéke} az adott görbe mentén előforduló elemek súlyozott összege. A súlyozást úgy kell érteni, hogy
+a görbét \textqq{lépésekre} bontjuk, vagyis kijelölünk rajta pontokat, amely pontokban vesszük az
+integrandus értékét és megszorozzuk az előző és az aktuális pont közötti távolsággal. Ha az
+integrandus nem skalár hanem vektorértékű, akkor a görbe adott pontbeli lineáris közelítésével,
+érintővektorával, való skaláris szorzatát vesszük. Az így kapott szorzatokat összegezzük. Ha minden
+pont közötti görberésznek a hossza a 0-ba tart akkor kapjuk meg a vonalintegrál pontos értékét.
+
+Mindez precízebben:
+\begin{description}
+	\item[Skalárfüggvény görbe menti vonalintegrálja]\leavevmode
+		\begin{itemize}
+			\item Legyen $ G \subset \mathbb{ R }^{ 3 } $ egy nyílt és ívszerűen összefüggő
+			tartomány, továbbá $ f \colon  G \rightarrow \mathbb{R} $ folytonos függvény.
+			\item Legyen $ C $ egy görbe $ G $-ben: $ \mathbf{r} \colon \left[ a,{} b \right]
+				\rightarrow G $ folytonos, szakaszonként sima.
+			\item A görbe ívhossza: $ s \left( t \right) = \int_{ a }^{ t } \left| \mathbf{ r }'
+				\left( \tau \right) \right| \, \mathrm{ d } \tau $.
+			\item Legyen $ \mathbb{ B } $ egy beosztása az $ \left[ a,{} b \right] $ intervallumnak:
+				$ a = t_{ 0 } < t_{ 1 } < \ldots < t_{ n } = b $ és $t_{ k }^{ * } \in \left[
+				t_{ k - 1 },{} t_{ k } \right] $.
+			\item Tekintsük az integrálközelítő összeget:
+				\begin{equation*}
+					S_{ \mathbb{ B } } = \sum_{ k = 1 }^{ n } f \left( \mathbf{ r } \left(
+					t_{ k }^{ * } \right) \right) \left( s \left( t_{ k } \right) - s \left(
+					t_{ k - 1 } \right) \right) \rightarrow I
+				\end{equation*}
+				ha $ \mathbb{ B } $ finomsága 0-hoz tart, ahol
+				\begin{equation*}
+					I = \int_{ C } f \, \mathrm{ d } s = \int_{ a }^{ b } f \left( \mathbf{ r }
+					\left( t \right) \right) \left| \mathbf{ r }' \left( t \right) \right| \,
+					\mathrm{ d } t \qquad \left( \mathrm{ d } s = s' \left( t \right) \mathrm{ d } t
+					= \left| \mathbf{ r }' \left( t \right) \right| \mathrm{ d } t \right)
+				\end{equation*}
+				az \emph{$ f $ skalárfüggvény $ C $ görbe menti vonalintegrálja}.
+		\end{itemize}
+	\item[Vektormező görbe menti vonalintegrálja]\leavevmode
+		\begin{itemize}
+			\item Legyen $ G \subset \mathbb{ R }^{ 3 } $ egy nyílt és ívszerűen összefüggő
+				tartomány, továbbá $ \mathbf{ F } \colon G \rightarrow \mathbb{ R }^{ 3 } $
+				folytonos
+				leképezés, melyet \emph{vektormezőnek} nevezünk:
+				\begin{equation*}
+					\left( x,{} y,{} z \right) = \mathbf{ x } \mapsto \mathbf{ F } \left(
+					\mathbf{ x } \right)
+					= P \left( x,{} y,{} z \right) \mathbf{ i } + Q \left( x,{} y,{} z \right)
+					\mathbf{ j } + R \left( x,{} y,{} z \right) \mathbf{ k }.
+				\end{equation*}
+			\item $ \mathbf{ T } \left( t \right) = \frac{ \mathbf{ r }' \left( t \right) }{ \left|
+				\mathbf{ r }' \left( t \right) \right| }$ az érintő irányú egységvektor.
+			\item Az \emph{$ \mathbf{ F } $ vektormező $ C $ görbe menti vonalintegrálja}:
+				\begin{align*}
+					\int_{ C } \mathbf{ F } \cdot \mathbf{ T } \, \mathrm{ d } s &= \int_{ a }^{ b }
+					\mathbf{ F } \left(
+					\mathbf{ r } \left( t \right) \right) \frac{ \mathbf{ r }' \left( t
+					\right) }{ \left| \mathbf{ r }' \left( t \right) \right| } \left| \mathbf{ r }'
+					\left( t \right) \right| \, \mathrm{ d } t = \int_{ a }^{ b } \mathbf{ F }
+					\left(
+					\mathbf{ r } \left( t \right) \right) \cdot  \mathbf{ r }' \left( t \right) \,
+					\mathrm{ d } t =\\
+					&=\int_{ C } \mathbf{ F } \cdot \mathrm{ d } \mathbf{ r } = \int_{ a }^{ b } P
+					\, \mathrm{ d } x + Q \, \mathrm{ d } y + R \, \mathrm{ d } z.
+				\end{align*}
+		\end{itemize}
+\end{description}
+A fizika számos részén használható az így definiált vonalintegrál. Például egy erőtér egy részecskén
+végzett munkáját kiszámíthatjuk a vonalintegrál segítségével. A munka alapesetben, ha az erő állandó
+az elmozdulás pedig egyenes akkor kiszámítható a $ W = \mathbf{ F } \cdot \mathbf{ s } $ képlettel.
+Ha azonban a részecske egy adott $ C $ görbe mentén mozog a térben, az adott pontban ráható erőt
+(amely egy vektor) az $ \mathbf{ F } $ vektormező adja meg akkor az \emph{erőtér} (a vektormező)
+által a részecskén
+végzett munka általánosan megkapható úgy, hogy az utat \textqq{infinitezimális} részekre bontjuk,
+amelyeket egyenesnek veszünk. Ekkor a teljes munka megegyezik ezen részutakon végzett munkák
+összegével, így kapjuk a
+\begin{equation*}
+	W = \int_{ C } \mathbf{ F } \cdot \mathrm{ d } \mathbf{ r }
+\end{equation*}
+vonalintegrált. Ha $ \mathbf{ F } $ egy \emph{áramlási mező}, azaz pl. egy áramló folyadék
+sebességvektormezője, akkor az \emph{áramlás} $ \int_{ C } \mathbf{ F } \cdot \mathrm{ d }
+\mathbf{ r } $. Ha a görbe zárt, ez a görbe menti \emph{cirkuláció}.
+
+Ha az $ x $--$ y $-sík egy zárt görbével határolt részét tekintjük, és azt akarjuk kiszámolni, hogy
+milyen gyorsan áramlik be ide vagy innen ki a folyadék, akkor az $ \mathbf{ F } \cdot \mathbf{ n } $
+skalár kifejezést kell integrálnunk a $ C $ görbe mentén. Itt az $ \mathbf{ n }$ a görbére
+merőleges, \textqq{kifelé mutató} egységvektor, és $ \mathbf{ F } \cdot \mathbf{ n }$ az áramlási
+mező $ \mathbf{ n } $ irányú komponense. Ez az integrál $ \mathbf{ F } $ \emph{fluxusa} a $ C $
+görbén:
+\begin{equation*}
+	\oint_{ C } \mathbf{ F } \cdot \mathbf{ n } \, \mathrm{ d } s = \int_{ a }^{ b } P \,
+	\mathrm{ d } y - Q \, \mathrm{ d } x.
+\end{equation*}
 %
 \section{Fourier-sorok, ortogonális polinomok, sorfejtések}
 %
