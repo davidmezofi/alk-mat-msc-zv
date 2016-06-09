@@ -876,7 +876,36 @@ függvények pedig \emph{ortonormált} rendszert alkotnak.
 		Lipschitz-feltétel vagy mindkét oldalon féloldalról differenciálható, akkor a Fourier-sor
 		$ x $-ben a féloldali határértékek átlagához konvergál.
 \end{itemize}
+%
+\minisec{Fourier-transzformált}
+Lásd \cite[4.1. és 4.5.~szakaszok]{SzTNZ}.
 
+A Fourier-sor definíciója megfogalmazható $ 2 p $ periodikus függvényekre is. Hasonló előállítás
+adható nem periodikus függvények esetére is. Az alapötlet az, hogy $ p \rightarrow \infty $
+határátmenettel a $ 2 p $ periodikus függvényből megkapjuk az egész számegyenesen értelmezett
+függvény esetét, amivel megkaphatjuk a Fourier-sorfejtés formuláinak folytonos analogonjait.
+
+Legyen $ f \in L^{ 1 } \left( \mathbb{ R } \right) $. Az $ f $ \emph{Fourier-transzformáltja} a
+következő függvény:
+\begin{equation*}
+	\hat{ f } \left( \omega \right)  = \int_{ \infty }^{ \infty } f \left( t \right)
+	\mathrm{ e }^{ - \imag \omega t } \, \mathrm{ d } t \qquad \left( \omega \in \mathbb{ R }
+	\right).
+\end{equation*}
+Ez a definíció korrekt, hiszen $ \left| \mathrm{ e }^{ - \imag \omega t } \right| = 1 $.
+
+Az \emph{inverziós formula} a következő:
+\begin{equation*}
+	f \left( t \right) \sim \frac{ 1 }{ 2 \pi } \int_{ - \infty }^{ \infty } \hat{ f } \left( \omega
+	\right) \mathrm{ e }^{ \imag \omega t } \, \mathrm{ d } \omega.
+\end{equation*}
+Ha $ f $ az $ t $-ben olyan, hogy
+\begin{equation*}
+	\int_{ - \delta }^{ \delta } \left| \frac{f \left( t + u \right) + f \left( t - u \right) }{ 2
+	u } \right| \, \mathrm{ d } u < \infty, \quad \text{akkor} \quad f \left( t \right) = \lim_{ R
+	\rightarrow \infty } \frac{ 1 }{ 2 \pi } \int_{ - R }^{ R } \hat{ f } \left( \omega
+	\right)\mathrm{ e }^{ \imag \omega t } \, \mathrm{ d }\omega.
+\end{equation*}
 %
 \section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
 %
