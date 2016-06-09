@@ -1203,6 +1203,71 @@ egymástól függetlenek, normális eloszlásúak és azonos szórásúak.
 %
 \section{Kontingenciatáblák elemzése}
 %
+\minisec{Korrespondenciaanalízis}
+Feltesszük a továbbiakban, hogy minden eloszlás diszkrét és véges. A korrespondanciaanalízis
+kategórikus változók közti kapcsolatok elemzésére szolgál a változókategóriák metrikus megjelenítése
+alapján. Kategórikus, más néven kvalitatív változó alatt olyan diszkrét eloszlású valószínűségi
+változót értünk, amely véges sok értéket vesz fel, és az értékek általában nem nagyságrendet
+tükröznek, hanem csak a változó lehetséges értékeit kódolják (pl. a hajszín változó szőke, barna,
+fekete, vörös értékei az 1, 2, 3, 4 számokkal kódolhatók). A továbbiakban csak két kategórikus
+változót vizsgálunk, az adatok kontingenciatábla (gyakoriság- vagy relatív gyakoriságtábla)
+formájában vannak megadva.
+
+A probléma a következő: az $X$ és $Y$ diszkrét valószínűségi változók $n$ illetve $m$ különböző
+kategóriát tartalmaznak, az egyszerűség kedvéért jelölje értékkészletüket az $ \left\{1,{} 2,{}
+\ldots,{} n \right\} $ ill. az $ \left\{1,{} 2,{} \ldots,{} m \right\} $ halmaz. $X$ és $Y$ nem
+függetlenek, értékeiket nem specifikáljuk, célunk éppen az értékek alkalmas megválasztása lesz. Egy
+közös megfigyelésükre vonatkozó minta alapján adva van egy $n \times m$-es \emph{kontingenciatábla}
+az $f_{ij}$ úgynevezett \emph{cellagyakoriságokkal}, ahol $f_{ij}$ az $X$ változó $i$-edik, az $Y$
+változó $j$-edik kategóriájába eső megfigyelések számát jelenti.
+
+Célunk a kontingenciatáblának valamilyen alacsonyabb rangú táblával való közelítése. Csak a 2 rangú
+közelítéssel foglalkozunk, ami visszavezethető a \emph{Rényi-féle maximálkorreláció feladatára}:
+adott két kategórikus változó együttes eloszlása (együttes relatív gyakorisága, azaz egy $n \times
+m$ gyakoriságtábla). Keressük azokat az $\alpha$ és $\beta$ valós számértékű véletlen vektorokat,
+amelyek marginális eloszlásai megegyeznek az adott kontingencia táblából számolt marginális
+eloszlásokkal, és az együttes eloszlás alapján számított korrelációjuk maximális. Ezen véletlen
+vektorok együttes eloszlása az eredeti kontingenciatábla 2 rangú közelítése.
+%
+\minisec{Információelméleti módszerek}
+A vizsgált eloszlások tipikus példája, a $d$-szempontos osztályozás, amikor a valószínűségek egy
+$d$-dimenziós tömbbe vannak rendezve. Az $i$-edik szempont kategóriáinak számát jelölje $r_i$. Ekkor
+az $\left( \Omega,{}\mathcal{A},{}\mathbb{P}  \right)$ valószínűségi mező esetén az $\Omega$ elemei
+\begin{equation*}
+	\omega = \left(j_1,...,j_d\right) \qquad \left( 1 \le j_i \le r_i \right)
+\end{equation*}
+alakúak, ezeket nevezzük celláknak. Az $\mathbf{X}\left(\omega\right)$ cellagyakoriságokból álló
+mintát \emph{$d$-dimenziós kontingenciatáblának}, pontosabban $r_1 \times \ldots \times r_d$ méretű
+táblának nevezzük (a jegyzetben megtalálható a $d=2$, $r_1=3$, $r_2=3$ eset illusztrálása).
+
+Célunk az, hogy a többdimenzós gyakoriságtáblázatok
+mögötti eloszlást minél kevesebb paraméterrel írjuk le \emph{információelméleti módszerek}
+segítségével. A becslési feladatoknak két típusát különböztetjük meg.
+\begin{description}
+	\item[Külső feltételekkel meghatározott feladatok] Ebben az esetben feltételezzük, hogy az
+	$\mathbf{X}$ minta $p$ valódi eloszlása egy $\mathcal{F}$ eloszláscsaládhoz tartozik. A $p\in
+	\mathcal{F}$ eloszlás meghatározásának általánosan elfogadott módja, hogy megkeressük azt a
+	$p^* \in \mathcal{F}$ eloszlást amely az alább ismertetett eltérések valamelyikének értelmében
+	legközelebb van a $p_X$ empirikus eloszláshoz. Ugyanez a módszer alkalmazható annak a
+	hipotézisnek a vizsgálatára, hogy az $\mathbf{X}$ minta származhat-e egy $\mathcal{F}$-beli
+	eloszlásból.
+	\item[Belső feltételekkel meghatározott (modellalkotási) feladatok] Itt az $\mathbf{X}$ mintában
+	foglalt információt kevesebb adattal, általában bizonyos $S_1 , . . . , S_r$ statisztikák
+	mintabeli átlagaival kívánjuk reprezentálni. Ha ismereteink mintavétel előtti állapotát egy $q$
+	eloszlás jellemzi, akkor az
+	\begin{equation*}
+		\mathcal{F}=\left\{
+		p \colon \sum_{\omega \in \Omega} p\left(\omega\right) S_i\left(\omega\right)=
+		\sum_{\omega \in \Omega} p_X\left(\omega\right) S_i\left(\omega\right) \  \left( i=1,{} 2,{} \ldots,{} r \right)
+		\right\}
+	\end{equation*}
+	eloszláshalmazhoz legközelebbi $p^*$ eloszlást tekintjük a modellalkotási feladat megoldásának.
+\end{description}
+\emph{Eloszlások eltérése}: eloszlások egymástól való eltérésére több, az információelméletben
+használatos mérőszám ismeretes. A kontingenciatáblák elemzésekor alapfeladat az, hogy egy
+eloszláscsaládnak megkeressük egy adott $p$ eloszlástól a legkevésbé eltérő elemét. Ezt megtehetjük
+az \emph{I-vetület} vagy a \emph{J-vetület} kiszámításával.
+%
 \section{Diszkrét idejű Markov-láncok}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Pap Gyula\,--\,Szűcs Gábor}:
 \emph{Sztochasztikus folyamatok} \cite{PapSzucs} című jegyzetben.
