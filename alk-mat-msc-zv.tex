@@ -186,6 +186,8 @@
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\rot}{rot}
 \DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\Cov}{Cov}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Irodalomjegyzék beállításai
@@ -1058,6 +1060,146 @@ A következő teszteket \cite[5.~fejezet, 6.~szakasz, 230--234.~oldal]{BollaKram
 \section{Lineáris regresszió}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Bolla Marianna\,--\,Krámli András}:
 \emph{Statisztikai következtetések elmélete} \cite[6.3--6.5.~szakaszok]{BollaKramli} című könyvben.
+%
+\minisec{Véletlen változó lineáris közelítése véletlen változók lineáris kombinációjával}
+A többváltozós regressziós problémában az $ Y $ valószínűségi változót (függő változó) szeretnénk az
+$ X_{ 1 },{} X_{ 2 },{} \ldots,{} X_{ p } $ valószínűségi változók (független változók) függvényével
+közelíteni legkisebb négyzetes értelemben. A lineáris regresszió esetén a legjobb
+\begin{equation*}
+	Y \sim \ell \left( \mathbf{ X } \right) = \mathbf{ a }^{ \T } \mathbf{ X } + b
+\end{equation*}
+lineáris közelítést szeretnénk megtalálni legkisebb négyzetes értelemben, azaz minimalizálni akarjuk
+az
+\begin{equation*}
+	\mean^{ 2 } \left( Y - \left( \mathbf{ a }^{ \T } \mathbf{ X } + b  \right) \right)
+\end{equation*}
+kifejezést az $ a_{ 1 },{} a_{ 2 },{} \ldots,{} a_{ p },{} b $ együtthatókban. Tehát $ Y = \ell
+\left( \mathbf{ X } \right) + \epsilon $, ahol feltehető,hogy $ \mean \left(
+\epsilon \right) = 0 $ és ennek az $ \epsilon $-nak a négyzetét akarjuk minimalizálni.
+
+A $ b $ együttható könnyen adódik, hiszen
+\begin{equation*}
+	\mean \left( Y \right) = \mean \left( \ell \left( \mathbf{ X } \right) + \epsilon \right) =
+	\mathbf{ a }^{ \T } \mean \left( \mathbf{ X } \right) + b,
+\end{equation*}
+tehát
+\begin{equation*}
+	b = \mean \left( Y \right) - \mathbf{ a }^{ \T } \mean \left( \mathbf{ X } \right)
+\end{equation*}
+
+Térjünk át az $ Y' = Y - \mean \left( Y \right) $ és $X_{ i }' = X_{ i } - \mean \left( X_{ i }
+\right) $ \emph{centralizált} változókra, melyek várható értéke nulla, és így az
+\begin{equation*}
+	Y' \sim \ell \left( \mathbf{ X }' \right) = \mathbf{ a }^{ \T } \mathbf{ X }'
+\end{equation*}
+lineáris közelítést (\emph{regressziós síkot}) keressük legkisebb négyzetes értelemben, azaz az
+\begin{equation*}
+	\mean^{ 2 } \left( Y' - \mathbf{ a }^{ \T } \mathbf{ X }' \right)
+\end{equation*}
+kifejezést akarjuk minimalizálni az $ a_{ 1 },{} a_{ 2 },{} \ldots,{} a_{ p } $ együtthatókban. Ez a
+négyzetes eltérés pontosan akkor minimális, ha a hiba, azaz $ \epsilon = Y' - \ell \left(
+\mathbf{ X }' \right) $ kovariancia értelemben merőleges az $ X_{ 1 }',{} X_{ 2 }',{} \ldots,{}
+X_{ p }' $ változók által kifeszített $ p $-dimenziós altérre, azaz
+\begin{equation*}
+	\mean \left( \epsilon X_{ i }' \right) = 0 \qquad \left( i = 1,{} 2,{} \ldots,{} p \right)
+\end{equation*}
+Ez az egyenletrendszer átírható a következő alakba:
+\begin{equation*}
+	\sum_{ j = 1 }^{ p } \Cov \left(X_{ i },{} X_{ j } \right) a_{ j } = \Cov \left(X_{ i },{} Y
+	\right) \qquad \left( i = 1,{} 2,{} \ldots,{} p \right),
+\end{equation*}
+ahol kihasználtuk $ \epsilon $ és $ Y',{} X_{ 1 }',{} X_{ 2 }',{} \ldots,{} X_{ p }' $ definícióját.
+Legyen $ \mathbf{ C } $ az $ \mathbf{X} $ kovariancia mátrixa, $ \mathbf{ d } = \left( d_{ 1 },{}
+d_{ 2 },{} \ldots,{} d_{ p } \right)^{ \T } $, ahol $ d_{ i }= \Cov \left(X_{ i },{} Y \right)$. Ekkor
+tömörebb alakba írhatjuk az egyenletrendszert:
+\begin{equation*}
+	\mathbf{ C } \mathbf{ a } = \mathbf{ d },
+\end{equation*}
+a megoldás pedig a következő lesz:
+\begin{equation*}
+	\mathbf{ a } = \mathbf{ C }^{ - 1 } \mathbf{ d }.
+\end{equation*}
+Ez a közelítés maximalizálja $ Y $ és $ \ell \left( \mathbf{ X } \right) $ korrelációját, vagyis az
+$ X_{ i } $ változók bármely másik $ h \left( \mathbf{ X } \right) $ lineáris kombinációja esetén
+$ Y $ és $ h \left( \mathbf{ X } \right) $ korrelációja kisebb lesz.
+%
+\minisec{A lineáris modell: legkisebb négyzetek módszere}
+Az előző módszerhez nagyon hasonló, azonban determinisztikus változókkal dolgozunk véletlen változók
+helyett. Legyenek ezek a determinisztikus változók $x_1,...,x_p$, melyek mérési pontok, előre
+adottak. Méréseink ezek valamilyen $a_1,...,a_p$ paraméterekkel vett lineáris kombinációira
+vonatkoznak és mérési hibával terheltek. A mérési hibákat $\epsilon$, a mérések értékét pedig $Y$
+jelöli (valószínűségi változó). Feltehető, hogy a hibák várható értéke nulla. A modell a következő
+tehát:
+\begin{equation*}
+	Y=a_1 x_1 + ... + a_p x_p + \epsilon.
+\end{equation*}
+Célunk az, hogy az ismeretlen $\mathbf{a}$ paramétervektort $n$ mérés alapján megbecsüljük legkisebb
+négyzetes értelemben. Vezessük be a következő jelöléseket:
+\begin{align*}
+	\mathbf{Y} &= \left(Y_1,...,Y_n\right)^{\T};\\
+	\epsilon &= (\epsilon_1,...,\epsilon_n)^{\T},
+\end{align*}
+az $i$-ik méréshez tartozó $p$-dimenziós pontokat pedig írjuk be egy $\mathbf{X}$ mátrix soraiba.
+Tehát a modell $\mathbf{Y}=\mathbf{X} \mathbf{a} + \epsilon$ alakot ölt. Feltesszük, hogy a mérési
+hibák korrelálatlanok és azonos szórásúak, ekkor a mérések is korrelálatlanok és ugyanaz a
+kovarianciamátrixuk, mint $\epsilon$-é: $\sigma^2 I_n$. Felírva a mérési hibák négyzetösszegét, majd
+az $\mathbf{a}$ vektor szerint deriválva jutunk a \emph{Gauss-féle normálegyenlethez}:
+\begin{equation*}
+	\mathbf{X}^{\T} \mathbf{X} \mathbf{a} = \mathbf{X}^{\T} \mathbf{Y},
+\end{equation*}
+amit átalakítva:
+\[
+\hat{\mathbf{a} } =\left( \mathbf{X}^{\T} \mathbf{X} \right) ^{-1} \mathbf{X}^{\T} \mathbf{Y},
+\]
+ha az $\mathbf{X}^{\T} \mathbf{X}$ mátrix rangja $r=p \left( \le n \right) $, ha pedig szinguláris,
+akkor a pszeudoinverzével dolgozunk. Ez első esetben $\hat{a}$ lineáris becslés torzítatlan és
+minimális kovarianciamátrixú az $\mathbf{a}$-ra vonatkozó lineáris torzítatlan becslések között.
+
+A $\sigma ^2$ közös szórásnégyzet torzítatlan becslése ($r=p$):
+\begin{equation*}
+	\hat{\sigma}^2 =\frac{ \left( \mathbf{ Y } - \mathbf{ X } \hat{\mathbf{a} } \right) ^{ \T }
+	\left( \mathbf{ Y } - \mathbf{ X } \hat{\mathbf{a} } \right) }{n-p}.
+\end{equation*}
+%
+\minisec{Varianciaanalízis}
+A varianciaanalízis speciális lineáris modelleket vizsgál, kísérlettervezésben és
+minőségellenőrzésben felmerülő hipotézisek tesztelésére. A tekintett modellek
+specifikuma az, hogy a legkisebb négyzetek módszerénél alkalmazott modellben a beállítható mérési
+pontok mátrixa helyett 0-1 elemekből álló ún. struktúramátrixszal dolgozunk, amelyet úgy állítunk
+össze, hogy bizonyos megfigyelések csak bizonyos paraméterektől függjenek.
+
+Gyakorlati alkalmazásokban olyan mintákat vizsgálunk, melyeket különböző
+körülmények közt figyeltünk meg, és célunk éppen annak a megállapítása, vajon
+ezek a körülmények jelentősen befolyásolják-e a mért értékeket. Tehát mintánkat
+eleve csoportokba osztottan kapjuk, feltesszük azonban, hogy a különböző csoportokban felvett minták
+egymástól függetlenek, normális eloszlásúak és azonos szórásúak.
+\begin{description}
+	\item[Egyszempontos variancianalízis] Valamilyen szempont alapján (például különböző kezelések)
+		több csoportban külön végzünk megfigyeléseket. A mintaelemek várható értékét felbonthatjuk a
+		várhatóértékek súlyozott átlagára és a csoporthatásra. Egy lineáris modellt kapunk, a
+		paramétereket a legkisebb négyzetek módszerével becsüljük. A mintaelemek teljes
+		mintaátlagtól vett eltéréseinek négyzetösszege felbomlik egy csoportok közötti, illetve egy
+		csoportokon belüli részre.
+
+		A modellben először azt a hipotézist teszteljük, hogy a várhatóértékek súlyozott átlaga
+		nulla. Ha ezt elutasítjuk, azaz az összes várhatóérték nem nulla (van főhatás), akkor azt a
+		hipotézist vizsgáljuk, hogy a várható értékek másik \textqq{összetevője}, azaz a csoportok
+		hatása minden esetben nulla. A hipotézis tesztelésére $F$-próba alkalmazható.
+	\item[Kétszempontos variancianalízis (interakció nélkül)] Két különböző szempont alapján
+	végzünk kísérleteket. Például van $k$-féle technológia és $p$-féle gép, akkor $k p$ csoportban
+	végezzük a kísérleteket. Az egyes csoportokban tegyük fel, hogy csak egyetlen mérést végzünk és
+	hogy a két tényező között nincs kölcsönhatás. Az összminta elemszáma így $n=k p$ és a
+	mintaelemek függetlenek és azonos szórásúak. Egy kéttényezős lineáris modellt kapunk így. Ekkor
+	a mintaelemek teljes mintaátlagtól vett eltéréseinek négyzetösszege három részre bontható,
+	csoportokon belüli, illetve a csoportok közötti részre, mely a két csoport miatt két részre
+	bontható.
+
+	Az előző esettel analóg módon, most a mintaelemek várható része 3 tényezőre bontható fel, és
+	először megint azt a hipotézist teszteljük, hogy a várhatóértékek súlyozott átlaga nulla. Ha ezt
+	elutasítjuk, akkor kétféle nullhipotézist kell vizsgálni, az egyik és a másik szempont szerint
+	is megnézni, hogy a csoporthatások nullák-e. Tesztelés megint csak $F$-próbával, elutasítás
+	esetén pedig $t$-próbával vizsgálhatóak az egyes faktorok különböző szintjei közti eltérések.
+\end{description}
 %
 \section{Kontingenciatáblák elemzése}
 %
