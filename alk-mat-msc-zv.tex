@@ -888,7 +888,8 @@ függvény esetét, amivel megkaphatjuk a Fourier-sorfejtés formuláinak folyto
 Legyen $ f \in L^{ 1 } \left( \mathbb{ R } \right) $. Az $ f $ \emph{Fourier-transzformáltja} a
 következő függvény:
 \begin{equation*}
-	\hat{ f } \left( \omega \right)  = \int_{ \infty }^{ \infty } f \left( t \right)
+	\mathcal{ F } f \left( \omega \right) = \hat{ f } \left( \omega \right)  = \int_{ \infty }^{
+	\infty } f \left( t \right)
 	\mathrm{ e }^{ - \imag \omega t } \, \mathrm{ d } t \qquad \left( \omega \in \mathbb{ R }
 	\right).
 \end{equation*}
@@ -906,6 +907,26 @@ Ha $ f $ az $ t $-ben olyan, hogy
 	\rightarrow \infty } \frac{ 1 }{ 2 \pi } \int_{ - R }^{ R } \hat{ f } \left( \omega
 	\right)\mathrm{ e }^{ \imag \omega t } \, \mathrm{ d }\omega.
 \end{equation*}
+%
+\minisec{Laplace-transzformált}
+Lásd \cite[6.1--6.4~szakaszok]{SzTNZ}.
+
+Legyen $ f $ a valós $ t $ idő változónak valós/komplex értékű függvénye, továbbá legyen $ s $ egy
+rögzített valós/komplex szám. Az $ f \left( t \right) $ függvény \emph{Laplace-transzformáltja} a
+következő függvény:
+\begin{equation*}
+	F \left( s \right) = L \left[ f \left( t \right) \right] \left( s \right) =
+	\int_{ 0 }^{ \infty } f \left( t \right) \mathrm{ e }^{ - s t } \, \mathrm{ d } t =
+	\lim_{ b \rightarrow \infty } \int_{ 0 }^{ b } f \left( t \right) \mathrm{ e }^{ - s t } \,
+	\mathrm{ d } t,
+\end{equation*}
+
+amennyiben az improprius integrál létezzik $ s $-ben.
+
+Ha az $ f \left( t \right) $ függvény Laplace-transzformáltja $ F \left( s \right) $, akkor
+$ F \left( s \right) $ inverz Laplace-transzformáltja $ f \left( t \right) $. Az inverz
+Laplace-transzformált a folytonos függvények körében egyértelmű és ebből kifolyólag inverz
+Laplace-transzformálton általában folytonos függvényt értünk.
 %
 \section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
 %
