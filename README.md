@@ -16,7 +16,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **R** Gröbner-bázisok és alkalmazásaik
 - [x] **R** Matematikai titkosírások
 - [x] **R** Többváltozós és vektorértékű függvények
-- [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
+- [x] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [x] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
 - [ ] **R** Lineáris regresszió
