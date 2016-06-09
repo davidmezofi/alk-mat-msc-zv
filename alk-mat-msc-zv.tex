@@ -57,6 +57,7 @@
 \theoremstyle{definition}
 \newtheorem*{defin}{Definíció}
 \newtheorem*{feladat}{Feladat}
+\newtheorem*{kerdes}{Kérdés}
 %
 % Megjegyzés és társai: dőlt + álló
 \theoremstyle{remark}
@@ -802,14 +803,80 @@ Az ilyen típusú integrálok jelentik az alapját például az elektrodinamiká
 \end{tetel}
 %
 \section{Fourier-sorok, ortogonális polinomok, sorfejtések}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Németh Zoltán} és \textsc{Szabó Tamás}: \emph{Alkalmazott analízis} című tárgyhoz készült jegyzetében \cite{SzTNZ}.
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Németh Zoltán} és \textsc{Szabó Tamás}:
+\emph{Alkalmazott analízis} című tárgyhoz készült jegyzetében \cite{SzTNZ}.
 %
 \minisec{Trigonometrikus és ortogonális polinomsorok konvergenciája}
-Lásd \cite[1.3. és 1.6.~szakaszok]{SzTNZ}. Érdemes lehet átolvasni \cite[1.4. és 1.5.~szakaszokat]{SzTNZ} is.
+Lásd \cite[1.3. és 1.6.~szakaszok]{SzTNZ}. Érdemes lehet átolvasni \cite[1.4. és
+1.5.~szakaszokat]{SzTNZ} is.
 
 Legyen $ V $ egy skaláris szorzatos, teljes vektortér, $ \left( \phi_{ n } \right) $ egy
 ortogonális rendszer és $ f \in V $ rögzített. Ha $ c_{ n } = \left\langle f,{} \phi_{ n }
 \right\rangle $, akkor az $ f $ \emph{általános Fourier-sora} a következő:
+\begin{equation*}
+	f \sim \sum c_{ n } \phi_{ n }.
+\end{equation*}
+
+A továbbiakban a valós egyenesen értelmezett, $ 2 \pi $-periodikus függvényekkel foglalkozunk.
+
+Jelölje $ \mathbb{ T } $ az $ \mathbb{R} / 2 \pi \mathbb{ Z } $ faktorcsoportot ($ 2 \pi
+\mathbb{Z} $ a $ 2 k \pi $ alakú számok additív csoportja). Legyen $ f \in L^{ 1 } \left(
+\mathbb{ T } \right) $, ahol  az $ f $ függvény \emph{Fourier-sora} a következő:
+\begin{equation*}
+	f \sim \frac{ a_{ 0 }}{ 2 } + \sum_{ n = 1 }^{ \infty } a_{ n } \cos n x + b_{ n } \sin n x,
+	\quad \text{ahol} \quad \left\{ \begin{aligned}
+		a_{ n } &= \frac{ 1 }{ \pi } \int_{ - \pi }^{ \pi } f \left( t \right) \cos n t \,
+		\mathrm{ d }
+		t \quad \left( n \in \mathbb{ N }_{ 0 } \right);\\
+		b_{ n } &= \frac{ 1 }{ \pi } \int_{ - \pi }^{ \pi } f \left( t \right) \sin n t \,
+		\mathrm{ d }
+		t \quad \left( n \in \mathbb{ N }\right).
+	\end{aligned} \right.
+\end{equation*}
+Páros függvény esetén $ b_{ n } = 0 $, míg páratlan függvény esetében $ a_{ n } = 0 $ minden
+$ n $-re. Minden Fourier-sor egyben trigonometrikus sor is.
+
+Az $ f $ függvény \emph{Fourier-sorának komplex alakja} a következő:
+\begin{equation*}
+	f \sim \sum_{ k = - \infty }^{ \infty } \hat{ f } \left( k \right) \mathrm{ e }^{ \imag k x},
+	\quad \text{ahol} \quad \hat{ f } \left( k \right) = \frac{ 1 }{ 2 \pi } \int_{ - \pi }^{ \pi }
+	f \left( t \right)  \mathrm{ e }^{ - \imag k t} \, \mathrm{ d } t \quad \left( k \in
+	\mathbb{ Z } \right).
+\end{equation*}
+A sor $n$-ik részletösszege:
+\begin{equation*}
+	s_{ n } \left( x \right)  = \sum_{ k = - n }^{ n } \hat{ f } \left( k \right)
+	\mathrm{ e }^{ \imag k x}.
+\end{equation*}
+Az $ \left( 1,{} \cos t,{} \sin t,{} \cos 2t,{} \sin 2t,{} \ldots \right) $ rendszer
+\emph{ortogonális}, a
+$\phi_{ k } \left( t \right) = \mathrm{ e }^{ - \imag k t} $ $ \left( k \in \mathbb{ Z } \right) $
+függvények pedig \emph{ortonormált} rendszert alkotnak.
+\begin{kerdes}
+	Mikor állítja elő egy függvény Fourier-sora a függvényt? Pontonkénti konvergenciát vizsgálunk,
+	azaz arra vagyunk kíváncsiak, hogy egy adott $ x $ pontban konvergens-e az alábbi sor:
+	\begin{equation*}
+		\sum_{ k = - \infty }^{ \infty } \hat{ f } \left( k \right) \mathrm{ e }^{ \imag k x}?
+	\end{equation*}
+\end{kerdes}
+\begin{itemize}
+	\item Ha a függvény $ L^{ 2 } $-beli, akkor Fourier-sora a függvényhez az $ L^{ 2 } $ tér
+		normájában konvergens.
+	\item $ s_{ n } \left( x \right) $ felírható a Dirichlet-mag felhazsnálásával, aminek
+		segítségével belátható, hogy ha egy függvény $ L^{ 1 } $-beli és teljesül rá a
+		Dini-feltétel, akkor a Fourier-sor $ x $-ben a függvényértékhez konvergál.
+	\item Ha $ \alpha $-rendű Lipschitz-feltétel teljesül a függvényre $ x $-ben, akkor ott
+		folytonos is. Ha $ f $  az $ x $-ben differenciálható, akkor 1-rendű Lipschitz teljesül.
+		Továbbá a Lipschitz-feltételből következik, hogy teljesül a Dini-feltétel is.
+	\item Ha $ f $ $ L^{ 1 } $-beli és folytonos $ x $-ben és ott $ 0< \alpha \le 1 $-rendű
+		Lipschitz-feltétel teljesül rá, vagy pedig $ x $-ben differenciálható, akkor a Fourier-sor
+		$ x $-ben a függvényértékhez konvergál.
+	\item Ha az $ f $ függvény nem folytonos, de az $ x $ szakadási helyen léteznek a féloldali
+		határértékek, és a féloldali Dini-feltétel teljesül rá vagy pedig mindkét oldalon teljesül a
+		Lipschitz-feltétel vagy mindkét oldalon féloldalról differenciálható, akkor a Fourier-sor
+		$ x $-ben a féloldali határértékek átlagához konvergál.
+\end{itemize}
+
 %
 \section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
 %
