@@ -246,6 +246,22 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Gröbner-bázisok és alkalmazásaik}
 %
 \section{Matematikai titkosírások}
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet
+(Zádori L. előadása alapján)} című jegyzetében.
+%
+\minisec{Alapfogalmak és célok}
+A \emph{kriptológia} a titkosírás tudománya, melynek két fő ága van.
+\begin{description}
+	\item[Kriptográfia] Titkosírási rendszerek \emph{tervezése}.
+	\item[Kriptoanalízis] Titkosírási rendszerek \emph{megfejtése}.
+\end{description}
+\emph{A kriptográfia alapfeladata} annak a problémának a megoldása, hogy két pont között úgy tudjunk
+titkos üzenetet küldeni, hogy a küldés során az üzenet mindvégig titkos maradjon. Erre az
+\emph{alapeljárás} a következő: $ A $ és $ B $ szeretne titkos üzenetet váltani, mely üzenet legyen
+$ x $. Ehhez szükségük van egy-egy titkos kulcsra, legyenek ezek: $ a $ és $ b $. Szükséges továbbá
+egy $ E $ kódoló és egy $ D $ dekódoló függvény. $ A $ kódolt üzenete $ E \left( x,{} a \right) $,
+melyet elküld $ B $-nek, aki dekódolja: $ D \left(  E \left( x,{} a \right),{} b \right) = x $, így
+visszakapva az eredeti $ x $ üzenetet.
 %
 \section{Többváltozós és vektorértékű függvények}
 %
