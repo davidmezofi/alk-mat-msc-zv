@@ -182,7 +182,7 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\lnko}{lnko}
-
+\DeclareMathOperator{\ind}{ind}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Irodalomjegyzék beállításai
@@ -338,8 +338,30 @@ szükséges feltételt ad arra, hogy egy szám prímszám-e, a feltétel azonban
 		általánosított Riemann-hipotézis segítségével.
 	\item[AKS] Ez az első determinisztikus polinomiális futási idejű prímteszt, 2002-ből való és
 		három indiai matematikus nevéhez kötődik: \emph{Agraval}, \emph{Kayal} és \emph{Saxena}. A
-		gyakorlatban inkább a Miller\,--\,Rabint alkamazzák (gyorsabb, bár futásideje nemű
-		polinomiális).
+		gyakorlatban inkább a Miller\,--\,Rabint alkamazzák (gyorsabb, bár futásideje elméletileg
+		nem polinomiális).
+\end{description}
+%
+\minisec{A diszkrét logaritmus és alkalmazásai}
+\begin{defin}
+	Legyen $G$ egy véges ciklikus csoport, $ g \in G $ egy generátorelem és $ a \in G $ egy
+	tetszőleges elem. Ekkor az $ a $ elem $ g $ alapú \emph{indexe/diszkrét logaritmusa} az a
+	legkisebb nem negatív egész $ k $ szám, amelyre $ a = g^{ k }$, jelölésben $ \ind_{ g } a $.
+\end{defin}
+A diszkrét logaritmus kiszámítására nem ismert hatékony algoritmus, még akkor sem, ha ciklikus
+csoportok helyett csak a $ \mathbb{ Z }_{ p }^{ * } $ alakú csoportokra szorítkozunk. Ezt a
+problémát használja ki a következő két algoritmus.
+\begin{description}
+	\item[Diffie\,--\,Hellman-kulcsváltás] Az eljárás a diszkrét logaritmus problémáján alapszik. Az
+		eljárás célja, hogy két felhasználó számára egy közös titkos kulcsot hozzon létre nyilvános
+		kommunikációs csatornán keresztül.
+
+	\item[Massey\,--\,Omura-rejtjelrendszer] Ez az eljárás is a diszkrét logaritmus problémáján
+		alapszik, segítségével a felek biztonságosan tudnak titkos üzenetet küldeni egymásnak.
+
+		Dióhéjban: elküldök egy ládát lelakatolva $ B $-nek, ő is ráteszi a saját lakatját,
+		és visszaküldi nekem, én leveszem a saját lakatomat, és visszaküldöm $ B $-nek, aki így
+		már ki tudja nyitni a ládát.
 \end{description}
 %
 \section{Többváltozós és vektorértékű függvények}
