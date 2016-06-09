@@ -1303,6 +1303,122 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 \section{A bonyolultságelmélet alapjai}
 %
 \section{Hibajelző és -javító kódolások}
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Czédli Gábor}: \emph{Boole-függvények}
+\cite{Czedli} című könyvének 3.~fejezetében.
+%
+\minisec{Alapfogalmak és célok}
+Célunk olyan a kételemű test (vagy véges test) feletti $ n $-dimenziós vektortérből az
+$ m $-dimenziós vektortérbe
+$ n < m $ menő injektív leképezések -- \emph{kódok} -- konstrukciója \emph{bináris
+szimmetrikus csatorna} mellett (bitek $ p $ valószínűségel \textqq{fordulnak át}), melyek hatékonyan
+\emph{dekódolhatók} (az eredeti üzenetet próbáljuk meg rekonstruálni). Dekódolás lehet
+\emph{hibajelző} vagy \emph{hibajavító}. A szokásos modell: feladó -- kódolás -- csatorna (hiba) --
+dekódolás -- fogadó.
+
+Ha egy kód (a leképezés képtere) lineáris altér, akkor a $ C $ kódot \emph{lineáris kódnak}
+nevezzük. A $ \mathbf{ G } $ $ k \times n $-es mátrixot $ C $ \emph{generátormátrixának} nevezzük,
+ha sorai lineárisan függetlenek és kifeszítik $ C $-t. Egy $ \mathbf{ G } $ generátormátrixot
+\emph{standard generátormátrixnak} nevezünk, ha
+\begin{equation*}
+	\mathbf{ G } = \begin{bmatrix}
+		\mathbf{ I }_{ k } & \mathbf{ B }
+	\end{bmatrix}
+\end{equation*}
+alakú (ekkor $ C $ dimenziója $ k $). Kódoláselméleti kontextusban sorvektorokkal dolgozunk. Két
+kódot  \emph{ekvivalensnek} nevezünk, ha létezik a koordinátáknak olyan permutációja,
+amellyel a két kód egymásba vihető. Bármely lineáris kód ekvivalens egy olyan lineáris kóddal,
+amelynek van standard generátormátrixa.
+%
+\minisec{Paritásellenőrző mátrix}
+Egy lineáris kód \emph{duálisának} nevezzük a rá merőleges alteret, jelölésben $ C^{ \perp } $. Ha
+$ C \le \mathbb{ F }_{ q }^{ n } $, akkor $ \dim C + \dim C^{ \perp } = n $, valamint $ \left(
+C^{ \perp } \right)^{ \perp } = C $. A $ C^{ \perp } $ lineáris kód $ \mathbf{ H } $
+generátormátrixát a $ C $ kód \emph{paritásellenőrző mátrixának} nevezzük. Ekkor
+\begin{equation*}
+	C = \left\{ \mathbf{ x } \in \mathbb{ F }_{ q }^{ n } \colon \mathbf{ H } \mathbf{ x }^{ \T }
+	= \mathbf{ 0 }^{ \T } \right\}.
+\end{equation*}
+
+Ha $ \mathbf{ G } = \begin{bmatrix} \mathbf{ I }_{ k } & \mathbf{ B } \end{bmatrix} $ a $ C $ kód
+generátormátrixa, akkor $ \mathbf{ H } = \begin{bmatrix} - \mathbf{ B }^{ \T } &
+\mathbf{ I }_{ n - k } \end{bmatrix} $ paritásellenőrző mátrixa $ C $-nek. Ha $ C $ lineáris
+$ \left[ n,{} k \right] $-kód, akkor duálisa lineáris $ \left[ n,{} n - k \right] $-kód.
+
+Egy kód \emph{minimumtávolsága} (a kódszavak közötti legkisebb távolság) pontosan akkor lesz
+legalább $ t + 1 $, ha a paritásellenőrző mátrixnak bármely $ t $ oszlopa lineárisan független.
+%
+\minisec{Hamming-kódok}
+A kételemű test feletti $ r $-ik Hamming-kódokat vizsgáljuk. Tekintsük $ \mathbb{ F }_{ 2 }^{ r } $
+egydimenziós altereit (ezekből $ 2^{ r } - 1 $ van), minden egyenesről tekintsük azt a pontot,
+amelyik nem az origó, és ezeket mint oszlopvektorokat írjuk bele a $ \mathbf{ H }_{ r } $ mátrixba
+(most speciálisan 1-től $ 2^{ r } - 1 $-ig a számokat bináris alakban), és tekintsük azt a kódot,
+melynek paritásellenőrző mátrixa $ \mathbf{ H }_{ r } $: ez az \emph{$ r $-edik bináris
+Hamming-kód}.
+
+Ez a kód egy lineáris $ \left[ n,{} n - r  \right] $-kód $ \left( n = 2^{ r } - 1 \right) $, és
+minimumtávolsága $ d = 3 $, sőt \emph{perfekt} (a
+kódszavak köré írt $ \frac{ d - 1 }{ 2 } $ sugarú gömbök lefedik $ \mathbb{ F }_{ 2 }^{ n } $-t).
+Hibajezés és -javítás könnyű: \emph{tünet} (vagy \emph{szindróma}: $ \mathbf{ H }_{ r }
+\mathbf{ x }^{ \T } $)
+segítségével.
+%
+\minisec{Reed\,--\,Muller-kódok}
+Legyen
+\begin{equation*}
+	\mathbf{ G }_{ r } = \begin{bmatrix}
+		\mathbf{ 1 }_{ 2^{ r } - 1 }	&	1\\
+		\mathbf{ H }_{ r }				&	\mathbf{ 0 }_{ r }^{ \T }
+	\end{bmatrix},
+\end{equation*}
+ekkor a $ \mathbf{ G }_{ r } $ mátrix által generált kódot \emph{$ r $-ik Reed\,--\,Muller-kódnak}
+nevezzük. Ez egy lineáris $ \left[ 2^{ r },{} r + 1 \right] $-kód $ 2^{ r  - 1 } $
+minimumtávolsággal.
+
+Megemlíthető a \emph{bináris Golay-kód}, amely egy \emph{önduális} kód.
+%
+\minisec{Ciklikus kód}
+Egy lineáris $ C \le \mathbb{ F }_{ q }^{ n } $ kódot \emph{ciklikusnak} nevezünk, ha bármely
+kódszó esetén annak \textqq{ciklikus elforgatottja} is eleme a kódnak (a koordináták
+\textqq{körbepermutálására} zárt a kód).
+
+Az $ \mathbb{ F }_{ q } \left[ x \right] / \left( x^{ n } - 1 \right) $ faktorgyűrű ideáljai éppen a
+ciklikus kódok. Ez a gyűrű főideálgyűrű, és minden idál előáll egy alkalmas minimális fokszámú
+főpolinom generátumaként, ezt nevezzük a megfelelő kód \emph{generátorpolinomjának}. Ha
+generátorpolinom foka $ k $, akkor a kapott ciklikus kód egy lineáris $ \left[ n,{} n - k
+\right] $-kód.
+
+Ciklikus kódok esetén a kódolás polinomszorzás, a hibajelzés polinomosztás (a generátorpolinommal,
+lásd \cite[39.~oldal]{Czedli}). Ilyen kódoknál a \emph{hibacsapdázó algoritmus} segítségével a
+\emph{csomós hibák} jól javíthatók. Megemlíthető: \emph{kódátfűzés} CD-k esetében.
+%
+\minisec{Véges testek és BCH-kódolás}
+\textsc{Bose} és \textsc{Chadbury}, illetve tőlük függetlenül \textsc{Hocquenghem} megfelelő
+kódokat fedeztek fel közepes kódhossz ($ n = $ néhány száz) esetére, az ún. BCH-kódokat (lásd a
+BCH-kódok alaptételét \cite[3.6.~tétel, 36.~oldal]{Czedli})
+
+Legyen $ f $ egy $ r $-edfokú primitív polinom (lásd \cite[35.~oldal]{Czedli})
+$ \mathbb{ F }_{ 2 } $ felett, és legyen $ \alpha =
+x + \left( f \right) \in \mathbb{ F }_{ 2^{ r } } $. Tekintsük $ \alpha $-nak $ d - 1 $ darab
+egymást követő hatványának minimálpolinomjait, majd vegyük a legkisebb közös többszörösüket,
+$ g $-t: $ g $ lesz a kód \emph{generátorpolinomja}. Ekkor a kódolás (megfelelő paraméterek mellett,
+lásd \cite[3.7.~definíció, 38.~oldal]{Czedli}) a $ g $-vel való szorzást lesz a BCH-kód kódolása. A
+BCH-kód lineáris, és minimumtávolsága (a kódszavak közötti legkisebb távolság) legalább $ d $.
+
+A leggyakrabban használt a $ d = 7 $ és $ r = 8 $ esetén egy $ \left[ 255,{} 231 \right] $ típusú,
+(legalább) $ 6 $-hibajelző BCH-kódolás.
+%
+\minisec{Reed\,--\,Solomon-kód}
+Legyen $ \beta $ egy nemnulla eleme $ \mathbb{ F }_{ q } $-nak, jelölje $ n $ a $ \beta $ elem
+\emph{multiplikatív rendjét} (a legkisebb pozitív egészet, amire $ \beta $-t emelve 1-et kapunk).
+Legyen $ d > 2 $, $ a \ge 0 $ és $ f \left( x \right) = x^{ n } - 1 $,
+\begin{equation*}
+	g \left( x \right) = \prod_{ i = 1 }^{ d - 1 } \left( x - \beta^{ a + i } \right)
+\end{equation*}
+a kód generátorpolinomja (foka $ d - 1 $). Ezt a kódot \emph{Reed\,--\,Solomon-kódnak} nevezzük, ez
+egy ciklikus $ \left[ n,{} n - d + 1 \right] $-kód, melynek minimumtávolsága $ d $.
+
+A leggyakrabban használt az $ \mathbb{ F }_{ 2^{ 8 } } $ feletti $ \left[ 255, 223 \right] $ típusú
+Reed\,--\,Solomon-kód.
 %
 \section{Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Luis A. Santaló}: \emph{Integral Geometry
