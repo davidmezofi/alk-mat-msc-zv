@@ -20,7 +20,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [x] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
 - [x] **R** Lineáris regresszió
-- [ ] **R** Kontingenciatáblák elemzése
+- [x] **R** Kontingenciatáblák elemzése
 - [ ] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
