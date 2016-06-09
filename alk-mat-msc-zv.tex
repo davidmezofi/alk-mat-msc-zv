@@ -261,6 +261,155 @@ lánca stabilizálódik (egy idő után az ideálok egyenlőek).
 Noether-gyűrű. Ebből következik, hogy ha $ K $ test, akkor $ K \left[ \mathbf{ x } \right] $
 Noether-gyűrű, illetve $ \mathbb{ Z } \left[ \mathbf{ x } \right] $ gyűrű Noether.
 %
+\minisec{Hilbert Nullstellensatz}
+\begin{tetel}[Hilbert gyenge Nullstellensatz]
+	Legyen $ K $ algebrailag zárt test. Ha $ I $ valódi ideálja $ K \left[ \mathbf{ x }
+	\right] $-nek, akkor az $ I $-beli polinomoknak létezik közös zéróhelye $ K^{ n } $-ben.
+\end{tetel}
+
+\begin{tetel}[Hilbert Nullstellensatz]
+	Legyen $ K $ algebrailag zárt test, $ H \subseteq K \left[ \mathbf{ x } \right] $ és
+	\begin{equation*}
+		V = \left\{ \mathbf{ a } \in K^{ n } \mid \forall\,f \in H \colon f \left( \mathbf{ a }
+		\right) = 0 \right\}.
+	\end{equation*}
+	Ekkor tetszőleges $ f \in K \left[ \mathbf{ x } \right] $ polinomra ekvivalensek:
+	\begin{enumerate}
+		\item $f \left( \mathbf{ a } \right) = 0$ minden $ \mathbf{ a } \in V $ elemre;
+		\item\label{itm:hilbert} $f^{ N } \in H $ valamely pozitív egész $ N $ számra.
+	\end{enumerate}
+\end{tetel}
+%
+\minisec{Radikálideálok}
+\begin{defin}[radikál]
+	Legyen $ I $ ideálja az $ R $ gyűrűnek. Az alábbi halmazt az $ I $ \emph{radikáljának} nevezzük:
+	\begin{equation*}
+		\sqrt{ I } = \left\{ r \in R \colon r^N \in I\text{ valamely pozitív egész $ N $ számra}
+		\right\}
+	\end{equation*}
+\end{defin}
+\begin{defin}[radikálideál]
+	Ha $ I = \sqrt{ I }$, akkor az I ideált az $ R $ \emph{radikálideáljának} nevezzük.
+\end{defin}
+\begin{tetel}
+	Az $ R $ gyűrű tetszőleges $ I $ ideálja esetén $ \sqrt{ I } $ radikálideál.
+\end{tetel}
+\begin{megj}
+	Tehát a \emph{Hilbert Nullstellensatz} \ref{itm:hilbert}.~pontja azt jelenti, hogy a $ H $ által
+	generált radikálideál tartalmazza az $ f $ polinomot.
+\end{megj}
+%
+\minisec{Galois-kapcsolat, varietások}
+Csupán egy speciális esetre van szükségünk, amikor adottak $ A $ és $ B $ halmazok és egy
+$ C \subseteq A \times B $ reláció. Az $ \left( \alpha,{} \beta \right) $ leképezéspárt a $ C $
+által indukált \emph{Galois-kapcsolatnak} nevezzük, ha
+\begin{align*}
+	\alpha \colon 2^{ A } \rightarrow 2^{ B }, \qquad H &\mapsto \left\{ b \in B \colon \left( h,{}
+	b \right) \in C \  \forall\, h \in H \right\}\\
+	\beta \colon 2^{ B } \rightarrow 2^{ A }, \qquad L &\mapsto \left\{ a \in a \colon \left( a,{}
+	l \right) \in C \  \forall\, l \in L \right\}
+\end{align*}
+Jelölje $ \left( I,{} V \right) $ a $ C $ ($ n $-határozatlanú polinom eltűnik
+$ \mathbf{ a } $-n) által indukált Galois-kapcsolatot. Ekkor a $ K^{ n } $-beli zárt halmazokat
+\emph{varietásoknak} nevezzük. A Hilbert Nullstellensatz szerint a $ K \left[ \mathbf{ x }
+\right] $-beli zárt halmazok $ K \left[ \mathbf{ x } \right] $ radikálideáljai.
+%
+\minisec{Redukciós eljárás}
+Legyenek $ I = \left( f_{ 1 },{} f_{ 2 },{} \ldots,{} f_{ s } \right) $ és $ J = \left( g_{ 1 },{}
+g_{ 2 },{} \ldots,{} g_{ t } \right) $ az $ R $ végesen generált ideáljai. A következő kérdésekre
+szeretnénk választ kapni:
+\begin{itemize}
+	\item Van-e olyan algoritmus, amely eldönti tetszőleges $ f \in R $ polinom esetén, hogy $ f \in
+		I $ vagy $ f \not\in I $? Ha igen, akkor állítsuk elő az $ f $ polinomot az $ f_{ 1 },{}
+		f_{ 2 },{} \ldots,{} f_{ s }$ polinomok $ R $-lineáris kombinációjaként.
+	\item Van-e olyan algoritmus amely eldönti, hogy $ I = J $ vagy $ I \neq J $?
+\end{itemize}
+A két kérdés eldöntése ekvivalens, a kérdések megoldhatóak \textqq{szép} bázisok konstruálásával.
+\begin{defin}[egylépéses redukált]
+	Legyenek $ f,{} g,{} h \in K \left[ x_{ 1 },{} x_{ 2 },{} \ldots x_{ n } \right] $. Jelölje
+	$ \hat{ g } $ a $g$ polinom legnagyobb (lexikografikus rendezésben) tagját. Ekkor $ h $ az $ f $
+	\emph{egylépéses redukáltja} modulo $ g $, ha létezik $ f $-nek olyan $ m \neq 0 $ tagja,
+	amelynek $ \hat{ g } $ osztója és $ h = f - \left( \frac{ m }{ \hat{ g } } \right)  g $.
+\end{defin}
+\begin{defin}[redukált]
+	Legyen $ G \subseteq K \left[ x_{ 1 },{} x_{ 2 },{} \ldots x_{ n } \right] $. Ekkor $ h $ az
+	$ f $ \emph{redukáltja} modulo $ G $, ha létezik olyan $ h_{ 0 },{} h_{ 1 },{} \ldots h_{ k }
+	\in K \left[ x_{ 1 },{} x_{ 2 },{} \ldots x_{ n } \right] $ sorozat, hogy $ h_{ 0 } = f $,
+	$ h_{ k } = h $ és $ h_{ i } $ a $h_{ i - 1 }$ egylépéses redukáltja modulo $ g $, valamely
+	$ g \in G $ polinomra.
+\end{defin}
+%
+\minisec{Ideálok Gröbner-bázisai}
+\begin{defin}[ideál Gröbner-bázisa]
+	Legyen $ G \subseteq K \left[ \mathbf{ x } \right] $ véges polinomhalmaz és $ I $ ideálja
+	$ K \left[ \mathbf{ x } \right] $-nek. A $ G $ halmaz az $ I $ \emph{ideál Gröbner-bázisa}, ha
+	$ I = \left( G \right) $ és minden $ f \in I $ nemnulla polinomhoz létezik olyan $ g \in G $
+	polinom, hogy $ \hat{ g } \mid \hat{ f } $.
+\end{defin}
+\begin{defin}[Gröbner-bázis]
+	A $ G $ véges polinomhalmazt \emph{Gröbner-bázisnak} nevezzük, ha Gröbner-bázisa a $ \left( G
+	\right) $ ideálnak.
+\end{defin}
+\begin{equation*}
+	\begin{split}
+		G \text{ Gröbner-bázis } &\Leftrightarrow \forall \, f \in \left( G \right) \text{ polinom
+		0-ra redukálható modulo } G \Leftrightarrow\\
+		&\Leftrightarrow \forall \, f\in K \left[ \mathbf{ x } \right]
+		\text{ polinom teljes redukált alakja egyértelmű}
+	\end{split}
+\end{equation*}
+Ha egy polinom 0-ra redukálható modulo $ G $, akkor az eleme $ \left( G \right) $-nek.
+%
+\minisec{Buchberger-algoritmus}
+Ez előzőek a gyakorlatban nem alkalmasak arra, hogy egy polinomhalmazról eldöntsük, hogy
+Gröbner-bázis-e. Erre nyújt megoldást a \emph{Buchberger-algoritmus}.
+
+Keressük a $ \left( G \right) $ ideál Gröbner-bázisát.
+\begin{algorithmic}[1]
+	\State $ f,{} g \in G $ kiválasztása.
+	\State $ s \left( f,{} g \right) $ kiszámolása.\Comment{$ s $-polinom.}
+	\State $ s \left( f,{} g \right) $  redukálása, ameddig lehet.
+	\State $ h  \gets$ az így kapott teljes redukált
+	\If{$ h = 0 $}
+		\State Újra az elejétől.
+	\Else
+		\State Vegyük hozzá $ h $-t $ G $-hez és ismételjük az elejétől.
+	\EndIf
+\end{algorithmic}
+Ez az eljárás véges számú lépés után véget ér, és a kapott halmaz a $ \left( G \right) $
+Gröbner-bázisa.
+\minisec{Minimális és redukált Gröbner-bázisok}
+Egy Gröbner-bázis \emph{minimális}, ha nem eleme a 0 és a különböző elemeinek legnagyobb tagja nem
+osztja egymást. Egy Gröbner-bázis \emph{teljesen redukált}, ha nem eleme a 0 és egyik $ g $ tagja
+sem redukálható tovább modulo $ G \setminus \left\{ g \right\}$.
+\minisec{Tartalmazási problémák}
+\begin{description}
+	\item[Ideál tartalmazási probléma] Határozzuk meg, hogy adott $ f \in K \left[ \mathbf{ x }
+		\right] $ polinomra és $ F \subseteq K \left[ \mathbf{ x } \right] $ véges polinomhalmazra
+		teljesül-e $ f \in \left( F \right) $! Megoldás a Buchberger-algoritmussal.
+	\item[Radikál tartalmazási probléma] Határozzuk meg, hogy adott $ f \in  K \left[ \mathbf{ x }
+		\right]$ polinomra és $ F \subseteq K \left[ \mathbf{ x } \right] $ véges polinomhalmazra
+		teljesül-e $ f \in \sqrt{ \left( F \right) }$! Megoldás egy tétel és az előző feladat
+		megoldására alkalmazott algoritmus segítségével.
+\end{description}
+%
+\minisec{Algebrailag zárt test feletti egyenletrendszerek megoldhatósága}
+Határozzuk meg, hogy $ f_{ 1 },{} f_{ 2 },{} \ldots,{} f_{ k } \in K \left[ \mathbf{ x } \right] $
+polinomokra van-e megoldása az $ f_{ 1 } = 0,{} f_{ 2 } = 0,{} \ldots,{} f_{ k } = 0 $
+egyenletrendszernek!
+
+Megoldás Gröbner-bázissal: ha van a bázisban konstans, megoldható, különben nem.
+%
+\minisec{Gráfszínezési probléma}
+Gráfok kétszínezhetőségére ismert hatékony algoritmus, azonban a háromszínezhetőség eldöntése
+NP-teljes probléma. A Buchberger-algoritmussal azonban eldönthető, hogy egy gráf háromszínezhető-e.
+A problémát ehhez vissza kell vezetni az egyenletrendszer megoldhatóságának problémájára.
+%
+\minisec{Minimálpolinom-keresés}
+Legyen adott a $ K \left( \alpha \right) \mid K $ egyszerű algebrai testbővítés, és tegyük fel, hogy
+ismerjük $ \alpha $ minimálpolinomját. A Buchberger-algoritmus segítségével meghatározható egy adott
+$\beta \in K \left( \alpha \right) $ elem minimálpolinomja.
+%
 \section{Matematikai titkosírások}
 A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet -- Jegyzet Zádori László előadásához} \cite{Zadori} című jegyzetében.
 %
