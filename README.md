@@ -13,7 +13,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 
 - [ ] **N** Gráfelmélet: összefüggőség, színezések
 - [ ] **N** Gráfelmélet: párosítások, síkgráfok
-- [ ] **R** Gröbner-bázisok és alkalmazásaik
+- [x] **R** Gröbner-bázisok és alkalmazásaik
 - [x] **R** Matematikai titkosírások
 - [ ] **R** Többváltozós és vektorértékű függvények
 - [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
