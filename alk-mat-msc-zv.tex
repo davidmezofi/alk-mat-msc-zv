@@ -307,6 +307,41 @@ Az $ f \left( x,{} \left( y,{} z \right) \right) $ kódolófüggvény az $ \left
 \right) \right) $ párhoz az $ x^{ y } $ legkisebb nemnegatív maradékát rendeli modulo $ z $
 (feltesszük, hogy az $ x $ üzenetre teljesül: $ 0 \le x < \min_{ i } m_{ i } $).
 %
+\minisec{Prímtesztek}
+A prímszámok fontos szerepet játszanak a titkosírás során, teht szükségünk van olyan eljárásokra,
+melyekkel tesztelni tudjuk egy számról, hogy prím vagy összetett szám-e. A kis Fermat-tétel egy
+szükséges feltételt ad arra, hogy egy szám prímszám-e, a feltétel azonban nem fordítható meg.
+
+\begin{description}
+	\item[Soloway\,--\,Strassen] A jegyzetben nem szerepel, algoritmuselmélet gyakorlaton volt róla
+		szó.
+		\begin{algorithmic}[1]
+			\Require{$ n $ és $ k $ számok}
+			\For{$ i \gets 1,{} i < k,{} i \gets i + 1 $}
+				\State $ a \gets $ \Call{Random}{$ 0,{} n - 1 $}
+				\State $ x \gets a^{ \frac{ n - 1 }{ 2 } } \mod{ n }$
+				\State $y \gets \left( \frac{ a }{ n }  \right) \mod{n}$
+				\If{$ x \neq y $}
+					\State \Return \texttt{$ n $ nem prím}
+				\EndIf
+			\EndFor
+			\State \Return \texttt{$ n $ valószínűleg prím}
+		\end{algorithmic}
+		Ha $ n $ prím, akkor az output \emph{mindig} \texttt{$ n $ valószínűleg prím} lesz, ha $ n $
+		összetett, akkor az output $ 1 - 2^{ - k } $ valószínűséggel \texttt{$ n $ nem prím}. Az
+		$ x $ és $ y $ értékeknek az \emph{Euler-lemma} értelmében kell egyenlőnek lenniük feltéve,
+		hogy $ n $ prím. Az $ \left( \frac{ a }{ n } \right) $ érték a \emph{Jacobi-szimbólum}.
+
+	\item[Miller\,--\,Rabin] A Miller\,--\,Rabin-prímteszt egy egyszerű számelméleti észrevételen
+		alapuló nem-determinisztikus prímteszt. Elvégzésével csupán nagy valószínűséggel
+		állíthatjuk, hogy  a tesztelt szám prímszám. A tesztelés determinisztikussá tehető az
+		általánosított Riemann-hipotézis segítségével.
+	\item[AKS] Ez az első determinisztikus polinomiális futási idejű prímteszt, 2002-ből való és
+		három indiai matematikus nevéhez kötődik: \emph{Agraval}, \emph{Kayal} és \emph{Saxena}. A
+		gyakorlatban inkább a Miller\,--\,Rabint alkamazzák (gyorsabb, bár futásideje nemű
+		polinomiális).
+\end{description}
+%
 \section{Többváltozós és vektorértékű függvények}
 %
 \section{Fourier-sorok, ortogonális polinomok, sorfejtések}
