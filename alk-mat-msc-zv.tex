@@ -550,6 +550,45 @@ problémát használja ki a következő két algoritmus.
 \end{description}
 %
 \section{Többváltozós és vektorértékű függvények}
+A tételt próbáltam egy kicsit szemléletes oldalról is megközelíteni, amihez a
+\href{https://www.wikipedia.org/}{Wikipedia} nyújtott
+segítséget. A precízebb definíciók és tételek az órai jegyzetek és a \emph{Thomas-féle kalkulus}
+III.~része \cite[16.~fejezet]{Thomas} alapján születtek meg. Nem minden dolog szerepel ugyan ilyen
+módon a Thomas-könyvben, azonban vizsga előtti felkészüléshez egy nagyon jó alap lehet, mert a tétel
+majdnem minden részét lefedi, és könnyen megtalálhatóak benne a dolgok.
+%
+\minisec{Többszörös integrál}
+Integrálni nem csak intervallumok felett lehet. Általánosan, egy adott $ E $ halmaz fölötti
+integrált a következőképpen jelölünk:
+\begin{equation*}
+	\int_{ E } f \left( \mathbf{ x } \right) \, \mathrm{ d } \mathbf{ x }.
+\end{equation*}
+Itt $ \mathbf{ x } $-nek nem muszáj valós változónak lennie, lehet például
+$ \mathbb{ R }^{ 3 }$-beli vektorértékű változó is. A \emph{Fubini-tétel} szerint az ilyen
+integrálok felírhatóak integrálok integráljaként. Tehát az ilyen \textqq{területek} vagy
+\textqq{térfogatok} feletti integrálok kiszámítható az egyes koordináták szerinti egyenkénti
+integrálással.
+
+Ahogy a pozitív egyváltozós függvények határozott integrálja a függvény és az $ x $-tengely által
+bezárt területet adja meg, úgy a kettős integrálja egy pozitív kétváltozós függvénynek megadja az
+integrálási tartomány és a függvény által meghatározott felület által bezárt térfogatot. Ugyanezt
+térfogatot kiszámíthatjuk hármas integrállal is. Ekkor a hármas integrál teljes integrálási
+tartománya a fent említett tartomány, amit a függvény és a kettős integrál integrálási tartománya
+bezár -- tehát az egész közrezárt térrész, térfogat -- míg az integrandus a konstans 1 függvény. Ha
+a változók száma és az integrálok száma nagyobb, akkor a kifejezés az adott dimenziós térfogatnak
+felel meg.
+
+\begin{tetel}
+	Legyen $ R = \left[ a,{} b \right] \times \left[ c,{} d \right]$ véges vagy nem véges téglalap
+	az $ \mathbb{ R }^{ 2 } $ térben. Az $ R $ téglalapon értelmezett, integrálható $ f $ függvény
+	integrálja kiszámítható az egyes változók szerint való szukcesszív integrálással:
+	\begin{equation*}
+		\iint_{ R } f \left( x,{} y  \right) \, \mathrm{ d } x \, \mathrm{ d } y = \int_{ a }^{ b }
+		\int_{ c }^{ d } f \left( x,{} y  \right) \, \mathrm{ d } y \, \mathrm{ d } x =
+		\int_{ c }^{ d } \int_{ a }^{ b } f \left( x,{} y  \right) \, \mathrm{ d } x \,
+		\mathrm{ d } y.
+	\end{equation*}
+\end{tetel}
 %
 \section{Fourier-sorok, ortogonális polinomok, sorfejtések}
 %
