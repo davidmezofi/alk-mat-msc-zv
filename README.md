@@ -15,7 +15,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Gráfelmélet: párosítások, síkgráfok
 - [x] **R** Gröbner-bázisok és alkalmazásaik
 - [x] **R** Matematikai titkosírások
-- [ ] **R** Többváltozós és vektorértékű függvények
+- [x] **R** Többváltozós és vektorértékű függvények
 - [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [x] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
