@@ -14,7 +14,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Gráfelmélet: összefüggőség, színezések
 - [ ] **N** Gráfelmélet: párosítások, síkgráfok
 - [ ] **R** Gröbner-bázisok és alkalmazásaik
-- [ ] **R** Matematikai titkosírások
+- [x] **R** Matematikai titkosírások
 - [ ] **R** Többváltozós és vektorértékű függvények
 - [ ] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
 - [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
@@ -37,7 +37,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [ ] **N** Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
 - [ ] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] **N** A bonyolultságelmélet alapjai
-- [ ] **D** Hibajelző és -javító kódolások
+- [x] **D** Hibajelző és -javító kódolások
 - [x] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
 - [x] **D** Differenciálformák, kinematikai sűrűség és mérték: *háromszögek mértéke?*
 
