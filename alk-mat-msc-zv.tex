@@ -181,6 +181,8 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\lnko}{lnko}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Irodalomjegyzék beállításai
@@ -261,6 +263,49 @@ $ x $. Ehhez szükségük van egy-egy titkos kulcsra, legyenek ezek: $ a $ és $
 egy $ E $ kódoló és egy $ D $ dekódoló függvény. $ A $ kódolt üzenete $ E \left( x,{} a \right) $,
 melyet elküld $ B $-nek, aki dekódolja: $ D \left(  E \left( x,{} a \right),{} b \right) = x $, így
 visszakapva az eredeti $ x $ üzenetet.
+%
+\minisec{Nyilvános kulcsú titkosírás}
+Az alapfeladat megoldására több lehetőségünk is van, az egyik ilyen a \emph{nyilvános kulcsú
+titkosírások}. A nyilvános kulcsú titkosírásokkal bizonyos feltételek mellett az is ellenőrizhető,
+hogy az üzenetet ki küldte (hitelesítés, autentikáció).
+
+Az alapelv a következő: adott felhasználók egy $ \left\{ F_{ 1 },{} F_{ 2 },{} \ldots,{} F_{ n }
+\right\} $ halmaza, mindenkinek rendelkeznie kell egy $ k_{ i } $ nyilvános és egy $ l_{ i } $
+titkos kulccsal. Egy $ f $ függvényt \emph{kódoló és dekódoló függvénynek} nevezünk, ha teljesülnek
+az alábbiak:
+	\begin{enumerate}
+		\item $ f \left( f \left( x,{} k_{ i } \right), {} l_{ i } \right) = x $ minden $ x $
+			üzenetre és indexre;
+		\item $ x $ és $ y $ ismeretében $ f \left( x,{} y \right) $ gyorsan számolható;
+		\item $ y $ és $ f \left( x,{} y \right) $ ismeretében $ x $ nem számolható gyorsan;
+		\item\label{itm:felt} ha $ f \left( f \left( x,{} l_{ i } \right), {} k_{ i } \right) = x $
+			is teljesül minden $x$ üzenetre és indexre, akkor hitelesíteni is tudjuk az üzenet
+			küldőjét.
+	\end{enumerate}
+Ekkor az eljárás a következő: tegyük fel,hogy $ F_{ 1 } $ küld üzenetet $ F_{ 2 }$-nek. $ F_{ 1 } $
+az $ f \left( x,{} k_{ 2 } \right) $-t küldi el $F_{ 2 } $-nek, aki ezután kiszámolja $ f \left( f
+\left( x,{} k_{ 2 } \right), {} l_{ 2 } \right)=x $-et.
+
+Ha \aref{itm:felt}.~feltétel is teljesül, akkor $ F_{ 1 } $ az $ f \left( f \left( x,{} l_{ 1 }
+\right), {} k_{ 2 } \right) $-t küldi el $F_{ 2 } $-nek, aki az $ f \left( f \left( f \left( f
+\left( x,{} l_{ 1 } \right), {} k_{ 2 } \right),{} l_{ 2 } \right),{} k_{ 1 } \right) $-et számolja
+ki.
+%
+\minisec{RSA}
+Minden $ F_{ i } $ felhasználó a következőeket teszi:
+\begin{itemize}
+	\item választ két nagy prímet: $ p_{ i },{} q_{ i }$;
+	\item kiszámolja a szorzatuk: $ m_{ i } =  p_{ i } q_{ i } $;
+	\item $ k_{ i } $ szám választása úgy, hogy $ 1 < k_{ i } < \varphi \left( m_{ i } \right) $ és
+		$\lnko \left( k_{ i },{} \varphi \left( m_{ i } \right) \right) = 1 $;
+	\item $ l_{ i } $ kiszámolása: $ 1 < l_{ i } < \varphi \left( m_{ i } \right) $ és $ k_{ i }
+		l_{ i } \equiv 1 \mod{ \varphi \left( m_{ i } \right) }$;
+	\item \emph{nyilvános kulcs}: $ \left( k_{ i },{} m_{ i } \right) $;
+	\item \emph{titkos kulcs}: $ \left( l_{ i },{} m_{ i } \right) $.
+\end{itemize}
+Az $ f \left( x,{} \left( y,{} z \right) \right) $ kódolófüggvény az $ \left( x,{} \left( y,{} z
+\right) \right) $ párhoz az $ x^{ y } $ legkisebb nemnegatív maradékát rendeli modulo $ z $
+(feltesszük, hogy az $ x $ üzenetre teljesül: $ 0 \le x < \min_{ i } m_{ i } $).
 %
 \section{Többváltozós és vektorértékű függvények}
 %
