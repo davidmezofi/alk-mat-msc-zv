@@ -248,6 +248,19 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \section{Gröbner-bázisok és alkalmazásaik}
 A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet -- Jegyzet Zádori László előadásához} \cite{Zadori} című jegyzetében.
 %
+\minisec{\textsc{Hilbert} bázistétele}
+\emph{Gyűrű} alatt kommutatív, egységelemes gyűrűt értünk. Egy adott $ R $ gyűrűre $ R \left[
+\mathbf{ x } \right] $ jelöli az $ R $ feletti $ n $ határozatlanú polinomgyűrűt.
+
+Egy $ R $ gyűrűt
+\emph{Noether-gyűrűnek} nevezünk, ha minden ideálja végesen generált. Tetszőleges $ R $ gyűrű
+pontosan akkor Noether, ha ideáljaira teljesül a felszálló láncfeltétel, azaz az ideáljai növekvő
+lánca stabilizálódik (egy idő után az ideálok egyenlőek).
+
+\emph{Hilbert bázistétele} szerint ha az $ R $ gyűrű Noether, akkor $ R \left[ x \right] $ is
+Noether-gyűrű. Ebből következik, hogy ha $ K $ test, akkor $ K \left[ \mathbf{ x } \right] $
+Noether-gyűrű, illetve $ \mathbb{ Z } \left[ \mathbf{ x } \right] $ gyűrű Noether.
+%
 \section{Matematikai titkosírások}
 A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet -- Jegyzet Zádori László előadásához} \cite{Zadori} című jegyzetében.
 %
@@ -337,10 +350,32 @@ szükséges feltételt ad arra, hogy egy szám prímszám-e, a feltétel azonban
 		alapuló nem-determinisztikus prímteszt. Elvégzésével csupán nagy valószínűséggel
 		állíthatjuk, hogy  a tesztelt szám prímszám. A tesztelés determinisztikussá tehető az
 		általánosított Riemann-hipotézis segítségével.
+
+		Legyen $ n $ a tesztelendő páratlan szám, $ n = 2^{ k } r + 1 $, $ r $ páratlan. Legyen
+		$ 0 < a < n $. Ha $ n $ prímszám, akkor az alábbi állítás minden $ a $-re teljesül, ha $ n $
+		összetett, akkor ez legfeljebb a $ \frac{ n+ 1 }{ 2 } $ db $ a $ számra igaz:
+		\begin{equation*}
+			a^{r}\equiv 1 \mod{n}\  \text{vagy van olyan $ 0 \le i < k $, hogy}\ a^{ 2^{ i } r }
+			\equiv - 1 \mod{n}.
+		\end{equation*}
+		Ezért véletlenszerűen választunk $ a $ értékeket, és ha mondjuk 100 egymás utáni választásra
+		igaz a fenti állítás, akkor $ n $ nagy valószínűséggel prím. Ha $ t $-szer ismétlünk, akkor
+		legfeljebb $ \frac{ 1 }{ 2^{ t } } $ a valószínűsége annak, hogy egy összetett számot
+		prímnek nyilvánítunk.
 	\item[AKS] Ez az első determinisztikus polinomiális futási idejű prímteszt, 2002-ből való és
 		három indiai matematikus nevéhez kötődik: \emph{Agraval}, \emph{Kayal} és \emph{Saxena}. A
 		gyakorlatban inkább a Miller\,--\,Rabint alkamazzák (gyorsabb, bár futásideje elméletileg
 		nem polinomiális).
+
+		Legyen $ n \ge 2 $ természetes szám, $ r $ olyan $ n $-nél kisebb természetes szám, hogy
+		$ n $ rendje modulo $ r $ nagyobb, mint $ \log_{ 10 }^{ 2 } n $. Az $ n $ szám pontosan
+		akkor prím, ha:
+		\begin{enumerate}
+		\item $ n $ nem teljes hatvány;
+		\item $ n $-nek nincs prímtényezője, ami $ \le r $;
+		\item $ \left( x + a \right)^{ n } \equiv x^{ n } + a \mod{ \left( n, x^{ r } - 1
+			\right) } $ teljesül minden $ 1 \le a \le r $ egész számra.
+		\end{enumerate}
 \end{description}
 %
 \minisec{A diszkrét logaritmus és alkalmazásai}
@@ -455,7 +490,7 @@ $ \mathbf{ W } \sim \wishartd_{ p } \left( n,{} \mathbf{ C } \right) $ esetben $
 6.1.~állítás]{BollaKramli}. A Hotelling-féle $ T^{ 2 } $-eloszlás és a Fisher-féle $ F $-eloszlás
 kapcsolatát \cite[5.~fejezet, 6.~szakasz, 6.2.~tétel]{BollaKramli} részletezi.
 
-A következő teszteket \cite[5.~fejezet, 6.~szakasz, 230--234. o.]{BollaKramli} részletezi.
+A következő teszteket \cite[5.~fejezet, 6.~szakasz, 230--234.~oldal]{BollaKramli} részletezi.
 \begin{description}
 	\item[Várható érték tesztelése ismert kovarianciamátrix esetén]\leavevmode
 		\begin{description}
@@ -1579,7 +1614,7 @@ másik (Descartes-féléből származtatott) koordináta-rendszerre Jacobi-mátr
 Az egyenesek halmazain mozgásinvariánsmértéket kapunk, ha az egyeneseket a
 normálvektoruk $ x $-tengellyel vett szögével -- $ \phi $ -- és az origótól vett távolságukkal
 -- $ p $ -- paraméterezzük: $ \mathrm{ d } e =  \mathrm{ d }p \wedge \mathrm{ d } \phi $. Ebből
-rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29--30.~o.]{Santalo})
+rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29--30.~oldal]{Santalo})
 \begin{align*}
 	\int_{ e \cap K \neq \emptyset } \left| e \cap K \right| \, \mathrm{ d } e &= \pi T \left( K
 	\right);\\
@@ -1592,13 +1627,13 @@ metsző egyenes $ K $-ba eső részénék hosszána várható értéke $ \mean \
 
 Ha $ C $ egy szakaszonként differenciálható
 görbe, akkor véletlen egyenesek $ C $-vel vett metszéspontjai számának integrálja éppen $ C $
-hosszának kétszerese: $ \int n \, \mathrm{ d } e = 2 L $ (Crofton, lásd \cite[31.~o.]{Santalo}).
+hosszának kétszerese: $ \int n \, \mathrm{ d } e = 2 L $ (Crofton, lásd \cite[31.~oldal]{Santalo}).
 %
 \minisec{Pont- és egyenespárok halmazainak mértéke}
 Pontpárok sűrűségét láttuk: $ \mathrm{ d } P_{ 1 } \wedge \mathrm{ d } P_{ 2 } $, azonban
 áttérhetünk a következő paraméterezésre: vegyük a két pontot összekötő egyenest -- $ e\colon p,{}
 \phi $ -- a legközelebbi pontját az origóhóz, és a két pont távolságát -- $t_{ 1 }, {} t_{ 2 }$ --
-ettől a ponttól. Ekkor (lásd \cite[46.~o.]{Santalo})
+ettől a ponttól. Ekkor (lásd \cite[46.~oldal]{Santalo})
 \begin{equation*}
 	 \mathrm{ d } P_{ 1 } \wedge \mathrm{ d } P_{ 2 } = \left| t_{ 2 } - t_{ 1 }\right| \mathrm{ d }
 	 e \wedge \mathrm{ d } t_{ 1 } \wedge \mathrm{ d } t_{ 2 }.
@@ -1611,7 +1646,7 @@ Ebből levezethető a következő:
 \end{equation*}
 Legyen $ e_{ 1 } $ és $ e_{ 2 } $ két egyenes, melyek $ P $-ben metszik egymást és az $ x $ tengely
 pozitív irányával rendre $ \alpha_{ 1 },{} \alpha_{ 2 } $ szöget zárnak be. Ekkor (lásd
-\cite[49.~o.]{Santalo})
+\cite[49.~oldal]{Santalo})
 \begin{equation*}
 	\mathrm{ d } e_{ 1 } \wedge \mathrm{ d } e_{ 2 } = \left| \sin \left( \alpha_{ 2 } -
 	\alpha_{ 1 } \right) \right| \mathrm{ d } P \wedge \mathrm{ d } \alpha_{ 1 } \wedge
