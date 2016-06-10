@@ -12,7 +12,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 ### Közös
 
 - [x] **N** Gráfelmélet: összefüggőség, színezések
-- [ ] **N** Gráfelmélet: párosítások, síkgráfok
+- [x] **N** Gráfelmélet: párosítások, síkgráfok
 - [x] **R** Gröbner-bázisok és alkalmazásaik
 - [x] **R** Matematikai titkosírások
 - [x] **R** Többváltozós és vektorértékű függvények
