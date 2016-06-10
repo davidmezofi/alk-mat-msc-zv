@@ -334,9 +334,136 @@ Lásd
 \end{enumerate}
 %
 \section{Gráfelmélet: párosítások, síkgráfok}
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Hajnal Péter}: \emph{Diszkrét matematika}
+\cite{DiMat} című kurzusához kapcsolódó honlapon.
+%
+\minisec{Párosítási problémák}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-parositasok.pdf}
+{\emph{Párosítások I. -- Alapok, nem kombinatorikus módszerek}}, 1.~szakasz]{DiMat}.
+Legyen $ M $ része a $G$ gráf élhalmazának. Ekkor $M$ \emph{párosítás}, ha $M$ számossága egyenlő
+$ V \left( M \right) $ számosságának a felével. \emph{Teljes párosítás}, ha párosítás és
+$ V \left( M \right) $ számossága megeggyezik $ V \left( G \right) $ számosságával.
+
+\begin{enumerate}
+	\item Keressünk maximális párosítást!
+	\item Határozuk meg a legnagyobb párosítás elemszámát!
+	\item\label{itm:vanpar} Döntsük el, van-e a $G$ gráfban teljes párosítás!
+	\item\label{itm:parkeres} Keressünk minél nagyobb elemszámú párosítást!
+\end{enumerate}
+%
+\minisec{Mohó algoritmus \told\ref{itm:parkeres}+ra{}}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-parositasok.pdf}
+{\emph{Párosítások I. -- Alapok, nem kombinatorikus módszerek}}, 2.~szakasz]{DiMat}.
+
+Meglévő párosítást adig bővítünk, amíg van olyan él, amit ha hozzáveszünk, párosítás marad. A talált
+párosítás elemszáma biztosan a maximális párosítás elemszáma és annak a fele között lesz.
+%
+\minisec{Véletlen algoritmus \told\ref{itm:vanpar}+ra{} (páros gráfok esetén)}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-parositasok.pdf}
+{\emph{Párosítások I. -- Alapok, nem kombinatorikus módszerek}}, 3.~szakasz]{DiMat}.
+
+\emph{Páros gráf szomszédsági mátrixa}: olyan, mint a sima szomszédsági mátrix, de itt a sorok az
+egyik, míg az oszlopok a másik osztályt reprezentálják, ezzel tömörítjük a szomszédsági mátrixot.
+
+Ha $M$ egy párosítás, akkor a páros szomszédsági mátrixban ($ M $-re megszorítva) minden sorban
+\emph{legfeljebb} 1 darab 1-es van. Teljes párosítás estén \emph{pontosan} 1 darab 1-es. Ez alapján,
+ha a páros gráf páros szomszédsági mátrixának determinánsa nem 0, akkor létezik teljes
+párosítás.
+%
+Legyen $X_G$ az a mátrix amit úgy kapunk, hogy minden $e$ élre az élhez tartozó 1-est $x_e$-re
+cseréljük. $ \det X_G $ nem azonosan nulla polinom akkor és csak akkor, ha létezik G-ben teljes
+párosítás.
+
+Ez alapján a véletlen algoritmus: minden $x_e$-t helyettesítsünk egy uniform véletlen változóval, és
+számítsuk ki $ \det X_G $ értékét. Ha ez 0, akkor \texttt{Valószínűleg nem létezik teljes
+párosítás.} (szerencsétlen eset, ha pont $ \det X_G $ gyökeit írtuk be). Ha nem 0, akkor
+\texttt{Biztosan létezik teljes párosítás.}
+%
+\minisec{Javító utas algoritmusok}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Edmonds.pdf}
+{\emph{Párosítások II. -- Kombinatorikus módszerek}}]{DiMat}.
+
+$ v_0,{} e_1,{} \ldots,{} e_k,{} v_k $ \emph{javító út} az $ M $ párosításra nézve, ha $ v_0 $,
+$ v_k $ nem párosítottak, $k$ páratlan, és minden páros indexű él eleme a párosításnak.
+
+Ekkor nagyobb elemszámú párosítást kapunk, ha a javító útból pontosan azokat az éleket vesszük, amik
+nem voltak benne a párosításban. Ez alapján a javító utas séma: adott $ M $ párosítás, keressünk
+javító utat; ha nem találtunk akkor leállunk, ha találtunk, akkor cseréljük a párosítást az újra,
+és kezdjük újra az algoritmust.
+\begin{description}
+	\item[Berge-tétel] Ha M nem optimális, akkor létezik rá javító út.
+
+		Az algoritmusok nehézsége a javító utak keresése.
+	\item[Mohó algoritmus (címkézés)] Lásd
+		\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Edmonds%
+		.pdf}{\emph{Párosítások II. -- Kombinatorikus módszerek}}, 2.~szakasz]{DiMat}.
+	\item[Magyar módszer] Páros gráf esetén, ha a mohó keresés nem talál javító utat az $M$
+		párosításra, akkor az $M$ párosítás optimális.
+	\item[Kőnig-akadály] Csúcsok egy $S$ halmaza \emph{Kőnig-akadály}, ha a szomszédainak száma
+		kisebb mint az elemszáma. Ha egy gráfban van Kőnig-akadály, akkor nincs teljes párosítása.
+	\item[Edmonds-algoritmus] Lásd
+		\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Edmonds%
+		.pdf}{\emph{Párosítások II. -- Kombinatorikus módszerek}}, 3.~szakasz]{DiMat}.
+	\item[Tutte-akadály] \emph{Tutte-akadály} a gráf egy olyan ponthalmaza, amelynek elhagyása után
+		a keletkezett páratlan pontszámú komponensek száma több mint az elhagyott pontok száma.
+	\item[Tutte-tétel]  Egy gráf akkor és csak akkor tartalmaz teljes párosítást, ha nincs benne
+		Tutte-akadály.
+\end{description}
+%
+\minisec{Síkgráfok}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Wagner.pdf}
+{\emph{Síkgráfok I. -- Wagner-tétel}}]{DiMat}.
+
+Egy gráf \emph{síkgráf}, ha síkbarajzolható. Egy gráf síkbarajzolható, ha le lehet úgy rajzolni,
+hogy az éleknek csak a végpontokban van közös pontjuk. Szükséges gráfoperációk: él \emph{elhagyása},
+élek \emph{összevonása}, él \emph{összehúzása}.
+
+Legyen $ G $ gráf.
+\begin{description}
+	\item[Részgráf] Ha $R$ a $G$-ből élek és csúcsok elhagyásával megkapható, akkor $R$ a $G$
+		\emph{részgráfja}.
+	\item[Minor] Ha $M$ a $G$-ből él- és csúcselhagyással, illetve élösszehúzással megkapható, akkor
+		$M$ a $G$ \emph{minorja}.
+	\item[Topologikus részgráf] Ha $T$ a $G$-ből él- és csúcselhagyással, illetve élösszevonással
+		megkapható, akkor $T$ a $G$ \emph{topologikus részgráfja}.
+\end{description}
+Egy részgráf topologikus részgráf is, egy topologikus részgráf minor is egyben. Ha $G$ síkgráf,
+akkor a részgráfjai, minorjai és topologikus részgráfjai is síkgráfok.
+\begin{tetel}[\textsc{Euler}]
+	$ K_5 $, és $K_{3,{}3}$ nem síkgráfok.
+\end{tetel}
+%
+\minisec{Wagner- és Kuratowski-tétel}
+Az alábbiak ekvivalensek:
+\begin{enumerate}
+	\item\label{itm:sik} $G$ síkgráf;
+	\item\label{itm:kura} $G$-nek nem topologikus részgráfja $K_{5}$ és $K_{3,{}3}$;
+	\item\label{itm:wagner} $G$-ben nincs $K_{5}$ és $K_{3,{}3}$ minor.
+\end{enumerate}
+\Aref{itm:sik}. és \ref{itm:kura}.~pontok ekvivalenciája a Kuratowski-tétel, \aref{itm:sik}. és
+\ref{itm:wagner}.~pontok ekvivalenciája a Wagner-tétel.
+%
+\minisec{Metszési szám}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-xszam.pdf}
+{\emph{Síkgráfok II. -- Metszési szám és alkalmazásai}}]{DiMat}.
+
+Egy lerajzolás \emph{reguláris}, ha nincs három élgörbe közös belső ponttal. Gráf \emph{metszési
+száma}: minimuma azon pontok számának, amelyen több él is átmegy -- a minimumot a reguláris
+lerajzolásokra képezzük.
+
+$G$ síkgráf akkor és csak akkor, ha a metszési száma 0. Tovébbi két becslés a metszések számára:
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-xszam.pdf}
+{\emph{Síkgráfok II. -- Metszési szám és alkalmazásai}}, 4.~oldal]{DiMat}.
 %
 \section{Gröbner-bázisok és alkalmazásaik}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet -- Jegyzet Zádori László előadásához} \cite{Zadori} című jegyzetében.
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Skublics Benedek}: \emph{Algoritmuselmélet
+-- Jegyzet Zádori László előadásához} \cite{Zadori} című jegyzetében.
 %
 \minisec{\textsc{Hilbert} bázistétele}
 \emph{Gyűrű} alatt kommutatív, egységelemes gyűrűt értünk. Egy adott $ R $ gyűrűre $ R \left[
