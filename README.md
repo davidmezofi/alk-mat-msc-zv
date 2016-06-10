@@ -21,7 +21,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
 - [x] **R** Lineáris regresszió
 - [x] **R** Kontingenciatáblák elemzése
-- [ ] **N** Diszkrét idejű Markov-láncok
+- [x] **N** Diszkrét idejű Markov-láncok
 - [ ] **N** Folytonos idejű Markov-láncok
 - [ ] **N** Sztochasztikus folyamatok alapfogalmai
 - [x] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
