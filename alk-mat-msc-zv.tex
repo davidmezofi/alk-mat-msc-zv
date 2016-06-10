@@ -247,6 +247,91 @@ licenc} alá tartozik. A licenc megtekintéséhez látogass el a
 \chapter{Mindkét szakirányon közös tételek}
 %
 \section{Gráfelmélet: összefüggőség, színezések}
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Hajnal Péter}: \emph{Diszkrét matematika}
+\cite{DiMat} című kurzusához kapcsolódó honlapon.
+%
+\minisec{Fák összeszámlálása}
+\Acite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fokok.pdf}{
+\emph{Fokszámsorozatok realizációja}} c. részből]{DiMat} érdemes megnézni a gráfok definícióját és a
+fokszámsorozatok realizációját. A lényeg, hogy akkor realizálható egy fokszámsorozat hurokélmentes
+gráffal, ha az összegük páros, és egyik elem sem nagyobb mint a többi összege.
+
+Adott fokszámsorozatra speciális esetben megadható, hogy mennyi a fokszámsorozatot realizáló fák
+száma.
+\begin{description}
+	\item[Cayley-tétel] $ K_n $ feszítőfáinak a száma $n^{n-2}$ (lásd
+		\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fak.pdf}
+		{\emph{Fák összeszámlálása I. -- Cayley tétele}}]{DiMat}).
+	\item[Kirchoff-tétel] Tetszőleges irányított gráf feszítőfáinak a száma megadható (lásd
+	\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fak.pdf}{
+		\emph{Fák összeszámlálása II. -- Kirchoff tétele}}, 6.~oldal]{DiMat}).
+\end{description}
+%
+\minisec{Gráfok élszínezései}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Vizing.pdf}{
+\emph{Gráfok élszínezései}}]{DiMat}.
+
+A $ G $ gráf élszínezése egy $ c \colon E \left( G \right) \rightarrow \mathbb{N}^{+} $ leképezés.
+\emph{Jó élszínezés}, ha egy adott csúcson a színek száma megegyezik a fokszámával.
+\begin{description}
+	\item[Shannon-tétel] Hurokélmentes gráfban az élkromatikus szám kisebb vagy egyenlő, mint a
+		maximális fokszám másfélszerese.
+	\item[Vizing-tétel] Egyszerű gráfban az élkromatikus szám kisebb vagy egyenlő, mint a maximális
+		fokszám $ + 1 $.
+\end{description}
+Ebben a részben van egy színezési algoritmus, érdekes lehet.
+%
+\minisec{Gráfok csúcsszínezései}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Hajos.pdf}{
+\emph{Gráfok csúcsszínezései I. - Hajós tétele}}]{DiMat}.
+
+A definíció analóg az élekkel, \emph{jó csúcsszínezés}, ha egy adott él két végpontja különböző
+színű. Három, gráfokon elvégezhető operáció: \emph{bővítés}, \emph{csúcsösszevonás},
+\emph{Hajós-operáció}.
+
+$ G $ Hajós-konstruálható $ K_{k+1} $-ekből, ha a fenti három operáció elvégzésével véges lépésben
+megkaphatjuk (nem pontos definíció).
+
+Van 3-4 tétel a ben a $k$-színezhetőségről az operációkkal kapcsolatosan.
+\begin{tetel}[\textsc{Hajós}]
+	$ G $ akkor és csak akkor nem $k$-színezhető, ha Hajós-konstruálható $K_{k+1}$-ből.
+\end{tetel}
+%
+\minisec{Derékbőség és kromatikus szám}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-girth.pdf}{
+\emph{Gráfok csúcsszínezései II.}}]{DiMat}.
+\begin{description}
+	\item[Gráf derékbősége] A gráf legrövidebb körének hossza.
+	\item[Erdős-tétel] Bármely $ \tau $ és $ \gamma $ pozitív egészekhez létezik $G$ gráf, melynek a
+		kromatikus száma nagyobb, mint $ \tau $ és a derékbősége nagyobb, mint $ \gamma $.
+\end{description}
+%
+\minisec{Gráfok magasabb fokú öszefüggősége}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{
+\emph{Folyamok II. -- Magasabb fokú összefüggőség}}, 18.~oldaltól]{DiMat}.
+\begin{description}
+	\item[$ k $-szorosan élösszefüggő gráf] Bármely $k$-nál kisebb elemszámú élhalmazt elhagyva
+		a gráf összefüggő marad.
+	\item[$ k $-szorosan pontösszefüggő gráf] Bármely $k$-nál kisebb elemszámú csúcshalmazt elhagyva
+		a gráf összefüggő marad.
+\end{description}
+%
+\minisec{Menger tételei}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{
+\emph{Folyamok I. -- Alaptételek}}, 13--16.~oldal]{DiMat}.
+\begin{enumerate}
+	\item Legyen $ G $ irányított gráf $s,{}t$ kitüntett csúcsokkal. Az \emph{éldiszjunkt $s$--$t$
+		utak} maximális száma megegyezik azon minimális \emph{élhalmaz} számosságával, melyet ha
+		elhagyunk, nincs $s$--$t$ út.
+	\item Ugyanez irányítatlan gráfra.
+	\item Ugyanez a két tétel pontfüggetlen utakra, lényegében csak az élhalmazt
+		\emph{ponthalmazra}, az éldiszjunkt utat \emph{pontfüggetlen útra} kell cserélni.
+\end{enumerate}
 %
 \section{Gráfelmélet: párosítások, síkgráfok}
 %
