@@ -23,7 +23,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **R** Kontingenciatáblák elemzése
 - [x] **N** Diszkrét idejű Markov-láncok
 - [x] **N** Folytonos idejű Markov-láncok
-- [ ] **N** Sztochasztikus folyamatok alapfogalmai
+- [x] **N** Sztochasztikus folyamatok alapfogalmai
 - [x] **D** Optimalizálási eljárások: *szimplex, belső pontos LP és SDP, dinamikus programozás?*
 
 ### Általános szakirány
