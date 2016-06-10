@@ -34,8 +34,8 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **D** A hullámegyenlet: *Fourier, numerikus?*
 - [x] **D** A hővezetés egyenlete: *numerikus?*
 - [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
-- [ ] **N** Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
-- [ ] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
+- [x] **N** Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
+- [x] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
 - [ ] **N** A bonyolultságelmélet alapjai
 - [x] **D** Hibajelző és -javító kódolások
 - [x] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák

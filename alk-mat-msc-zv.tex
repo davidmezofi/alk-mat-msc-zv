@@ -1975,8 +1975,8 @@ Bizonyos \emph{kompatibilitási feltételek} esetén a kapcsolódó lineáris eg
 megadhatók az általános megoldásai (22. és 23. tétel), illetve az egyetlen normál megoldás (26. és 27. tétel).
 %
 \section{Periodikus függvények diszkrét négyzetes közelítése}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Móricz Ferenc}: \emph{Numerikus módszerek
-az algebrában és analízisben} \cite[V. fejezet, 21. és 22. szakaszok]{Moricz1997} című könyveiben.
+A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Móricz Ferenc}: \emph{Numerikus módszerek
+az algebrában és analízisben} \cite[V. fejezet, 21. és 22. szakaszok]{Moricz1997} című könyvben.
 %
 \minisec{DFT -- diszkrét Fourier-transzformáció, IDFT -- inverz diszkrét Fourier-transzformáció}
 Lásd \cite[V. fejezet, 21. szakasz]{Moricz1997}.
@@ -2448,7 +2448,40 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 % Minden más a Móni-féle diákban van benne, előadáson más nem volt.
 %
 \section{Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása}
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Makay Géza}:
+\emph{Dinamikus rendszerek} című tárgyhoz készült jegyzetében \cite{Makay}.
+
+Egy $\gamma$ periodikus pálya \emph{stabil}, ha $\gamma$ minden $U$ környezetéhez van olyan $V$
+környezete $\gamma$-nak, hogy $V$ bármely pontjából indítva, a dinamikus rendszer $U$-ban marad. Egy
+$\gamma$ periodikus pálya \emph{aszimptotikusan stabil}, ha stabil és bármely $x\in V$-re az
+$ x $-ből indított megoldás távolsága $ \gamma $-tól 0-hoz tart az \textqq{idő múlásával}.
 %
+\minisec{Poincaré-leképezés}
+Lásd \cite[33--34.~oldal]{Makay}.
+A Poincaré-leképezés fixpontjai az egyenlet periodikus pályáinak felel meg. A Poincaré-leképezés
+fixpontja (aszimptotikusan) stabil akkor és csak akkor, ha a dinamikus rendszer azon pontjából
+indított zárt pályája (aszimptotikusan) stabil.
+
+Ha $\gamma$ az $f$ periodikus pályája és a Poincaré-leképezés minden sajátértéke az egységkörön
+belül van, akkor a periodikus pálya aszimptotikusan stabil. A Poincaré-leképezés sajátértékei
+függetlenek a transzverzális választásától.
+%
+\minisec{Orbitális stabilitás}
+Egy $\gamma$ periodikus pálya \emph{orbitálisan stabil}, ha $\gamma$ minden $ U_1 $ nyílt
+környezetéhez van olyan $ U_2 $ környezete, hogy ha $x\in U_2$, akkor a dinamikus renszer az $x$-ből
+indítva $U_1$-ben marad. \emph{Aszimptotikusan orbitálisan stabilitás} hasonlóan a korábbiakhoz.
+
+Egy $x$ pontnak $T$ \emph{aszimptotikus periódusa}, ha egy megoldás és a $T$-idővel vett eltoltjának
+a távolságának a határétéke 0.
+
+\minisec{Hartman\,--\,Grobman-tétel}
+Egy $x$ fixpont \emph{hiperbolikus}, ha az $f'\left( x \right) $ mátrixnak nincs 0 valós részű
+sajátértéke. Egy $x$ fixpont \emph{kritikus pont}, ha az $ f' \left( x \right)  $ mátrixnak van 0
+valós részű sajátértéke.
+
+A Hartman\,--\,Grobman-tételek \cite[52.~oldalától]{Makay} kezdődnek. Lényegében olyasmit állít,
+hogy fixpontok közelében, egy adott dinamikus rendszerrel van topologikusan ekvivalens dinamikus
+rendszer, mely lineáris egyenletből származik.
 \section{Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről}
 %
 A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Makay Géza}:
