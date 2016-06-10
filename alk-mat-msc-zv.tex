@@ -457,7 +457,7 @@ Egy lerajzolás \emph{reguláris}, ha nincs három élgörbe közös belső pont
 száma}: minimuma azon pontok számának, amelyen több él is átmegy -- a minimumot a reguláris
 lerajzolásokra képezzük.
 
-$G$ síkgráf akkor és csak akkor, ha a metszési száma 0. Tovébbi két becslés a metszések számára:
+$G$ síkgráf akkor és csak akkor, ha a metszési száma 0. További két becslés a metszések számára:
 \cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-xszam.pdf}
 {\emph{Síkgráfok II. -- Metszési szám és alkalmazásai}}, 4.~oldal]{DiMat}.
 %
@@ -1017,7 +1017,7 @@ Az ilyen típusú integrálok jelentik az alapját például az elektrodinamiká
 \end{tetel}
 %
 \section{Fourier-sorok, ortogonális polinomok, sorfejtések}
-A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Németh Zoltán} és \textsc{Szabó Tamás}:
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Németh Zoltán} és \textsc{Szabó Tamás}
 \emph{Alkalmazott analízis} című tárgyhoz készült jegyzetében \cite{SzTNZ}.
 %
 \minisec{Trigonometrikus és ortogonális polinomsorok konvergenciája}
@@ -2451,11 +2451,92 @@ Keressük az $ u \left( r,{} \phi \right) = R \left( r \right) \Phi \left( \phi
 %
 \section{Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről}
 %
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Makay Géza}:
+\emph{Dinamikus rendszerek} című tárgyhoz készült jegyzetében \cite{Makay}.
+
+Egy $ T $ \emph{dinamikus rendszer} egy olyan leképezés, amely egy $ G $ félcsoport és egy $ X $
+metrikus tér Descartes-szorzatáról képez a metrikus térre, és teljesülnek rá bizonyos tulajdonságok
+(lásd \cite[18.~oldal]{Makay}). Ha $ G $ csoport akkor $ T $ \emph{invertálható dinamikus rendszer}.
+Ha $ G $ az egész számok halmaza vagy a pozitív egész számok halmaza, akkor a dinamikus rendszer
+\emph{diszkrét}. Ha $ G $ a valós számok halmaza, vagy a pozitív félegyenes akkor $ T $
+\emph{folytonos} dinamikus rendszer.
+%
+\minisec{Határpontok, határhalmazok}
+Lásd \cite[4.~oldal]{Makay}.
+
+Legyen $ \xi \in D $ olyan pont hogy a belőle indított megoldás értelmezési tartománya tartalmazza
+a nemnegatív félegyenest. A $ p \in D $ a $ \xi $-ből indított megoldás
+\emph{$\omega$-határpontja}, ha létezik olyan $ t_k $ végtelenbe tartó sorozat, melyet a $ \xi$-ből
+indított megoldásba írva a megoldás $ p $-be tart. Az \emph{$\alpha$-határpontok} ugyanilyenek, csak
+a végtelent mindenhol mínusz végtelenre cseréljük. Ezek halmazai az \emph{$\alpha$-} és
+\emph{$\omega$-határhalmazok}. Bővebben, illetve a határhalmazok tulajdonságait lásd a jegyzeben.
+%
+\minisec{Poincaré\,--\,Bendixson-tétel}
+Lásd \cite[40.~oldal]{Makay}.
+
+Ha $ f $ a dinamikus rendszert meghatározó függvény, és $f$ folytonosan differenciálható az $M$
+értelmezési tartományán, $ x\in M $, és az $\omega \left( x \right) $ határhalmaz
+nemüres, kompakt, összefüggő, és csak véges sok fixpontot tartalmaz akkor a következők egyike
+teljesül:
+\begin{enumerate}
+	\item $\omega \left( x \right) $ egy fixpont;
+	\item $\omega \left( x \right) $ egy reguláris periodikus pálya;
+	\item $\omega \left( x \right) $ előáll véges sok fixpont és azokat egyértelmű módon összekötő
+		pályák uniójaként.
+\end{enumerate}
+%
+\minisec{Attraktorok}
+Lásd \cite[18--21.~oldal]{Makay}.
+
+Egy diszkrét dinamikus rendszer felírható egy $ f $ leképezés iteráltjaként.
+
+A $p$ $n$-periodikus pont \emph{stabil halmaza} az \emph{előre aszimptotikus pontjainak} a halmaza;
+\emph{instabil halmaza} a \emph{hátra assziptotikus pontjainak} a halmaza. A $ p $ $n$-periodikus
+pont attraktor ha stabil halmaza tartalmazza egy nyílt környezetét is
+repellor ha instabill halmaza tartalmazza egy nyilt környezetét is
+
+Attraktorok \cite[310.~oldal]{DE} alapján: tekintsük az $ \mathbf{ x }' = f \left( \mathbf{ x }
+\right) $ differenciálegyenletet $ \mathbb{ R }^{ n } $-ben, és legyen $ \phi_{ t } $ egy megoldás.
+Egy $ \Lambda $ halmaz \emph{attraktor}, ha:
+\begin{enumerate}
+	\item invariáns és kompakt;
+	\item létezik olyan $ \Lambda$-t tartalmazó $U$ halmaz, amelyre bármely $ \mathbf{ x } \in
+		U $ esetén $ \phi_{ t } \left( \mathbf{ x } \right) \in U $ bármely $ t > 0 $ esetén és
+		$ \bigcap_{ t \ge 0 } \phi_{ t } \left( U \right) = \Lambda $;
+	\item Tetszőleges $ \mathbf{ y }_{ 1 },{} \mathbf{ y }_{ 2 } \in \Lambda $ és $ U_{ 1 },{}
+		U_{ 2 } $ nyílt környezetük esetén létezik olyan megoldás, ami $ U_{ 1 } $-ből indul és
+		áthalad $ U_{ 2 } $-n.
+\end{enumerate}
+%
+\minisec{Strukturális stabilitás}
+Lásd \cite[26.~oldal]{Makay}.
+
+Egy $f$ dinamikus rendszer \emph{$C^r$-strukturálisan stabil}, ha létezik olyan $\epsilon >0$, hogy
+bármely $g$ dinamikus rendszerre, melynek $C^r$ távolsága $f$-től kisebb, mint $\epsilon$, $f$ és
+$g$ topologikusan ekvivalensek. Fixpont $C^r$-strukturális stabilitása hasonlóan, a fixpont egy
+környezetére kell a topologikus ekvivalencia.
+%
+\minisec{Kaotikus dinamika}
+Lásd \cite[30.~oldal]{Makay}.
+
+Egy $f \colon M \rightarrow M $ dinamikus rendszer \emph{kaotikusan viselkedik}, ha $f$ folytonos,
+$M$ végtelen halmaz, $f$ topologikusan tranzitív és $f$ periodikus pályái sűrűn vannak $M$-ben. Ha
+$f$ kaotikus, akkor érzékenyen függ a kezdeti feltételektől.
+%
+\minisec{Hamilton-rendszerek}
+Lásd \cite[207.~oldal]{DE}
+\begin{align*}
+	x' &= H_{ y }'\left( x,{} y  \right);\\
+	y' &= H_{ x }'\left( x,{} y  \right),
+\end{align*}
+ahol $H$ $C^\infty$ függvény a \emph{Hamilton-függvény}.
+
+Azért fontosak, mert a $H$ függvény \emph{első integrál}, vagyis konstans a megoldások mentén.
 \section{A bonyolultságelmélet alapjai}
 %
 \section{Hibajelző és -javító kódolások}
-A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Czédli Gábor}: \emph{Boole-függvények}
-\cite{Czedli} című könyvének 3.~fejezetében.
+A tételhez kapcsolódó anyagrészek egy része megtalálhatóak a \textsc{Czédli Gábor}:
+\emph{Boole-függvények} \cite{Czedli} című könyvének 3.~fejezetében.
 %
 \minisec{Alapfogalmak és célok}
 Célunk olyan a kételemű test (vagy véges test) feletti $ n $-dimenziós vektortérből az
