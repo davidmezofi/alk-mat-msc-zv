@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
+\documentclass[DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -257,7 +257,7 @@ A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Hajnal Péter}: \
 \cite{DiMat} című kurzusához kapcsolódó honlapon.
 %
 \minisec{Fák összeszámlálása}
-\Acite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fokok.pdf}{
+\Acite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fokok.pdf}{%
 \emph{Fokszámsorozatok realizációja}} c. részből]{DiMat} érdemes megnézni a gráfok definícióját és a
 fokszámsorozatok realizációját. A lényeg, hogy akkor realizálható egy fokszámsorozat hurokélmentes
 gráffal, ha az összegük páros, és egyik elem sem nagyobb mint a többi összege.
@@ -269,13 +269,13 @@ száma.
 		\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fak.pdf}
 		{\emph{Fák összeszámlálása I. -- Cayley tétele}}]{DiMat}).
 	\item[Kirchoff-tétel] Tetszőleges irányított gráf feszítőfáinak a száma megadható (lásd
-	\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fak.pdf}{
+	\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-fak.pdf}{%
 		\emph{Fák összeszámlálása II. -- Kirchoff tétele}}, 6.~oldal]{DiMat}).
 \end{description}
 %
 \minisec{Gráfok élszínezései}
 Lásd
-\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Vizing.pdf}{
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Vizing.pdf}{%
 \emph{Gráfok élszínezései}}]{DiMat}.
 
 A $ G $ gráf élszínezése egy $ c \colon E \left( G \right) \rightarrow \mathbb{N}^{+} $ leképezés.
@@ -290,7 +290,7 @@ Ebben a részben van egy színezési algoritmus, érdekes lehet.
 %
 \minisec{Gráfok csúcsszínezései}
 Lásd
-\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Hajos.pdf}{
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Hajos.pdf}{%
 \emph{Gráfok csúcsszínezései I. -
  tétele}}]{DiMat}.
 
@@ -308,7 +308,7 @@ Van 3-4 tétel a $k$-színezhetőségről az operációkkal kapcsolatosan.
 %
 \minisec{Derékbőség és kromatikus szám}
 Lásd
-\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-girth.pdf}{
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-girth.pdf}{%
 \emph{Gráfok csúcsszínezései II.}}]{DiMat}.
 \begin{description}
 	\item[Gráf derékbősége] A gráf legrövidebb körének hossza.
@@ -318,7 +318,7 @@ Lásd
 %
 \minisec{Gráfok magasabb fokú öszefüggősége}
 Lásd
-\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{%
 \emph{Folyamok II. -- Magasabb fokú összefüggőség}}, 18.~oldaltól]{DiMat}.
 \begin{description}
 	\item[$ k $-szorosan élösszefüggő gráf] Bármely $k$-nál kisebb elemszámú élhalmazt elhagyva
@@ -329,7 +329,7 @@ Lásd
 %
 \minisec{Menger tételei}
 Lásd
-\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-folyamok.pdf}{%
 \emph{Folyamok I. -- Alaptételek}}, 13--16.~oldal]{DiMat}.
 \begin{enumerate}
 	\item Legyen $ G $ irányított gráf $s,{}t$ kitüntett csúcsokkal. Az \emph{éldiszjunkt $s$--$t$
@@ -402,7 +402,7 @@ nem voltak benne a párosításban. Ez alapján a javító utas séma: adott $ M
 javító utat; ha nem találtunk akkor leállunk, ha találtunk, akkor cseréljük a párosítást az újra,
 és kezdjük újra az algoritmust.
 \begin{description}
-	\item[Berge-tétel] Ha M nem optimális, akkor létezik rá javító út.
+	\item[Berge-tétel] Ha $ M $ nem optimális, akkor létezik rá javító út.
 
 		Az algoritmusok nehézsége a javító utak keresése.
 	\item[Mohó algoritmus (címkézés)] Lásd
@@ -530,7 +530,7 @@ $ C \subseteq A \times B $ reláció. Az $ \left( \alpha,{} \beta \right) $ lek�
 \begin{align*}
 	\alpha \colon 2^{ A } \rightarrow 2^{ B }, \qquad H &\mapsto \left\{ b \in B \colon \left( h,{}
 	b \right) \in C \  \forall\, h \in H \right\}\\
-	\beta \colon 2^{ B } \rightarrow 2^{ A }, \qquad L &\mapsto \left\{ a \in a \colon \left( a,{}
+	\beta \colon 2^{ B } \rightarrow 2^{ A }, \qquad L &\mapsto \left\{ a \in A \colon \left( a,{}
 	l \right) \in C \  \forall\, l \in L \right\}
 \end{align*}
 Jelölje $ \left( I,{} V \right) $ a $ C $ ($ n $-határozatlanú polinom eltűnik
