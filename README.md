@@ -17,7 +17,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **R** Matematikai titkosírások
 - [x] **R** Többváltozós és vektorértékű függvények
 - [x] **R** Fourier-sorok, ortogonális polinomok, sorfejtések
-- [ ] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
+- [x] **N** Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek
 - [x] **D** Többdimenziós normális eloszlású vektorok statisztikai analízise
 - [x] **R** Lineáris regresszió
 - [x] **R** Kontingenciatáblák elemzése
@@ -36,7 +36,7 @@ A dokumentum az SZTE Alkalmazott matematikus MSc általános szakirányú záró
 - [x] **D** A Laplace-egyenlet: *Dirichlet és Neumann, numerikus?*
 - [x] **N** Dinamikus rendszerek egyensúlyi helyzeteinek, periodikus pályáinak stabilitása
 - [x] **N** Globális eredmények dinamikus rendszerek mozgásainak aszimptotikus viselkedéséről
-- [ ] **N** A bonyolultságelmélet alapjai
+- [x] **N** A bonyolultságelmélet alapjai
 - [x] **D** Hibajelző és -javító kódolások
 - [x] **D** Sűrűség és mérték síkbeli geometriai elemek halmazain, hossz- és területformulák
 - [x] **D** Differenciálformák, kinematikai sűrűség és mérték: *háromszögek mértéke?*

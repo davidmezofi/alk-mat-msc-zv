@@ -187,7 +187,13 @@
 \DeclareMathOperator{\rot}{rot}
 \DeclareMathOperator{\diver}{div}
 \DeclareMathOperator{\Cov}{Cov}
-
+\DeclareMathOperator{\Pbonya}{P}
+\DeclareMathOperator{\EXP}{EXP}
+\DeclareMathOperator{\PSPACE}{PSPACE}
+\DeclareMathOperator{\EXPSPACE}{EXPSPACE}
+\DeclareMathOperator{\Lbonya}{L}
+\DeclareMathOperator{\TIME}{TIME}
+\DeclareMathOperator{\SPACE}{SPACE}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Irodalomjegyzék beállításai
@@ -1143,6 +1149,47 @@ Laplace-transzformált a folytonos függvények körében egyértelmű és ebbő
 Laplace-transzformálton általában folytonos függvényt értünk.
 %
 \section{Közönséges differenciálegyenletek és elsőrendű parciális differenciálegyenletek}
+A tételhez kapcsolódó anyagrészek egy része megtalálható a \emph{Differential Equations, Dynamical
+Systems and an Introduction to Chaos} \cite{DE} című könyvben.
+%
+\begin{description}
+	\item[Közönséges] Az ismeretlen függvény egyváltozós.
+	\item[Parciális] Az ismeretlen függvény többváltozós.
+\end{description}
+Az $f$ függvény \emph{Lipschitz-folytonos} valamely $\Omega$ halmazon, ha létezik $L$ valós szám,
+hogy bármely $ x,{} y \in \Omega $ esetén $ \left| f \left( x \right) - f \left( y \right) \right|
+< L  \left| x - y \right|$.
+
+Ha egy függvény differenciálható, akkor Lipschitz-folytonos; ha Lipschitz-folytonos, akkor
+folytonos.
+\begin{equation}\tag{KÉP}
+	\begin{aligned}
+		u' \left( t \right)  &= f \left( t,{} u \left( t \right)  \right);\\
+		u \left( t_{ 0 } \right) &= u_0.
+	\end{aligned}
+\end{equation}
+%
+\minisec{Picard\,--\,Lindelöf-tétel}
+Ha $f$ folytonos az első változójában és Lipschitz a másodikban, akkor létezik a kezdetiérték
+problémának megoldása és a megoldás egyértelmű.
+
+Azt a pontot ahol az egyenlet jobb oldala nulla, \emph{egyensúlyi helyzetnek} nevezzük. Az $u_{ 0 }$
+egyensúlyi helyzet \emph{stabil}, ha bármely pozitív $ \epsilon $-hoz epszilonhoz létezik pozitív
+$ \delta $ úgy, hogy ha $ \left| x - u_{ 0 } \right| < \delta $, akkor $ \left| u \left( t;{} x
+\right) - u_0 \right| < \epsilon $ (lásd \cite[175.~oldal]{DE}). \emph{Instabil}, ha nem stabil.
+\emph{Asszimptotikusan stabil}, ha stabil és létezik olyan $\sigma$, hogy ha $\left| x - u_{ 0 }
+\right| < \sigma$, akkor $u \left( t;{} x \right)$ tart $ u_{ 0 } $-hoz.
+%
+\minisec{Megmaradási törvények}
+Polner-féle jegyzet 70. diától.
+
+Alakja: $ u_t + c \left( u \right) u_x = 0 $. Megoldás: karakterisztikus görbék, a megoldás konstans
+a karakterisztikus görbék mentén, megoldása a kezdeti érték problémának. Megoldás $ f \left( x - c \left( f \left( x \right) t  \right)  \right)$.
+
+Esetleg érdemes megnézni mi van, ha a karakterisztikák metszik egymást, és a gyenge megoldások
+definícióját (83. dia).
+
+Numerikus algoritmusok és CFL-feltétel a módszer stabilitására: 97--101 dia.
 %
 \section{Többdimenziós normális eloszlású vektorok statisztikai analízise}
 A tételhez kapcsolódó anyagrészek megtalálhatóak a \textsc{Bolla Marianna\,--\,Krámli András}:
@@ -2566,6 +2613,123 @@ ahol $H$ $C^\infty$ függvény a \emph{Hamilton-függvény}.
 
 Azért fontosak, mert a $H$ függvény \emph{első integrál}, vagyis konstans a megoldások mentén.
 \section{A bonyolultságelmélet alapjai}
+A tételhez kapcsolódó anyagrészek megtalálhatóak \textsc{Hajnal Péter}: \emph{Algoritmusok és
+bonyolultságelmélet} \cite{Bonya} című kurzusához kapcsolódó honlapon.
+%
+\minisec{Turing-gépek}
+A Turing-gép definíciójához lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea01.pdf}{
+\emph{Kiszámíthatóság, Turing-gép, alapfogalmak}}]{Bonya}. Az $f$ függvényt \emph{kiszámítja} a $T$
+Turing-gép, ha minden lehetséges $\omega$ input esetén a gép véges lépésben leáll és az output
+$ f \left( \omega \right) $.
+
+Az \emph{eldöntő Turing-gép} a \textsc{Stop} állapot helyett
+\textsc{Elvet} és \textsc{Elfogad} állapotokkal rendelkezik. Egy eldöntő Turing-gép \emph{eldönti}
+az $L$ nyelvet, ha minden $L$-beli inputra véges lépsben \textsc{Elfogad} állapottal áll meg, míg
+nem $L$-beli inputra \textsc{Elvet} állapottal áll le. Egy Turing-gép \emph{felsorolja} az $L$
+nyelvet, ha minden $L$-beli inputra \textsc{Elfogad}-dal leáll és minden nem $L$-beli inputra
+\emph{nem} áll le. Felsorolható nyelvek osztálya $ \mathcal{ S } $, Eldönthető nyelvek osztálya
+$\mathcal{ D }$, $\mathcal{ S }$ tartalmazza $\mathcal{ D }$-t.
+%
+A következőket lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea02.pdf}{
+\emph{Bonyolultsági osztályok, Turing-gép fogalmának változatai\ldots}}]{Bonya}.
+
+Turing-gép \emph{időigénye} egy $\omega$ inputon $\ell$, ha futása az $\ell$-ik konfigurációban
+kerül először \textsc{Stop} állapotba. Turing-gép \emph{tárigénye} egy $\omega$ inputon $s$, ha
+munkaszalag legnagyobb felhasznált mezőjének indexe $s$. A $T$ turing gép eleme a $ \TIME \left( t
+\left( n \right) \right) $ halmaznak, ha időigénye tetszőleges $\omega$ input esetén kisebb, mint
+$ t \left( \left| \omega \right|  \right)  $. Ugyanígy $ \SPACE \left( t \left( n \right) \right) $
+halmaz.
+
+Egy $L$ eldönthető nyelv eleme a $ \TIME \left( t \left( n \right) \right) $ osztálynak, ha létezik
+olyan $T$ Turing-gép, ami eldönti $L$-et és $T$ eleme a $ \TIME \left( t \left( n \right) \right) $
+osztálynak. $ \SPACE \left( t \left( n \right) \right) $-re hasonlóan. Ezek alapján definiálhatjuk a
+$\Pbonya, \EXP, \PSPACE, \EXPSPACE, \Lbonya$ osztályokat.
+%
+\minisec{Nemdeterminisztikus Turing-gép}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea03.pdf}{
+\emph{Nem-determinizmus, Bonyolultsági osztályok\ldots}}]{Bonya}.
+
+Az input és a munkaszalag között van egy plusz szalag is a \emph{tanúszalag}. Ez csak olvasható és a
+fej csak jobbra tud rajta mozogni. Az $\omega$ inputot pontosan akkor fogadja el a
+nemdeterminisztikus Turing-gép, ha van olyan tanúszalag tartalom amire \textsc{Elfogad} állpotba
+jut. \textsc{Elvet} állapot esetén sem feltétlen rossz az input. Az igazi elvetés akkor történik, ha
+minden tanúszalag-tartalomra \textsc{Elvet} állapotba jutunk.
+
+Ezek alapján bevezethetjük a
+nemdeterminisztikus osztályokat: $N\Pbonya,{} N \EXP,{} N\Lbonya,{} N\PSPACE $, $N\EXPSPACE$. A
+determinisztikus osztályok zártak a komplementálásra, de a nemdeterminisztikus osztályok
+nem feltétlenül. Ezek alapján definiálhatjuk a co-$N$P, co-$N$L, stb. osztályokat. Felírhatunk egy
+tartalmazási láncot. Növekvő sorban: L, $N$L, P, $N$P, PSPACE, $N$PSPACE, EXPSPACE, $N$EXPSPACE
+%
+\minisec{Kiszámíthatatlan problémák}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea04.pdf}{
+\emph{Példák}}]{Bonya}.
+\begin{description}
+	\item[Megállás (Turing-tétel)] Adott $T$ Turing-gép és $\omega$ input esetén el kell döntenünk,
+		hogy $T$ leáll-e $\omega$-n. \textsc{Megállás} eleme $\mathcal{S}$-nek, de nem eleme
+		$\mathcal{D}$-nek.
+	\item[Post-probléma] Adott véges ábécé, a szavakból dominókat készítünk (alsó és a felső részén
+		is egy szó van.) és minden dominóból végtelen sokat. Ki tudunk-e rakni a dominóinkból egy
+		sort úgy, hogy az alsó és felső részen is ugyanazt tudjuk összeolvasni? \textsc{Post} nem
+		eleme $\mathcal{D}$-nek.
+	\item[Szóprobléma] Az input egy $G$ multiplikatív csoport (valahogyan kódolva), és két, a
+		generátorhalmazának elemeiből készített szó. A kérdés, hogy hogy a két szó ugyanazt a
+		csoportelemet reprezentálja-e? \textsc{Szóprobléma} nem eleme $\mathcal{D}$-nek.
+	\item[Dipohantosz (Hilbert X. problémája)] Az input egy egész együtthatós polinom, kérdés, van-e
+		egész gyöke. \textsc{Dipohantosz} nem eleme $\mathcal{D}$-nek.
+	\item[Homeomorf] Inputja két topologikus tér, el kell dönteni, hogy hoemomorfak-e.
+		\textsc{Homeomorf} nem eleme $\mathcal{D}$-nek.
+\end{description}
+%
+\minisec{Redukció, teljessség}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea05.pdf}{
+\emph{Redukciók, teljes nyelvek\ldots}}]{Bonya}.
+
+Legyen $L,{}L'$ két nyelv, $C$ bonyolultsági osztály. $L$ \emph{redukálható} $L'$-re $C$-ben, ha
+létezik
+olyan $C$ bonyolultságú $R$ kiszámító Turing-gép, hogy ha $\omega \in L$ akkor $\omega' \in L'$,
+ahol $\omega'$ az $\omega$-ból $R$ által kiszámolt output.
+
+Az $L'$ nyelv \emph{teljes} a $C$ osztályban az $R$ bonyolultságú redukcióra nézve, ha $L' \in C$
+és bármely $L \in C$-re $L$ $R$-redukálható $L'$-re. P-teljesség L-teljesség, stb.
+%
+\minisec{Cook\,--\,Levin-tétel}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea07.pdf}{
+\emph{P-teljes és NP-teljes problémák, Cook-Levin tétel}}]{Bonya}.
+
+A SAT-probléma NP-teljes. SAT-probléma: adott CNF kielégíthető-e?
+
+További NP-teljes problémák:
+\begin{description}
+	\item[3-színezhetőség] Síkgráf 3-színezhetősége.
+	\item[Független csúcshalmaz] Adott $G$ gráf és $k$ egész esetén, van-e G-ben $k$ pontú független
+		ponthalmaz?
+	\item[Klikk, lefogó ponthalmaz] Hasonlóan, mint a független csúcshalmaz.
+	\item[Hamilton] Adott $G$ gráf rendelkezik-e Hamilton-körrel?
+	\item[Max-Cut] Adott $G$ gráf, $k$ egész, van-e $G$-ben legalább $k$ elemű vágás?
+\end{description}
+%
+\minisec{Véletlen Turing-gépek}
+Lásd
+\cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Bonyolultsag/ea10.pdf}{
+\emph{Véletlen számítások, bonyolultsági osztályok}}]{Bonya}.
+
+Egy $T$ Turing gépet \emph{véletlen Turing-gépnek} nevezünk, ha rendelkezik plusz egy véletlen
+szalaggal, amelyen véletlen számok szerepelnek. A szalagon lévő fej csak jobbra lépni és olvasni
+képes. Az input és a véletlen szalag tartalmának ismeretében a futás determinisztikus, azonban ha
+csak az inputot ismerjük, a futás szerteágazó lehet.
+
+Egy L nyelv eleme BPP-nek, ha létezik olyan polinom idejű $T$ Turing-gép, ami legalább
+$\frac{ 2 }{ 3 }$ valószínűséggel jó döntést hoz.
+
+Egy L nyelv eleme RP-nek, ha létezik olyan polinom idejű $T$ Turing-gép, ami legalább
+$\frac{ 1 }{ 2 }$ valószínűséggel dönt jól, ha az input $L$-beli, viszont biztosan jó döntést hoz, ha az input nem $L$-beli.
 %
 \section{Hibajelző és -javító kódolások}
 A tételhez kapcsolódó anyagrészek egy része megtalálhatóak a \textsc{Czédli Gábor}:
@@ -2731,7 +2895,7 @@ rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29-
 	\int_{ e \cap K \neq \emptyset } \left| e \cap K \right| \, \mathrm{ d } e &= \pi T \left( K
 	\right);\\
 	\mu \left( e \colon e \cap K \neq \emptyset \right) = \int_{ e \cap K \neq \emptyset } \,
-	\mathrm{ d } e &= L \left( K \right),
+	\mathrm{ d } e &= T \left( K \right),
 \end{align*}
 azaz a korlátos konvex $ K $ halmazt metsző egyenesek mértéke éppen $ K $ kerülete. Így egy $ K $-t
 metsző egyenes $ K $-ba eső részénék hosszána várható értéke $ \mean \left( \sigma \right)  = \pi
