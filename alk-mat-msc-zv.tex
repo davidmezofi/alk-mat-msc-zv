@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix]{scrreprt}
+\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -291,7 +291,8 @@ Ebben a részben van egy színezési algoritmus, érdekes lehet.
 \minisec{Gráfok csúcsszínezései}
 Lásd
 \cite[\href{http://www.math.u-szeged.hu/~hajnal/courses/MSc_Diszkret/MSc_kombi13/ea-Hajos.pdf}{
-\emph{Gráfok csúcsszínezései I. - Hajós tétele}}]{DiMat}.
+\emph{Gráfok csúcsszínezései I. -
+ tétele}}]{DiMat}.
 
 A definíció analóg az élekkel, \emph{jó csúcsszínezés}, ha egy adott él két végpontja különböző
 színű. Három, gráfokon elvégezhető operáció: \emph{bővítés}, \emph{csúcsösszevonás},
@@ -300,7 +301,7 @@ színű. Három, gráfokon elvégezhető operáció: \emph{bővítés}, \emph{cs
 $ G $ Hajós-konstruálható $ K_{k+1} $-ekből, ha a fenti három operáció elvégzésével véges lépésben
 megkaphatjuk (nem pontos definíció).
 
-Van 3-4 tétel a ben a $k$-színezhetőségről az operációkkal kapcsolatosan.
+Van 3-4 tétel a $k$-színezhetőségről az operációkkal kapcsolatosan.
 \begin{tetel}[\textsc{Hajós}]
 	$ G $ akkor és csak akkor nem $k$-színezhető, ha Hajós-konstruálható $K_{k+1}$-ből.
 \end{tetel}
