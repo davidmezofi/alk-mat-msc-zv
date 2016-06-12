@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
+\documentclass[DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -1242,7 +1242,7 @@ minta az $ \mathbf{ X } \sim \normald_{ p } \left( \mathbf{ m },{} \mathbf{ C } 
 vektorra, tegyük fel, hogy $ n > p $. A mintaelemek alapján szeretnénk becslést adni az ismeretlen
 $ \mathbf{ m } $ várható érték vektorra és a $ \mathbf{ C } $ kovarianciamátrixra, melyről
 feltesszük, hogy pozitív definit. Ehhez a \emph{maximum likelihood módszert használjuk}, azaz a
-mintaelemek együttes sűrűségfüggvényével definiált likelihhod-függvényt maximalizáljuk a két
+mintaelemek együttes sűrűségfüggvényével definiált likelihood-függvényt maximalizáljuk a két
 ismeretlen paraméterben.
 
 A paraméterek ML-becslése a fenti feltevések mellett: $ \hat{ \mathbf{ m } } =
