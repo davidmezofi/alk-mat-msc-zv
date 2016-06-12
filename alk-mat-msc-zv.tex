@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix]{scrreprt}
+\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -726,7 +726,7 @@ szükséges feltételt ad arra, hogy egy szám prímszám-e, a feltétel azonban
 
 		Legyen $ n $ a tesztelendő páratlan szám, $ n = 2^{ k } r + 1 $, $ r $ páratlan. Legyen
 		$ 0 < a < n $. Ha $ n $ prímszám, akkor az alábbi állítás minden $ a $-re teljesül, ha $ n $
-		összetett, akkor ez legfeljebb a $ \frac{ n+ 1 }{ 2 } $ db $ a $ számra igaz:
+		összetett, akkor ez legfeljebb $ \frac{ n+ 1 }{ 2 } $ db $ a $ számra igaz:
 		\begin{equation*}
 			a^{r}\equiv 1 \mod{n}\  \text{vagy van olyan $ 0 \le i < k $, hogy}\ a^{ 2^{ i } r }
 			\equiv - 1 \mod{n}.
