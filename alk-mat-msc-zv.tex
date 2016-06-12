@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix]{scrreprt}
+\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -938,7 +938,7 @@ Az ilyen típusú integrálok jelentik az alapját például az elektrodinamiká
 \begin{description}
 	\item[Felszín kiszámítása]\leavevmode
 		\begin{itemize}
-			\item Legyen $ D $ egy paramétertartomány az $ u $-- $ v $-síkban.
+			\item Legyen $ D $ egy paramétertartomány az $ u $--$ v $-síkban.
 			\item Az $ S $ felület folytonos paraméterezése: $ \mathbf{ r } \colon D \rightarrow
 			 	\mathbb{ R }^{ 3 }$.
 			\item $ S $ sima, azaz $ \mathbf{ r } $ folytonosan differenciálható $ u$  és $ v $
@@ -1001,7 +1001,7 @@ Az ilyen típusú integrálok jelentik az alapját például az elektrodinamiká
 	\mathbb{ R }^{ 2 } $ egy vektormező, $ \mathbf{ F } = P \left( x,{} y \right) \mathbf{ i } + Q
 	\left( x,{} y \right) \mathbf{ j } $. Ekkor
 	\begin{equation*}
-		\int_{ C } \mathbf{ F } \cdot \mathrm{ d } \mathbf{ r } = \int_{ C } P \, \mathrm{ d } x +
+		\oint_{ C } \mathbf{ F } \cdot \mathrm{ d } \mathbf{ r } = \int_{ C } P \, \mathrm{ d } x +
 		Q \, \mathrm{ d } y = \iint_{ D } \left( Q_{ x }' - P_{ y }' \right) \, \mathrm{ d } x
 		\mathrm{ d } y.
 	\end{equation*}
