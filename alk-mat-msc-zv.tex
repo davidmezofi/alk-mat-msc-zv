@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
+\documentclass[DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -777,7 +777,7 @@ problémát használja ki a következő két algoritmus.
 A tételt próbáltam\marginpar{\texttt{JR}} egy kicsit szemléletes oldalról is megközelíteni, amihez a
 \href{https://www.wikipedia.org/}{Wikipedia} nyújtott
 segítséget. A precízebb definíciók és tételek az órai jegyzetek és a \emph{Thomas-féle kalkulus}
-III.~része \cite[16.~fejezet]{Thomas} alapján születtek meg. Nem minden dolog szerepel ugyan ilyen
+III.~része \cite[16.~fejezet]{Thomas} alapján születtek meg. Nem minden dolog szerepel ugyanilyen
 módon a Thomas-könyvben, azonban vizsga előtti felkészüléshez egy nagyon jó alap lehet, mert a tétel
 majdnem minden részét lefedi, és könnyen megtalálhatóak benne a dolgok.
 %
@@ -823,11 +823,11 @@ A \emph{vonalintegrál} olyan integrál, aminek az integrandusát egy adott gör
 Ha az adott görbe zárt görbe, vagyis ha a kezdő és a végpontja megegyezik akkor a vonalintegrál
 \emph{körintegrál}.
 
-A vonalintegrál integrandusa lehet skalár	értékű vagy vektorértékű is. A \emph{vonalintegrál
+A vonalintegrál integrandusa lehet skalárértékű vagy vektorértékű is. A \emph{vonalintegrál
 értéke} az adott görbe mentén előforduló elemek súlyozott összege. A súlyozást úgy kell érteni, hogy
 a görbét \textqq{lépésekre} bontjuk, vagyis kijelölünk rajta pontokat, amely pontokban vesszük az
 integrandus értékét és megszorozzuk az előző és az aktuális pont közötti távolsággal. Ha az
-integrandus nem skalár hanem vektorértékű, akkor a görbe adott pontbeli lineáris közelítésével,
+integrandus nem skalár-, hanem vektorértékű, akkor a görbe adott pontbeli lineáris közelítésével,
 érintővektorával, való skaláris szorzatát vesszük. Az így kapott szorzatokat összegezzük. Ha minden
 pont közötti görberésznek a hossza a 0-ba tart akkor kapjuk meg a vonalintegrál pontos értékét.
 
