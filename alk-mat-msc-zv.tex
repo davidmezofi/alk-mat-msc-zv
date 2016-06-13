@@ -24,13 +24,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[%twoside,%
+\documentclass[twoside,%
 	DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[%colorlinks=false,
-	colorlinks=true,
+\usepackage[colorlinks=false,
+%	colorlinks=true,
 	unicode,pdfborder={0 0 0}]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2010,7 +2010,7 @@ segítségével kapjuk.
 \minisec{Kiszámítás particionálással}
 Lásd \cite[II. fejezet, 8. szakasz]{Moricz1997}.
 
-Inverzmátrix \textsc{Forbenius} módszerével történő kiszámításának általánosítása. \emph{Rang
+Inverzmátrix \textsc{Frobenius} módszerével történő kiszámításának általánosítása. \emph{Rang
 szerint particionált mátrix} általánosított inverze \textqq{könnyen} számítható a 29. tétel
 segítségével. Tetszőleges mátrix két \emph{szimmetrikus permutáló mátrix} segítségével rang szerint
 particionált alakra hozható, mely mátrixnak ki tudjuk számolni az általánosított inverzét. A 30.
