@@ -24,11 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[DIV=15,appendixprefix]{scrreprt}
+\documentclass[DIV=15,appendixprefix,twoside]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[unicode,pdfborder={0 0 0},colorlinks=true]{hyperref}
+\usepackage[unicode,pdfborder={0 0 0},colorlinks=false]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -1906,7 +1906,7 @@ ekvivalens az eredetivel.
 				c \left( \mathbf{ x },{} \mathbf{ d } \right) 	&	\rightarrow	&	\min
 			\end{array}.
 		\end{equation*}
-	\item[Kevés nemnulla komponens lineáris feltételek mellett] Egy egyenlőtlenségrendszer olyan,
+	\item[Kevés nemnulla komponens lineáris feltételek mellett] Egy egyenlőtlenségrendszer olyan
 	megoldását keressük, melynek kevés nemnulla komponense van. Ez visszavezethető egy vegyes
 	konvex-egész optimalizálási feladatra.
 \end{description}
