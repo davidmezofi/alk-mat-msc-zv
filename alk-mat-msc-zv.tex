@@ -24,13 +24,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[twoside,%
+\documentclass[%twoside,%
 	DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[colorlinks=false,
-%	colorlinks=true,
+\usepackage[%colorlinks=false,
+	colorlinks=true,
 	unicode,pdfborder={0 0 0}]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2577,7 +2577,7 @@ Egy diszkrét dinamikus rendszer felírható egy $ f $ leképezés iteráltjaké
 
 A $p$ $n$-periodikus pont \emph{stabil halmaza} az \emph{előre aszimptotikus pontjainak} a halmaza;
 \emph{instabil halmaza} a \emph{hátra assziptotikus pontjainak} a halmaza. A $ p $ $n$-periodikus
-pont \emph{attraktor} ha stabil halmaza tartalmazza egy nyílt környezetét is,
+pont \emph{attraktor}, ha stabil halmaza tartalmazza egy nyílt környezetét is,
 \emph{repellor}, ha instabil halmaza tartalmazza egy nyílt környezetét is.
 
 Attraktorok \cite[310.~oldal]{DE} alapján: tekintsük az $ \mathbf{ x }' = f \left( \mathbf{ x }
@@ -2659,7 +2659,7 @@ Lásd
 
 Az input és a munkaszalag között van egy plusz szalag is a \emph{tanúszalag}. Ez csak olvasható és a
 fej csak jobbra tud rajta mozogni. Az $\omega$ inputot pontosan akkor fogadja el a
-nemdeterminisztikus Turing-gép, ha van olyan tanúszalag tartalom amire \textsc{Elfogad} állpotba
+nemdeterminisztikus Turing-gép, ha van olyan tanúszalag tartalom amire \textsc{Elfogad} állapotba
 jut. \textsc{Elvet} állapot esetén sem feltétlen rossz az input. Az igazi elvetés akkor történik, ha
 minden tanúszalag-tartalomra \textsc{Elvet} állapotba jutunk.
 
