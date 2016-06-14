@@ -24,13 +24,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[twoside,%
+\documentclass[%twoside,%
 	DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[colorlinks=false,
-%	colorlinks=true,
+\usepackage[%colorlinks=false,
+	colorlinks=true,
 	unicode,pdfborder={0 0 0}]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2900,7 +2900,7 @@ rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29-
 	\int_{ e \cap K \neq \emptyset } \left| e \cap K \right| \, \mathrm{ d } e &= \pi T \left( K
 	\right);\\
 	\mu \left( e \colon e \cap K \neq \emptyset \right) = \int_{ e \cap K \neq \emptyset } \,
-	\mathrm{ d } e &= T \left( K \right),
+	\mathrm{ d } e &= L \left( K \right),
 \end{align*}
 azaz a korlátos konvex $ K $ halmazt metsző egyenesek mértéke éppen $ K $ kerülete. Így egy $ K $-t
 metsző egyenes $ K $-ba eső részénék hosszána várható értéke $ \mean \left( \sigma \right)  = \pi
