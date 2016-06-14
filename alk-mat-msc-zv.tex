@@ -24,13 +24,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % DIV=15 opcióval nem lesznek nagy margók, `twoside` opció a kétoldalas szedéshez.
-\documentclass[%twoside,%
+\documentclass[twoside,%
 	DIV=15,appendixprefix]{scrreprt}
 %
 % Színes hivatkozásokhoz kommenteld ki az alábbi sort!
 % Élő hivatkozások, indexek, PDF-ben, színesekhez: `colorlinks=true`
-\usepackage[%colorlinks=false,
-	colorlinks=true,
+\usepackage[colorlinks=false,
+%	colorlinks=true,
 	unicode,pdfborder={0 0 0}]{hyperref}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2678,14 +2678,14 @@ Lásd
 		hogy $T$ leáll-e $\omega$-n. \textsc{Megállás} eleme $\mathcal{S}$-nek, de nem eleme
 		$\mathcal{D}$-nek.
 	\item[Post-probléma] Adott véges ábécé, a szavakból dominókat készítünk (alsó és a felső részén
-		is egy szó van.) és minden dominóból végtelen sokat. Ki tudunk-e rakni a dominóinkból egy
+		is egy szó van) és minden dominóból végtelen sokat. Ki tudunk-e rakni a dominóinkból egy
 		sort úgy, hogy az alsó és felső részen is ugyanazt tudjuk összeolvasni? \textsc{Post} nem
 		eleme $\mathcal{D}$-nek.
 	\item[Szóprobléma] Az input egy $G$ multiplikatív csoport (valahogyan kódolva), és két, a
 		generátorhalmazának elemeiből készített szó. A kérdés, hogy hogy a két szó ugyanazt a
 		csoportelemet reprezentálja-e? \textsc{Szóprobléma} nem eleme $\mathcal{D}$-nek.
-	\item[Dipohantosz (Hilbert X. problémája)] Az input egy egész együtthatós polinom, kérdés, van-e
-		egész gyöke. \textsc{Dipohantosz} nem eleme $\mathcal{D}$-nek.
+	\item[Diophantosz (Hilbert X. problémája)] Az input egy egész együtthatós polinom, kérdés, van-e
+		egész gyöke. \textsc{Diophantosz} nem eleme $\mathcal{D}$-nek.
 	\item[Homeomorf] Inputja két topologikus tér, el kell dönteni, hogy hoemomorfak-e.
 		\textsc{Homeomorf} nem eleme $\mathcal{D}$-nek.
 \end{description}
@@ -2816,7 +2816,7 @@ kódszó esetén annak \textqq{ciklikus elforgatottja} is eleme a kódnak (a koo
 \textqq{körbepermutálására} zárt a kód).
 
 Az $ \mathbb{ F }_{ q } \left[ x \right] / \left( x^{ n } - 1 \right) $ faktorgyűrű ideáljai éppen a
-ciklikus kódok. Ez a gyűrű főideálgyűrű, és minden idál előáll egy alkalmas minimális fokszámú
+ciklikus kódok. Ez a gyűrű főideálgyűrű, és minden ideál előáll egy alkalmas minimális fokszámú
 főpolinom generátumaként, ezt nevezzük a megfelelő kód \emph{generátorpolinomjának}. Ha
 generátorpolinom foka $ k $, akkor a kapott ciklikus kód egy lineáris $ \left[ n,{} n - k
 \right] $-kód.
@@ -2903,7 +2903,7 @@ rögtön adódik, hogy tetszőleges $ K $ konvex halmaz esetén (lásd \cite[29-
 	\mathrm{ d } e &= L \left( K \right),
 \end{align*}
 azaz a korlátos konvex $ K $ halmazt metsző egyenesek mértéke éppen $ K $ kerülete. Így egy $ K $-t
-metsző egyenes $ K $-ba eső részénék hosszána várható értéke $ \mean \left( \sigma \right)  = \pi
+metsző egyenes $ K $-ba eső részénék hosszának várható értéke $ \mean \left( \sigma \right)  = \pi
 \frac{ T \left( K \right) }{ L \left( K  \right) } $.
 
 Ha $ C $ egy szakaszonként differenciálható
